@@ -14,7 +14,7 @@ class CreateRelationEventoSubsistema extends Migration {
 	{
 		Schema::table('eventos', function(Blueprint $table)
 		{
-            $table->integer('subsistema_id')->unsigned()->before('nombre');
+            $table->integer('subsistema_id')->unsigned()->after('impacto_id');
             $table->foreign('subsistema_id')
                   ->references('id')
                   ->on('subsistemas')
