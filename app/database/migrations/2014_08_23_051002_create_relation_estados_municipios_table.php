@@ -14,7 +14,7 @@ class CreateRelationEstadosMunicipiosTable extends Migration {
 	{
 		Schema::table('municipios', function(Blueprint $table)
 		{
-	        $table->integer('estado_id')->unsigned()->before('nombre'); 
+	        $table->integer('estado_id')->unsigned()->after('nombre'); 
            	$table->foreign('estado_id')
                 ->references('id')          
                 ->on('estados')
