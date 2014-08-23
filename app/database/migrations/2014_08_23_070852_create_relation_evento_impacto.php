@@ -14,7 +14,7 @@ class CreateRelationEventoImpacto extends Migration {
 	{
 		Schema::table('eventos', function(Blueprint $table)
 		{
-            $table->integer('impacto_id')->unsigned()->before('nombre');
+            $table->integer('impacto_id')->unsigned()->after('articulacion_id');
             $table->foreign('impacto_id')
                   ->references('id')
                   ->on('impactos')
