@@ -9,4 +9,10 @@ class Municipio extends Model {
 	{
 		return $this->belongsTo('Estado');
 	}
+
+	public function personas()
+   	{
+   		return $this->hasMany('Persona');
+    }
+
 }
