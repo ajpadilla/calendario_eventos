@@ -8,5 +8,9 @@ class Persona extends Model {
 	public function municipio(){
 		 return $this->belongsTo('Municipio');
 	}
+
+	public function eventos(){	
+		return $this->belongsToMany('Evento','beneficiarios','persona_id','evento_id');
+	}
 	
 }
