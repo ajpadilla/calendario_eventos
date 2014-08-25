@@ -5,8 +5,9 @@ class Estado extends Model {
 	protected $fillable = array();
 	public static $rules = array();
 	
-	public function albums()
+	public function municipios()
 	{
-		return $this->hasMany('Album');
+		return $this->hasMany('Municipio');
 	}
+
 }
