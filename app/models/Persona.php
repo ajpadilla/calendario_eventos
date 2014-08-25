@@ -5,5 +5,8 @@ class Persona extends Model {
 	protected $fillable = array();
 	public static $rules = array();
 	
-
+	public function municipio(){
+		 return $this->belongsTo('Municipio');
+	}
+	
 }
