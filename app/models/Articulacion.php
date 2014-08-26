@@ -1,6 +1,6 @@
 <?php
 
-class Articulacion extends Model {
+class Articulacion extends \Eloquent {
 	protected $table = 'articulaciones';
 	protected $fillable = array();
 	public static $rules = array();
