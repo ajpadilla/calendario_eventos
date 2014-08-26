@@ -1,6 +1,6 @@
 <?php
 
-class Impacto extends Model {
+class Impacto extends \Eloquent {
 	protected $table = 'impactos';
    	protected $fillable = array();
   	public static $rules = array();

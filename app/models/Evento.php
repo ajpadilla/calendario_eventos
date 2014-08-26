@@ -1,16 +1,9 @@
 <?php
 
-class Evento extends Model {
+class Evento extends \Eloquent {
 	protected $table = 'eventos';
-	protected $fillable = array('titulo',
-								'descripcion',
-								'fecha',
-								'direccion',
-								'observacion',
-								'articulacion_id',
-								'impacto_id',
-								'subsistema_id',
-								'municipio_id');
+	protected $fillable = array();
+	public static $timestamps = false;
 		
 	public static $rules = array();
 

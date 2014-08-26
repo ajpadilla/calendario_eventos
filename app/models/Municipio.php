@@ -1,6 +1,6 @@
 <?php
 
-class Municipio extends Model {
+class Municipio extends \Eloquent {
 	protected $table = 'municipios';
 	protected $fillable = array();
 	public static $rules = array();
