@@ -20,7 +20,7 @@ class EventController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		
 	}
 
 
@@ -29,9 +29,16 @@ class EventController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($datos)
 	{
-		//
+		$response = array();
+		if(Request::ajax()){
+			$response['datos'] = $datos;
+			$response['success'] = true;
+			return $response;
+		}
+		return array('success' => false);
+
 	}
 
 
