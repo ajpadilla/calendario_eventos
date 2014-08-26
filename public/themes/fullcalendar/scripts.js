@@ -21,16 +21,17 @@ $(document).ready(function() {
 				var municipio = prompt('Municipio');
 
 				var eventData;
+				var data;
 				if (title) {
-					eventData = {
+				  	eventData = {
 						title: title,
 						start: start,
 						end: end
 					};
 					
 					data = {
-						titulo:title,	
-						descripcion:descripcion,
+						titulo: title,	
+						descripcion: descripcion,
 						fecha: $.fullCalendar.moment(start).format()+' '+hora,
 						direccion: direccion,
 						observacion: observacion,
@@ -38,8 +39,9 @@ $(document).ready(function() {
 						impacto: impacto,
 						subsistema: subsistema,
 						municipio: municipio
-					};		
-					console.log("consola:" + data);
+					};
+					
+					console.log("consola:" +  JSON.stringify(data));
 					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 					
 					$.ajax({
