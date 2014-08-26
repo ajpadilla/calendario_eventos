@@ -45,10 +45,10 @@ class EventController extends \BaseController {
 			$evento->fecha = $datos_evento['fecha'];
 			$evento->direccion = $datos_evento['direccion'];
 			$evento->observacion = $datos_evento['observacion'];
-			$evento->articulacion_id = $datos_evento['articulacion'];
-			$evento->impacto_id = $datos_evento['impacto'];
-			$evento->subsistema_id = $datos_evento['subsistema'];
-			$evento->municipio_id = $datos_evento['municipio'];
+			$evento->articulacion_id = (int)$datos_evento['articulacion'];
+			$evento->impacto_id = (int)$datos_evento['impacto'];
+			$evento->subsistema_id = (int)$datos_evento['subsistema'];
+			$evento->municipio_id = (int)$datos_evento['municipio'];
 			$evento->save();
 							
 			return json_encode($response);
