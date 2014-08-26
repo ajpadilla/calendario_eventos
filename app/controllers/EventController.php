@@ -38,36 +38,19 @@ class EventController extends \BaseController {
 			$datos_evento = json_decode($datos,true);
 			Session::put('persona',$datos_evento);	
 			
-			$a = new Articulacion;           
-            $a->nombre = "Algo";
-            $a->save();
-			
-			$i = new Impacto;
-			$i->nombre="Algo";
-			$i->save();
-		
-			$s= new Subsistema;
-			$s->nombre = "Algo";
-			$s->save();
-			
-			$m= new Municipio;
-			$m->nombre="colon";
-			$m->estado_id = 1;
-			$m->save();
-			
+						
 			$evento = new Evento;
-			$evento->titulo = "algo";
-			$evento->descripcion ="algo";
-			$evento->fecha = '98-12-31 11:30:45';
-			$evento->direccion = "algo";
-			$evento->observacion = "asdfsd";
-			$evento->articulacion_id = $a->id;
-			$evento->impacto_id = $i->id;
-			$evento->subsistema_id = 1;
-			$evento->municipio_id = 1;
+			$evento->titulo = $datos_evento['titulo'];
+			$evento->descripcion = $datos_evento['descripcion'];
+			$evento->fecha = $datos_evento['fecha'];
+			$evento->direccion = $datos_evento['direccion'];
+			$evento->observacion = $datos_evento['observacion'];
+			$evento->articulacion_id = $datos_evento['articulacion'];
+			$evento->impacto_id = $datos_evento['impacto'];
+			$evento->subsistema_id = $datos_evento['subsistema'];
+			$evento->municipio_id = $datos_evento['municipio'];
 			$evento->save();
-			
-				
+							
 			return json_encode($response);
 		}
 		return array('success' => false);

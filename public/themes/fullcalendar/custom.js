@@ -10,7 +10,16 @@ $(document).ready(function() {
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
-				var title = prompt('Event Title:');
+				var title = prompt('Titulo del evento:');
+				var descripcion = prompt('Descripcion');
+				var hora = prompt('Hora');		
+				var direccion= prompt('Direccion');
+				var observacion = prompt('Observacion');
+				var articulacion = prompt('Articulacion');
+				var impacto = prompt('Impacto');
+				var subsistema = prompt('Subsistema');
+				var municipio = prompt('Municipio');
+
 				var eventData;
 				if (title) {
 					eventData = {
@@ -18,11 +27,24 @@ $(document).ready(function() {
 						start: start,
 						end: end
 					};
+					
+					data = {
+						titulo:title,	
+						descripcion:descripcion,
+						fecha: $.fullCalendar.moment(start).format()+' '+hora,
+						direccion: direccion,
+						observacion: observacion,
+						articulacion: articulacion,
+						impacto: impacto,
+						subsistema: subsistema,
+						municipio: municipio
+					};		
+					console.log("consola:" + data);
 					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 					
 					$.ajax({
 						type: "POST",
-						url:'eventos/' + JSON.stringify(eventData),
+						url:'eventos/' + JSON.stringify(data),
 						success: function(response) {
 							console.log(response);
 						},
