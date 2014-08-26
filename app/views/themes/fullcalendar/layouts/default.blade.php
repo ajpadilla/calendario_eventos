@@ -7,7 +7,7 @@
         <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
         <script src="{{asset('themes/fullcalendar/lib/jquery.min.js')}}"></script>
         <script src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
-        <script src="{{asset('themes/fullcalendar/custom.js')}}"></script>
+        <script src="{{asset('themes/fullcalendar/scripts.js')}}"></script>
         <!--<script>
             alert("Hola mundo");
         </script>-->
