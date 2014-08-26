@@ -1,6 +1,6 @@
 <?php
 
-class Subsistema extends Model {
+class Subsistema extends \Eloquent {
 	protected $table = 'subsistemas';
 	protected $fillable = array();
 	public static $rules = array();

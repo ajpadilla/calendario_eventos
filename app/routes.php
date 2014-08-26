@@ -15,3 +15,6 @@ Route::get('/', function()
 {
 	return View::make('themes.fullcalendar.layouts.default');
 });
+
+Route::post('eventos/{datos}','EventController@store');
+Route::get('mostrar','EventController@create');
