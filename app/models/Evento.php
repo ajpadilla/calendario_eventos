@@ -3,7 +3,6 @@
 class Evento extends \Eloquent {
 	protected $table = 'eventos';
 	protected $fillable = array();
-	public static $timestamps = false;
 		
 	public static $rules = array();
 
