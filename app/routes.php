@@ -17,3 +17,4 @@ Route::get('/', function()
 });
 
 Route::post('eventos/{datos}','EventController@store');
+Route::get('mostrar','EventController@create');
