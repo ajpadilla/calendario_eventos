@@ -2,7 +2,16 @@
 
 class Evento extends Model {
 	protected $table = 'eventos';
-	protected $fillable = array();
+	protected $fillable = array('titulo',
+								'descripcion',
+								'fecha',
+								'direccion',
+								'observacion',
+								'articulacion_id',
+								'impacto_id',
+								'subsistema_id',
+								'municipio_id');
+		
 	public static $rules = array();
 
 	public function subsistema(){
