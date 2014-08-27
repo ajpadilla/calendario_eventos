@@ -73,6 +73,9 @@ $(document).ready(function() {
 			eventClick: function(event, element) {
 				event.title = prompt('Nuevo Title:');
 				$('#calendar').fullCalendar('updateEvent', event);
+			},
+			eventDrop: function(event, delta){
+				console.log('id:'+ event.id +' '+'fecha:'+$.fullCalendar.moment(event.start).format());
 			}
 		});
 		
