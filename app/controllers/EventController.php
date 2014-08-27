@@ -57,18 +57,21 @@ class EventController extends \BaseController {
 
 	}
 	
+	 public function updateStartEvent($event_data){
+          $event_decode = NULL;
+          if(Request::ajax()){
+              $event_decode = json_decode($event_data,true);
+              $events = Evento::find($event_decode['id']);
+              return json_encode($events);
+          }
+          return array('success' => false);
+     }
+
 	public function allEvents(){
-		$eventos = json_encode(DB::table('eventos')->get(array('id','title','start')));
-		return $eventos;
-		//var_dump($eventos);
-		/*$eventos=array();
-		$fecha=NULL;
-		foreach($datos_eventos as $evento){
-			 $fecha = explode(' ', $evento->fecha);
-			 //echo $fecha[0].'<br>';
-			$evento[$evento->id]=$fecha[0];
+		if(Request::ajax()){
+			$eventos = json_encode(DB::table('eventos')->get(array('id','title','start')));
+			return $eventos;
 		}
-		var_dump($evento);*/
 	}
 
 	/**
