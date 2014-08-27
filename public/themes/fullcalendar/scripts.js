@@ -13,8 +13,8 @@ $(document).ready(function() {
                 		error: function() {
                 			alert('there was an error while fetching events!');
             			},
-            			color: 'yellow',   // a non-ajax option
-            			textColor: 'black' // a non-ajax option
+            			color: 'blue',   // a non-ajax option
+            			textColor: 'blank' // a non-ajax option
         			}
 
     		],
