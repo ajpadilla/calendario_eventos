@@ -48,15 +48,15 @@
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
 				</ul>
-         </div>
+         	</div>
 		</header>   	
 		<div id="main-content">
-				<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
-				<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-				  		<div class="modal-content">
-							<div class="modal-header">
-					  			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+			<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+					  		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					  			<h4 class="modal-title">Box Settings</h4>
 							</div>
 							<div class="modal-body">
@@ -71,5 +71,6 @@
 			  	</div>		
 				@yield('body')	
 			</div>
+		<div>
     </body>
 </html>
