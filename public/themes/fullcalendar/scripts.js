@@ -76,6 +76,20 @@ $(document).ready(function() {
 			},
 			eventDrop: function(event, delta){
 				console.log('id:'+ event.id +' '+'fecha:'+$.fullCalendar.moment(event.start).format());
+				var data = {
+					id:event.id,
+					start:$.fullCalendar.moment(event.start).format()
+				}
+				$.ajax({
+					type: "POST",
+					url:'updateStartEvent/' + JSON.stringify(data),
+					success: function(response) {
+						console.log(response);
+					},
+					error : function(jqXHR, status, error) {
+						console.log('Disculpe, existió un problema');
+					},
+				})
 			}
 		});
 		
