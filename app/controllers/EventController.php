@@ -61,8 +61,10 @@ class EventController extends \BaseController {
           $event_decode = NULL;
           if(Request::ajax()){
               $event_decode = json_decode($event_data,true);
-              $events = Evento::find($event_decode['id']);
-              return json_encode($events);
+              $event = Evento::find($event_decode['id']);
+			  $event->start = $event_decode['start'];
+			  $event->save();
+              return json_encode($event);
           }
           return array('success' => false);
      }
