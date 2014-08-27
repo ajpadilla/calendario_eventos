@@ -37,8 +37,8 @@
 			<div class="container">
 				<div class="navbar-brand">
             		<!-- COMPANY LOGO -->
-               		<a href="">
-                		<img src="/Cloud_Admin/img/logo/logo.png" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
+               		<a href="/">
+                		<img src="{{asset('themes/Cloud_Admin/img/logo/logo.png')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
                 	</a>
         		</div>
 			
@@ -48,27 +48,28 @@
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
 				</ul>
-            	<!-- /NAVBAR LEFT -->
-				<ul class="nav navbar-nav pull-right">
-					<!-- BEGIN USER LOGIN DROPDOWN -->
-                	<li class="dropdown user" id="header-user">
-                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    		<img alt="" src="{{asset('themes/Cloud_Admin/img/avatars/avatar3.jpg')}}" />
-                        	<span class="username">John Doe</span>
-                        	<i class="fa fa-angle-down"></i>
-                    	</a>
-                    	<ul class="dropdown-menu">
-                   			<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
-                        	<li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
-                        	<li><a href="#"><i class="fa fa-eye"></i> Privacy Settings</a></li>
-                        	<li><a href="/Cloud_Admin/login.html"><i class="fa fa-power-off"></i> Log Out</a></li>
-                    	</ul>
-                	</li>
-               		<!-- END USER LOGIN DROPDOWN -->
-				</ul>
-			</div>
+         </div>
 		</header>   	
-	
-	    <div id='calendar'></div>
+		<div id="main-content">
+				<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+				<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+				  		<div class="modal-content">
+							<div class="modal-header">
+					  			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					  			<h4 class="modal-title">Box Settings</h4>
+							</div>
+							<div class="modal-body">
+					  			Here goes box setting content.
+							</div>
+							<div class="modal-footer">
+					  			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					 		 	<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+				  		</div>
+					</div>
+			  	</div>		
+				@yield('body')	
+			</div>
     </body>
 </html>
