@@ -6,6 +6,18 @@ $(document).ready(function() {
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
+			eventSources: [
+        			{
+            			url: 'cargar_eventos',
+            			type: 'GET',
+                		error: function() {
+                			alert('there was an error while fetching events!');
+            			},
+            			color: 'yellow',   // a non-ajax option
+            			textColor: 'black' // a non-ajax option
+        			}
+
+    		],
 			defaultDate: '2014-08-12',
 			selectable: true,
 			selectHelper: true,
@@ -26,13 +38,12 @@ $(document).ready(function() {
 				  	eventData = {
 						title: title,
 						start: start,
-						end: end
 					};
 					
 					data = {
-						titulo: title,	
+						title: title,	
 						descripcion: descripcion,
-						fecha: $.fullCalendar.moment(start).format()+' '+hora,
+						start: $.fullCalendar.moment(start).format()+' '+hora,
 						direccion: direccion,
 						observacion: observacion,
 						articulacion: articulacion,
@@ -59,12 +70,6 @@ $(document).ready(function() {
 			},
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-				{
-					title: 'All Day Event',
-					start: '2014-08-01'
-				},
-			],
 			eventClick: function(event, element) {
 				event.title = prompt('Nuevo Title:');
 				$('#calendar').fullCalendar('updateEvent', event);
