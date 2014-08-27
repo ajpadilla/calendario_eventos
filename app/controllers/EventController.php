@@ -72,6 +72,7 @@ class EventController extends \BaseController {
 			$eventos = json_encode(DB::table('eventos')->get(array('id','title','start')));
 			return $eventos;
 		}
+		return array('success' => false);
 	}
 
 	/**
