@@ -17,4 +17,5 @@ Route::get('/', function()
 });
 
 Route::post('eventos/{datos}','EventController@store');
+Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrar','EventController@create');

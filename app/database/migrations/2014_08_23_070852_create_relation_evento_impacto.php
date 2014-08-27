@@ -31,9 +31,10 @@ class CreateRelationEventoImpacto extends Migration {
 	 */
 	public function down()
 	{
-        $table->dropForeign('eventos_impacto_id_foreign');
-        $table->dropColumn('impacto_id');
-
+		Schema::table('eventos', function(Blueprint $table){
+        	$table->dropForeign('eventos_impacto_id_foreign');
+        	$table->dropColumn('impacto_id');
+		});
 	}
 
 }

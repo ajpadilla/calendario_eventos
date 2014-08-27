@@ -32,8 +32,10 @@ class CreateRelationEventoMunicipio extends Migration {
 	 */
 	public function down()
 	{
-        $table->dropForeign('eventos_municipio_id_foreign');
-        $table->dropColumn('municipio_id');
+		Schema::table('eventos', function(Blueprint $table){
+        	$table->dropForeign('eventos_municipio_id_foreign');
+        	$table->dropColumn('municipio_id');
+		});
 	}
 
 }

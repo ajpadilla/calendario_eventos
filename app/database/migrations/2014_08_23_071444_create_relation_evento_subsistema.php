@@ -31,8 +31,10 @@ class CreateRelationEventoSubsistema extends Migration {
 	 */
 	public function down()
 	{
-        $table->dropForeign('eventos_subsistema_id_foreign');
-        $table->dropColumn('subsistema_id');
+		Schema::table('eventos', function(Blueprint $table){
+        	$table->dropForeign('eventos_subsistema_id_foreign');
+        	$table->dropColumn('subsistema_id');
+		});
 
 	}
 

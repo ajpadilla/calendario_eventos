@@ -40,9 +40,9 @@ class EventController extends \BaseController {
 			
 						
 			$evento = new Evento;
-			$evento->titulo = $datos_evento['titulo'];
+			$evento->title = $datos_evento['title'];
 			$evento->descripcion = $datos_evento['descripcion'];
-			$evento->fecha = $datos_evento['fecha'];
+			$evento->start = $datos_evento['start'];
 			$evento->direccion = $datos_evento['direccion'];
 			$evento->observacion = $datos_evento['observacion'];
 			$evento->articulacion_id = (int)$datos_evento['articulacion'];
@@ -56,7 +56,20 @@ class EventController extends \BaseController {
 		return array('success' => false);
 
 	}
-
+	
+	public function allEvents(){
+		$eventos = json_encode(DB::table('eventos')->get(array('id','title','start')));
+		return $eventos;
+		//var_dump($eventos);
+		/*$eventos=array();
+		$fecha=NULL;
+		foreach($datos_eventos as $evento){
+			 $fecha = explode(' ', $evento->fecha);
+			 //echo $fecha[0].'<br>';
+			$evento[$evento->id]=$fecha[0];
+		}
+		var_dump($evento);*/
+	}
 
 	/**
 	 * Display the specified resource.

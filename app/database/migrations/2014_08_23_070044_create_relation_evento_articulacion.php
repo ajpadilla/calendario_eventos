@@ -31,9 +31,10 @@ class CreateRelationEventoArticulacion extends Migration {
 	 */
 	public function down()
 	{
-        $table->dropForeign('eventos_articulacion_id_foreign');
-        $table->dropColumn('articulacion_id');
-
+		Schema::table('eventos', function(Blueprint $table){
+       	 	$table->dropForeign('eventos_articulacion_id_foreign');
+       	 	$table->dropColumn('articulacion_id');
+		});
 	}
 
 }
