@@ -1,5 +1,20 @@
 $(document).ready(function() {
-		
+	$.validator.addMethod('alpha',
+		function(value, element) {
+			return /^[a-zA-Z]*$/.test(value);
+			}, 'Alpha Characters Only.'
+	);
+	$('#formEstado').validate({
+		rules:{
+				nombre:{required:!0,alpha: true,rangelength: [3 , 45]},
+		},
+		submitHandler: function(form) {
+        	form.submit();
+			alert("Datos Enviados!");
+        }
+	});
+
+
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',

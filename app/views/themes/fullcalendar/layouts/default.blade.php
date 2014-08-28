@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+		
       	<!-- STYLESHEETS -->
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/css/cloud-admin.css')}}" />
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/css/themes/default.css')}}" id="skin-switcher" />
@@ -20,15 +21,8 @@
               
 		<!-- GRITTER -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/gritter/css/jquery.gritter.css')}}" />
-       
-		<!--fullcalendar-->
-        <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
-        <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
-        <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
-        <script src="{{asset('themes/fullcalendar/lib/jquery.min.js')}}"></script>
-        <script src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
-        <script src="{{asset('themes/fullcalendar/scripts.js')}}"></script>
-  	 	
+       	
+
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        
     </head>
@@ -72,5 +66,32 @@
 				@yield('body')	
 			</div>
 		<div>
-    </body>
+		
+		<!-- JAVASCRIPTS -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- JQUERY -->
+		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
+		<!-- JQUERY UI-->
+		<script src="{{asset('themes/Cloud_Admin/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+		<!-- BOOTSTRAP -->
+		<script src="{{asset('themes/Cloud_Admin/bootstrap-dist/js/bootstrap.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/jQuery-BlockUI/jquery.blockUI.min.js')}}"></script>
+		<!-- INPUT MASK -->
+		<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
+		<!-- WIZARD -->
+		<script src="{{asset('themes/Cloud_Admin/js/jquery-validate/jquery.validate.min.js')}}"></script>
+		<script src="{{asset('themes/Cloud_Admin/js/jquery-validate/additional-methods.min.js')}}"></script>
+		<!-- BOOTBOX -->
+		<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/bootbox/bootbox.min.js')}}"></script>
+		<script src="{{asset('themes/form/jquery.form.min.js')}}"></script> 
+		<!-- Add fancyBox -->
+		<link rel="stylesheet" href="{{asset('themes/Cloud_Admin/js/fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />
+		<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/fancybox/source/jquery.fancybox.pack.js')}}"></script>
+		<!--fullcalendar-->
+        <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
+        <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
+        <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
+        <script src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
+        <script src="{{asset('themes/fullcalendar/scripts.js')}}"></script>
+</body>
 </html>
