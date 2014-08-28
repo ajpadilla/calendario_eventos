@@ -9,7 +9,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$estados = Estado::all();
+		return View::make('themes.fullcalendar.estados.index')->with('estados', $estados);
 	}
 
 
@@ -31,7 +32,15 @@ class EstadoController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
+		$validator = Validator::make(Input::all(), $rules);
+		$validator = Validator::make(Input::all(), $rules);
+		if(!$validator->fails()){
+			$estado = new Estado;
+			$estado->nombre =Input::get('nombre');
+			$estado->save();
+			return Redirect::to('estado/create');
+		}
 	}
 
 
