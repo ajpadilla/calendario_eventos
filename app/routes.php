@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('themes.fullcalendar.layouts.default');
+	return View::make('themes.fullcalendar.calendario.create');
 });
 
 Route::post('eventos/{datos}','EventController@store');
