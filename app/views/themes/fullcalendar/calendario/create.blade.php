@@ -4,7 +4,7 @@
 	<ul class="breadcrumb">
     	<li>
         	<i class="fa fa-home"></i>
-            <a href="index.html">Home</a>
+            <a href="#">Home</a>
         </li>
         <li>
         	<a href="#">Form Elements</a>
