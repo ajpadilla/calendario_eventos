@@ -20,14 +20,24 @@
               
 		<!-- GRITTER -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/gritter/css/jquery.gritter.css')}}" />
-       
+       	
+		<!--validate-->
+       	<script type="text/javascript"  href="{{asset('themes/Cloud_Admin/js/jquery-validate/jquery.validate.min.js')}}" ></script>
+		
+		<!--form-->
+       	<script type="text/javascript" href="{{asset('themes/form/jquery.form.min.js')}}" ></script>
+		
+		<!--fancibox-->
+       	<script type="text/javascript" href="{{asset('themes/fancybox/source/jquery.fancybox.css')}}" ></script>
+       	<script type="text/javascript" href="{{asset('themes/fancybox/source/jquery.fancybox.pack.js')}}" ></script>
+
 		<!--fullcalendar-->
         <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
         <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
-        <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
-        <script src="{{asset('themes/fullcalendar/lib/jquery.min.js')}}"></script>
-        <script src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
-        <script src="{{asset('themes/fullcalendar/scripts.js')}}"></script>
+        <script type="type/javascript" src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
+        <script type="type/javascript" src="{{asset('themes/fullcalendar/lib/jquery.min.js')}}"></script>
+        <script type="type/javascript" src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
+        <script type="type/javascript" src="{{asset('themes/fullcalendar/scripts.js')}}"></script>
   	 	
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        
