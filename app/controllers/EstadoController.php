@@ -20,7 +20,7 @@ class EstadoController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('themes.fullcalendar.estados.create');
 	}
 
 
