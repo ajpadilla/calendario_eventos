@@ -16,6 +16,7 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
+Route::resource('estado','EstadoController');
 Route::post('eventos/{datos}','EventController@store');
 Route::post('updateStartEvent/{event_data}','EventController@updateStartEvent');
 Route::get('cargar_eventos','EventController@allEvents');
