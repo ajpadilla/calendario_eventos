@@ -24,7 +24,12 @@ class ImpactoController extends \BaseController {
 	}
 
 	public function retornarImpactos(){
-          return Impacto::all()->lists('nombre', 'id');
+           $impactos = Impacto::all()->lists('nombre', 'id');
+		  if(count($impactos) > 0) {
+              $response['success'] = true;
+              $response['impactos'] = $impactos;
+              return ($response);
+          }   
       }
 
 	
