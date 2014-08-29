@@ -44,6 +44,17 @@ class EstadoController extends \BaseController {
 	}
 
 
+	 public function cargarEstados(){
+          $response = array();
+          $estados = Estado::all()->lists('nombre', 'id');
+          if(count($estados) > 0) {
+              $response['success'] = true;
+              $response['estados'] = $estados;
+               return ($response);
+          }
+      }
+
+
 	/**
 	 * Display the specified resource.
 	 *
