@@ -34,7 +34,10 @@ class ArticulacionController extends \BaseController {
 		//
 	}
 
-
+	public function retornarArticulaciones(){
+		return Articulacion::all()->lists('nombre', 'id');
+	}
+	
 	/**
 	 * Display the specified resource.
 	 *
