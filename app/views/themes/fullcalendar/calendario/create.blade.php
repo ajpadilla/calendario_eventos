@@ -51,8 +51,13 @@
 				<select id="articulaciones" name="Articulaciones">
                 	<option value="" disabled selected>Articulaciones</option>
                 </select>
-      			<input class="title" type="text" size="26" placeholder="Impacto"/>      
+				<select id="impactos" name="Impactos">
+                      <option value="" disabled selected>Impactos</option>
+                </select>
       			<input class="title" type="text" size="26" placeholder="Subsistema"/>
+				<select id="subsistemas" name="Subsistemas">
+                      <option value="" disabled selected>Subsistemas</option>
+                </select>
 				<select id="estados" name="Estado">
     				<option value="" disabled selected>Estado</option>
                 </select>      
