@@ -23,7 +23,11 @@ class ImpactoController extends \BaseController {
 		//
 	}
 
+	public function retornarImpactos(){
+          return Impacto::all()->lists('nombre', 'id');
+      }
 
+	
 	/**
 	 * Store a newly created resource in storage.
 	 *
