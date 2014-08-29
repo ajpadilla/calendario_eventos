@@ -35,7 +35,12 @@ class ArticulacionController extends \BaseController {
 	}
 
 	public function retornarArticulaciones(){
-		return Articulacion::all()->lists('nombre', 'id');
+	  $articulaciones = Articulacion::all()->lists('nombre', 'id');
+		if(count($articulaciones) > 0) {
+        	$response['success'] = true;
+       		$response['articulaciones'] = $articulaciones;
+           	return ($response);
+       	}		
 	}
 	
 	/**
