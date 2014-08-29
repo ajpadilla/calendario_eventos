@@ -1,9 +1,11 @@
 $(document).ready(function() {
+	
 	$.validator.addMethod('alpha',
 		function(value, element) {
 			return /^[a-zA-Z]*$/.test(value);
 			}, 'Alpha Characters Only.'
 	);
+	
 	$('#formEstado').validate({
 		rules:{
 				nombre:{required:!0,alpha: true,rangelength: [3 , 45]},
@@ -13,8 +15,64 @@ $(document).ready(function() {
 			alert("Datos Enviados!");
         }
 	});
+	
+	$('#formMunicipios').validate({
+    	rules:{ 
+        	nombre:{required:!0,alpha: true,rangelength: [3 , 45]},
+			estado:{required:!0},
+        },
+     	submitHandler: function(form) {
+        	form.submit();
+        	alert("Datos Enviados!");
+        }
+     });
+	
+			$.ajax({
+				type: 'GET',
+				url: 'cargarEstados',
+				dataType:'json',
+				success: function(response){
+					console.log(response.estados);
+					if(response.success == true) {
+						$('#estados').html('');
+						$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+						$.each(response.estados,function (k,v){
+						$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
+					});
+					}else{
+						$('#estados').html('');
+						$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+					}
+				},
+				error:function(jqXHR, status, error) {
+                	console.log('Disculpe, existió un problema');
+               	},
+			});
+		$('#estados').click(function(){
+			console.log('estado:'+$('#estados').val());
+			$.ajax({
+				type: "GET",
+				url:'cargarMunicipios/'+$('#estados').val(),
+				dataType:'json',
+				success: function(response) {
+					console.log('Municipios'+JSON.stringify(response));
+					if(response.success == true) {
+                          $('#municipios').html('');
+                          $('#municipios').append('<option value=\"\">-- Seleccione --</option>');
+                          $.each(response.municipios,function (k,v){
+                          	$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
+                      	}); 
+                      }else{
+                          $('#estados').html('');
+                          $('#estados').append('<option value=\"\">-- Seleccione --</option>');
+                      } 
+				},
+				error : function(jqXHR, status, error) {
+					console.log('Disculpe, existió un problema');
+				},
+			});
 
-
+		});
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -37,51 +95,14 @@ $(document).ready(function() {
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
-				var title = prompt('Titulo del evento:');
-				var descripcion = prompt('Descripcion');
-				var hora = prompt('Hora');		
-				var direccion= prompt('Direccion');
-				var observacion = prompt('Observacion');
-				var articulacion = prompt('Articulacion');
-				var impacto = prompt('Impacto');
-				var subsistema = prompt('Subsistema');
-				var municipio = prompt('Municipio');
-
-				var eventData;
-				var data;
-				if (title) {
-				  	eventData = {
-						title: title,
-						start: start,
-					};
-					
-					data = {
-						title: title,	
-						descripcion: descripcion,
-						start: $.fullCalendar.moment(start).format()+' '+hora,
-						direccion: direccion,
-						observacion: observacion,
-						articulacion: articulacion,
-						impacto: impacto,
-						subsistema: subsistema,
-						municipio: municipio
-					};
-					
-					console.log("consola:" +  JSON.stringify(data));
-					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-					
-					$.ajax({
-						type: "POST",
-						url:'eventos/' + JSON.stringify(data),
-						success: function(response) {
-							console.log(response);
-						},
-						error : function(jqXHR, status, error) {
-							console.log('Disculpe, existió un problema');
-						},
-					});
-				}
-				$('#calendar').fullCalendar('unselect');
+				  $(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
+				  $(".submitForm").click(function(){
+                	var title = $(".title").val();
+					console.log(title);
+				});
+				$(".exit").click(function(){
+                	$(".popup").css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+              	});
 			},
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
