@@ -16,6 +16,9 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
+Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
+Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('cargarEstados','EstadoController@cargarEstados');
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
 Route::resource('estado','EstadoController');
