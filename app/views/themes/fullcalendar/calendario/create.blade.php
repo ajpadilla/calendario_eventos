@@ -39,6 +39,27 @@
     	</div>
     	<div class="box-body form">
        		 <div id='calendar'></div>
+			<div class="popup cal-popup">
+      			<h2>Add event!</h2>
+      			<br/>
+      			<h1>Event title:</h1>
+      			<input class="title" type="text" size="26" placeholder="Titulo"/>     	
+      			<input class="title" type="text" size="26" placeholder="Descripción"/>      
+      			<input class="title" type="text" size="26" placeholder="Hora"/>      
+      			<input class="title" type="text" size="26" placeholder="Dirección"/>      
+      			<input class="title" type="text" size="26" placeholder="Observación"/>      
+      			<input class="title" type="text" size="26" placeholder="Articulación"/>      
+      			<input class="title" type="text" size="26" placeholder="Impacto"/>      
+      			<input class="title" type="text" size="26" placeholder="Subsistema"/>
+				<select id="estados" name="Estado">
+    				<option value="" disabled selected>Estado</option>
+                </select>      
+				<select id="municipios" name="Municipios">
+    				<option value="" disabled selected>Municipio</option>
+				</select>
+      			<a href="#" onclick="return false" class="submitForm" style="color:black;"><button>Submit</button></a>&emsp;
+     			<a href="#" onclick="return false" class="exit" style="color:black;"><button>cancel</button></a>
+    		</div>
        	</div>
 	</div>
 @stop
