@@ -24,7 +24,13 @@ class SubsistemaController extends \BaseController {
 	}
 	
 	public function retornarSubsistemas(){
-          return Subsistema::all()->lists('nombre', 'id');
+          $subsistemas = Subsistema::all()->lists('nombre', 'id');
+	      if(count($subsistemas) > 0) {
+                $response['success'] = true;
+                $response['subsistemas'] = $subsistemas;
+                return ($response);
+            }
+
     }
 
 	
