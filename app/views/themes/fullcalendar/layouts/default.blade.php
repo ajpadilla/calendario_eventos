@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       	<!-- STYLESHEETS -->
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/css/cloud-admin.css')}}" />
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/css/themes/default.css')}}" id="skin-switcher" />
@@ -21,10 +21,33 @@
               
 		<!-- GRITTER -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/gritter/css/jquery.gritter.css')}}" />
-       	
+       	<!-- JQUERY -->
+		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       
+
+ 		
+		<script>
+			@yield('script')
+		</script>    
+		<style>
+			.cal-popup {
+				display:none;
+				position:fixed;
+				top:50%;
+				left:50%;
+				background-color:#f5f5f5;
+				z-index:9999;
+				height:300px;
+				border:1px;
+				border-color:grey;
+				border-radius:3px;
+				border-style:solid;
+				padding:5px;
+				-moz-transition:all .2s ease-out 0;
+				-webkit-transition:all .2s ease-out 0;
+				transition:all .2s ease-out 0;
+			} 
+		</style> 
     </head>
     <body>
 		<header class="navbar clearfix" id="header">
@@ -69,8 +92,6 @@
 		
 		<!-- JAVASCRIPTS -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<!-- JQUERY -->
-		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
 		<!-- JQUERY UI-->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
 		<!-- BOOTSTRAP -->
