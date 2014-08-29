@@ -32,22 +32,23 @@ $(document).ready(function() {
 				url: 'cargarEstados',
 				dataType:'json',
 				success: function(response){
-					console.log(response.estados);
+					//console.log(response.estados);
 					if(response.success == true) {
 						$('#estados').html('');
-						$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+						$('#estados').append('<option value=\"\">-- Estado --</option>');
 						$.each(response.estados,function (k,v){
 						$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
 					});
 					}else{
 						$('#estados').html('');
-						$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+						$('#estados').append('<option value=\"\">-- Estado --</option>');
 					}
 				},
 				error:function(jqXHR, status, error) {
                 	console.log('Disculpe, existió un problema');
                	},
 			});
+	
 		$('#estados').click(function(){
 			console.log('estado:'+$('#estados').val());
 			$.ajax({
@@ -55,16 +56,16 @@ $(document).ready(function() {
 				url:'cargarMunicipios/'+$('#estados').val(),
 				dataType:'json',
 				success: function(response) {
-					console.log('Municipios'+JSON.stringify(response));
+					//console.log('Municipios'+JSON.stringify(response));
 					if(response.success == true) {
                           $('#municipios').html('');
-                          $('#municipios').append('<option value=\"\">-- Seleccione --</option>');
+                          $('#municipios').append('<option value=\"\">-- Municipio --</option>');
                           $.each(response.municipios,function (k,v){
                           	$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
                       	}); 
                       }else{
                           $('#estados').html('');
-                          $('#estados').append('<option value=\"\">-- Seleccione --</option>');
+                          $('#estados').append('<option value=\"\">-- Municipio --</option>');
                       } 
 				},
 				error : function(jqXHR, status, error) {
@@ -73,6 +74,69 @@ $(document).ready(function() {
 			});
 
 		});
+		
+		$.ajax({
+			type: "GET",
+			url:'retornarArticulaciones',
+			dataType:'json',
+			success: function(response) {
+				console.log('Arti:'+response);
+				if (response.success == true) {
+					$('#articulaciones').html('');
+					$('#articulaciones').append('<option value=\"\">-- Articulación --</option>');
+					$.each(response.articulaciones,function (k,v){
+						$('#articulaciones').append('<option value=\"'+k+'\">'+v+'</option>');
+					});
+					}else{
+						$('#articulaciones').html('');
+						$('#articulaciones').append('<option value=\"\">-- Articulación --</option>');
+					}
+			},
+			error : function(jqXHR, status, error) {
+				console.log('Disculpe, existió un problema');
+			},
+		});
+		
+		$.ajax({
+              type: "GET",
+              url:'retornarImpactos',
+              dataType:'json',
+              success: function(response) {
+                  console.log('Arti:'+response);
+                  if (response.success == true) {
+                      $('#impactos').html('');
+                      $('#impactos').append('<option value=\"\">-- Impacto --</option>');
+                      $.each(response.impactos,function (k,v){
+                          $('#impactos').append('<option value=\"'+k+'\">'+v+'</option>');
+                      });
+                      }else{
+                          $('#impactos').html('');
+                          $('#impactos').append('<option value=\"\">-- Impacto --</option>');
+                      }
+              },
+              error : function(jqXHR, status, error) {
+                  console.log('Disculpe, existió un problema');
+              },
+          });
+
+		 $.ajax({
+			type: 'GET',
+			url: 'retornarSubsistemas',
+			dataType:'json',
+			success: function(response) {
+				if (response.success == true) {
+					$('#subsistemas').html('');
+					$('#subsistemas').append('<option value=\"\">-- Subsistema --</option>');
+					$.each(response.subsistemas,function (k,v){
+						$('#subsistemas').append('<option value=\"'+k+'\">'+v+'</option>');
+				});
+				}else{
+					$('#subsistemas').html('');
+					$('#subsistemas').append('<option value=\"\">-- Subsistema --</option>');
+				}
+			}
+		});
+		
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
