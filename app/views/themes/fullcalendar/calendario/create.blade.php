@@ -47,8 +47,10 @@
       			<input class="title" type="text" size="26" placeholder="Descripción"/>      
       			<input class="title" type="text" size="26" placeholder="Hora"/>      
       			<input class="title" type="text" size="26" placeholder="Dirección"/>      
-      			<input class="title" type="text" size="26" placeholder="Observación"/>      
-      			<input class="title" type="text" size="26" placeholder="Articulación"/>      
+      			<input class="title" type="text" size="26" placeholder="Observación"/>  
+				<select id="articulaciones" name="Articulaciones">
+                	<option value="" disabled selected>Articulaciones</option>
+                </select>
       			<input class="title" type="text" size="26" placeholder="Impacto"/>      
       			<input class="title" type="text" size="26" placeholder="Subsistema"/>
 				<select id="estados" name="Estado">
