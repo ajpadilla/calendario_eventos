@@ -22,8 +22,12 @@ class SubsistemaController extends \BaseController {
 	{
 		//
 	}
+	
+	public function retornarSubsistemas(){
+          return Subsistema::all()->lists('nombre', 'id');
+    }
 
-
+	
 	/**
 	 * Store a newly created resource in storage.
 	 *
