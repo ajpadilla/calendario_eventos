@@ -1,6 +1,6 @@
 <?php
 
-class EstadoController extends \BaseController {
+class ImpactoController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,7 @@ class EstadoController extends \BaseController {
 	 */
 	public function index()
 	{
-		$estados = Estado::all();
-		return View::make('themes.fullcalendar.estados.index')->with('estados', $estados);
+		//
 	}
 
 
@@ -21,10 +20,19 @@ class EstadoController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('themes.fullcalendar.estados.create');
+		//
 	}
 
+	public function retornarImpactos(){
+           $impactos = Impacto::all()->lists('nombre', 'id');
+		  if(count($impactos) > 0) {
+              $response['success'] = true;
+              $response['impactos'] = $impactos;
+              return ($response);
+          }   
+      }
 
+	
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -32,27 +40,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function store()
 	{
-		$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
-		$validator = Validator::make(Input::all(), $rules);
-		$validator = Validator::make(Input::all(), $rules);
-		if(!$validator->fails()){
-			$estado = new Estado;
-			$estado->nombre =Input::get('nombre');
-			$estado->save();
-			return Redirect::to('estado/create');
-		}
+		//
 	}
-
-
-	 public function cargarEstados(){
-          $response = array();
-          $estados = Estado::all()->lists('nombre', 'id');
-          if(count($estados) > 0) {
-              $response['success'] = true;
-              $response['estados'] = $estados;
-               return ($response);
-          }
-      }
 
 
 	/**

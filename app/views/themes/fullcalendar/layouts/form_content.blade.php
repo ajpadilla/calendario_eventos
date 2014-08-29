@@ -1,5 +1,9 @@
 @extends('themes.fullcalendar.layouts.default')
 
+
+@section('script')
+@stop
+
 @section('body')
 <div class="container">
 	<div class="row">

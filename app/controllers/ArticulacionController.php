@@ -1,6 +1,6 @@
 <?php
 
-class EstadoController extends \BaseController {
+class ArticulacionController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,7 @@ class EstadoController extends \BaseController {
 	 */
 	public function index()
 	{
-		$estados = Estado::all();
-		return View::make('themes.fullcalendar.estados.index')->with('estados', $estados);
+		//
 	}
 
 
@@ -21,7 +20,7 @@ class EstadoController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('themes.fullcalendar.estados.create');
+		//
 	}
 
 
@@ -32,29 +31,18 @@ class EstadoController extends \BaseController {
 	 */
 	public function store()
 	{
-		$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
-		$validator = Validator::make(Input::all(), $rules);
-		$validator = Validator::make(Input::all(), $rules);
-		if(!$validator->fails()){
-			$estado = new Estado;
-			$estado->nombre =Input::get('nombre');
-			$estado->save();
-			return Redirect::to('estado/create');
-		}
+		//
 	}
 
-
-	 public function cargarEstados(){
-          $response = array();
-          $estados = Estado::all()->lists('nombre', 'id');
-          if(count($estados) > 0) {
-              $response['success'] = true;
-              $response['estados'] = $estados;
-               return ($response);
-          }
-      }
-
-
+	public function retornarArticulaciones(){
+	  $articulaciones = Articulacion::all()->lists('nombre', 'id');
+		if(count($articulaciones) > 0) {
+        	$response['success'] = true;
+       		$response['articulaciones'] = $articulaciones;
+           	return ($response);
+       	}		
+	}
+	
 	/**
 	 * Display the specified resource.
 	 *
