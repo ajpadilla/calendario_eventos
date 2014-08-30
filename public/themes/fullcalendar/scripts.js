@@ -137,36 +137,67 @@ $(document).ready(function() {
 			}
 		});
 		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			eventSources: [
-        			{
-            			url: 'cargar_eventos',
-            			type: 'GET',
-                		error: function() {
-                			alert('there was an error while fetching events!');
-            			},
-            			color: 'blue',   // a non-ajax option
-            			textColor: 'blank' // a non-ajax option
-        			}
+	$('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		eventSources:[
+        {
+        	url: 'cargar_eventos',
+            type: 'GET',
+            error: function() {
+            	alert('there was an error while fetching events!');
+            },
+            	color: 'blue',   // a non-ajax option
+            	textColor: 'blank' // a non-ajax option
+        }
 
-    		],
-			defaultDate: '2014-08-12',
-			selectable: true,
-			selectHelper: true,
-			select: function(start, end) {
-				  $(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
-				  $(".submitForm").click(function(){
-                	var title = $(".title").val();
-					console.log(title);
-				});
-				$(".exit").click(function(){
-                	$(".popup").css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
-              	});
+    	],
+		defaultDate: '2014-08-12',
+		selectable: true,
+		selectHelper: true,
+		select: function(start, end) {
+			$(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
+			$(".submitForm").click(function(){
+				var title = $('#titulo').val();
+				var descripcion = $('descripcion').val();
+				var hora = $('hora').val();	
+				var direccion= $('direccion').val();
+				var observacion = $('observacion').val();
+				var articulacion = $('articulacion').val();
+				var impacto = $('impacto').val();
+				var subsistema = $('subsistema').val();
+				var municipio = $('municipio').val();
+				
+				var eventData;
+				var data;
+				
+				if (title) {
+					eventData = {
+						title: title,
+						start: start,
+					}
+				};
+			
+				data = {
+					title: title,	
+					descripcion: descripcion,
+					start: $.fullCalendar.moment(start).format()+' '+hora,
+					direccion: direccion,
+					observacion: observacion,
+					articulacion: articulacion,
+					impacto: impacto,
+					subsistema: subsistema,
+					municipio: municipio
+				};
+				console.log("consola:" + JSON.stringify(data));		
+			});
+
+			$(".exit").click(function(){
+            	$(".popup").css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+            });
 			},
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
