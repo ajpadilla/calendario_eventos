@@ -37,7 +37,7 @@
 				left:50%;
 				background-color:#f5f5f5;
 				z-index:9999;
-				height:300px;
+				height:430px;
 				border:1px;
 				border-color:grey;
 				border-radius:3px;
