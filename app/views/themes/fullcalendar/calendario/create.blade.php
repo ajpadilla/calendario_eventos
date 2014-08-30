@@ -43,11 +43,11 @@
       			<h2>Add event!</h2>
       			<br/>
       			<h1>Event title:</h1>
-      			<input 	class="title" type="text" size="26" placeholder="Titulo"/>     	
-      			<input class="title" type="text" size="26" placeholder="Descripción"/>      
-      			<input class="title" type="text" size="26" placeholder="Hora"/>      
-      			<input class="title" type="text" size="26" placeholder="Dirección"/>      
-      			<input class="title" type="text" size="26" placeholder="Observación"/>  
+      			<input id="titulo" class="title" type="text" size="26" placeholder="Titulo"/>     	
+      			<input id="description" class="title" type="text" size="26" placeholder="Descripción"/>      
+      			<input id="hora" class="title" type="text" size="26" placeholder="Hora"/>      
+      			<input id="direccion" class="title" type="text" size="26" placeholder="Dirección"/>      
+      			<input id="observacion" class="title" type="text" size="26" placeholder="Observación"/>  
 				<select id="articulaciones" name="Articulaciones">
                 	<option value="" disabled selected>Articulaciones</option>
                 </select>
