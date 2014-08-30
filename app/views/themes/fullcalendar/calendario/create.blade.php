@@ -43,7 +43,7 @@
       			<h2>Add event!</h2>
       			<br/>
       			<h1>Event title:</h1>
-      			<input class="title" type="text" size="26" placeholder="Titulo"/>     	
+      			<input 	class="title" type="text" size="26" placeholder="Titulo"/>     	
       			<input class="title" type="text" size="26" placeholder="Descripción"/>      
       			<input class="title" type="text" size="26" placeholder="Hora"/>      
       			<input class="title" type="text" size="26" placeholder="Dirección"/>      
