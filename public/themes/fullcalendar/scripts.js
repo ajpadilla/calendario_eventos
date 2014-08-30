@@ -80,7 +80,7 @@ $(document).ready(function() {
 			url:'retornarArticulaciones',
 			dataType:'json',
 			success: function(response) {
-				console.log('Arti:'+response);
+				//console.log('Arti:'+response);
 				if (response.success == true) {
 					$('#articulaciones').html('');
 					$('#articulaciones').append('<option value=\"\">-- Articulación --</option>');
@@ -102,7 +102,7 @@ $(document).ready(function() {
               url:'retornarImpactos',
               dataType:'json',
               success: function(response) {
-                  console.log('Arti:'+response);
+                  //console.log('impacto:'+response);
                   if (response.success == true) {
                       $('#impactos').html('');
                       $('#impactos').append('<option value=\"\">-- Impacto --</option>');
@@ -160,16 +160,18 @@ $(document).ready(function() {
 		selectHelper: true,
 		select: function(start, end) {
 			$(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
+			
 			$(".submitForm").click(function(){
+		
 				var title = $('#titulo').val();
-				var descripcion = $('descripcion').val();
-				var hora = $('hora').val();	
-				var direccion= $('direccion').val();
-				var observacion = $('observacion').val();
-				var articulacion = $('articulacion').val();
-				var impacto = $('impacto').val();
-				var subsistema = $('subsistema').val();
-				var municipio = $('municipio').val();
+				var descripcion = $('#descripcion').val();
+				var hora = $('#hora').val();	
+				var direccion= $('#direccion').val();
+				var observacion = $('#observacion').val();
+				var articulacion = $('#articulaciones').val();
+				var impacto = $('#impactos').val();
+				var subsistema = $('#subsistemas').val();
+				var municipio = $('#municipios').val();
 				
 				var eventData;
 				var data;
