@@ -1,31 +1,28 @@
 $(document).ready(function() {
 	
+	$('#hora').inputmask({'mask':'99:99:99'});
 	$.validator.addMethod('alpha',
 		function(value, element) {
 			return /^[a-zA-Z]*$/.test(value);
 			}, 'Alpha Characters Only.'
 	);
 	
-	$('#formEstado').validate({
+	$('#crear_evento').validate({
 		rules:{
-				nombre:{required:!0,alpha: true,rangelength: [3 , 45]},
+			titulo:{required:!0,rangelength: [3 , 45]},
+			descripcion:{required:!0,},
+			hora:{required:!0},
+			direccion:{required:!0},
+			observacion:{required:!0},
+			articulaciones:{required:!0},
+			impactos:{required:!0},
+			subsistemas:{required:!0},
+			municipios:{required:!0},
 		},
 		submitHandler: function(form) {
-        	form.submit();
-			alert("Datos Enviados!");
-        }
+			form.submit();
+		}
 	});
-	
-	$('#formMunicipios').validate({
-    	rules:{ 
-        	nombre:{required:!0,alpha: true,rangelength: [3 , 45]},
-			estado:{required:!0},
-        },
-     	submitHandler: function(form) {
-        	form.submit();
-        	alert("Datos Enviados!");
-        }
-     });
 	
 			$.ajax({
 				type: 'GET',
@@ -159,6 +156,10 @@ $(document).ready(function() {
 		selectable: true,
 		selectHelper: true,
 		select: function(start, end) {
+			var eventData;
+			var data;
+				
+
 			$(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
 			
 			$(".submitForm").click(function(){
@@ -172,9 +173,6 @@ $(document).ready(function() {
 				var impacto = $('#impactos').val();
 				var subsistema = $('#subsistemas').val();
 				var municipio = $('#municipios').val();
-				
-				var eventData;
-				var data;
 				
 				if (title) {
 					eventData = {
@@ -195,6 +193,20 @@ $(document).ready(function() {
 					municipio: municipio
 				};
 				console.log("consola:" + JSON.stringify(data));		
+				if($('#crear_evento').valid() == 1){
+					$('#calendar').fullCalendar('renderEvent', eventData, true);
+					$.ajax({
+						type: "POST",
+						url:'eventos/' + JSON.stringify(data),
+						success: function(response) {
+							console.log(response);
+						},
+						error : function(jqXHR, status, error) {
+							console.log('Disculpe, existió un problema');
+						},
+					});
+				};
+				$('#calendar').fullCalendar('unselect');
 			});
 
 			$(".exit").click(function(){
