@@ -43,7 +43,7 @@
       			<h2>Add event!</h2>
       			<br/>
       			<h1>Event title:</h1>
-				<form id="crear_evento" method="post" action="#">
+				<form id="crear_evento">
       				<input id="titulo" name="titulo" class="title" type="text" size="26" placeholder="Titulo"/><br/>
       				<input id="descripcion" name="descripcion" class="title" type="text" size="26" placeholder="Descripción"/><br/>      
       				<input id="hora" name="hora" class="title" type="text" size="26" placeholder="Hora"/><br/>      
