@@ -44,27 +44,27 @@
       			<br/>
       			<h1>Event title:</h1>
 				<form id="crear_evento" method="post" action="#">
-      				<input id="titulo" name="titulo" class="title" type="text" size="26" placeholder="Titulo"/>     	
-      				<input id="description" class="title" type="text" size="26" placeholder="Descripción"/>      
-      				<input id="hora" class="title" type="text" size="26" placeholder="Hora"/>      
-      				<input id="direccion" class="title" type="text" size="26" placeholder="Dirección"/>      
-      				<input id="observacion" class="title" type="text" size="26" placeholder="Observación"/> 
+      				<input id="titulo" name="titulo" class="title" type="text" size="26" placeholder="Titulo"/><br/>
+      				<input id="descripcion" name="descripcion" class="title" type="text" size="26" placeholder="Descripción"/><br/>      
+      				<input id="hora" name="hora" class="title" type="text" size="26" placeholder="Hora"/><br/>      
+      				<input id="direccion" name="direccion" class="title" type="text" size="26" placeholder="Dirección"/></br>    
+      				<input id="observacion" name="observacion" class="title" type="text" size="26" placeholder="Observación"/><br> 
  
-					<select id="articulaciones" name="Articulaciones">
+					<select id="articulaciones" name="articulaciones">
                 		<option value="" disabled selected>Articulaciones</option>
-                	</select>
-					<select id="impactos" name="Impactos">
+                	</select><br/>
+					<select id="impactos" name="impactos">
                     	<option value="" disabled selected>Impactos</option>
-                	</select>
-					<select id="subsistemas" name="Subsistemas">
+                	</select><br/>
+					<select id="subsistemas" name="subsistemas">
                     	<option value="" disabled selected>Subsistemas</option>
-                	</select>
-					<select id="estados" name="Estado">
+                	</select><br/>
+					<select id="estados" name="estado">
     					<option value="" disabled selected>Estado</option>
-                	</select>      
-					<select id="municipios" name="Municipios">
+                	</select><br/>      
+					<select id="municipios" name="municipios">
     					<option value="" disabled selected>Municipio</option>
-					</select>
+					</select><br/>
       				<!--<a href="#" onclick="return false" class="submitForm" style="color:black;"><button>Submit</button></a>&emsp;-->
 					<input type="submit" class="submitForm" value="Agregar">
      				<a href="#" onclick="return false" class="exit" style="color:black;"><button>cancel</button></a>
