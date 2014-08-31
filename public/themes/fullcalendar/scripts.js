@@ -215,8 +215,25 @@ $(document).ready(function() {
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			eventClick: function(event, element) {
-				event.title = prompt('Nuevo Title:');
-				$('#calendar').fullCalendar('updateEvent', event);
+				var data;
+				var hora;
+				$(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
+				hora = $.fullCalendar.moment(event.start).format();
+				console.log(hora.substring(11));
+				$('#titulo').val(event.title);	
+				$('#descripcion').val(event.descripcion);
+				$('#hora').val(hora.substring(11));
+				$('#direccion').val(event.direccion);
+				$('#observacion').val(event.observacion);
+				$('#articulaciones').val(event.articulacion_id);
+				$('#impactos').val(event.impacto_id);
+				$('#subsistemas').val(event.subsistema_id);
+				$('#estados').val(event.municipio_id);
+				$('#municipios').val(event.municipio_id);
+				$(".exit").click(function(){
+                	$(".popup").css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+           	 	});
+
 			},
 			eventDrop: function(event, delta){
 				console.log('id:'+ event.id +' '+'fecha:'+$.fullCalendar.moment(event.start).format());
