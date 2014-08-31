@@ -71,7 +71,7 @@ class EventController extends \BaseController {
 
 	public function allEvents(){
 		if(Request::ajax()){
-			$eventos = json_encode(DB::table('eventos')->get(array('id','title','start')));
+			$eventos = json_encode(DB::table('eventos')->get(array('id','title','descripcion','start','direccion','observacion','articulacion_id','impacto_id','subsistema_id','municipio_id')));
 			return $eventos;
 		}
 		return array('success' => false);
