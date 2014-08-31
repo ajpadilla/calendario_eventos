@@ -59,7 +59,7 @@
 					<select id="subsistemas" name="subsistemas">
                     	<option value="" disabled selected>Subsistemas</option>
                 	</select><br/>
-					<select id="estados" name="estado">
+					<select id="estados" name="estados">
     					<option value="" disabled selected>Estado</option>
                 	</select><br/>      
 					<select id="municipios" name="municipios">
