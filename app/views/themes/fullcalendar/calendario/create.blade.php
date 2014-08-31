@@ -38,34 +38,37 @@
             </div>
     	</div>
     	<div class="box-body form">
-       		 <div id='calendar'></div>
+       		<div id='calendar'></div>
 			<div class="popup cal-popup">
       			<h2>Add event!</h2>
       			<br/>
       			<h1>Event title:</h1>
-      			<input 	class="title" type="text" size="26" placeholder="Titulo"/>     	
-      			<input class="title" type="text" size="26" placeholder="Descripción"/>      
-      			<input class="title" type="text" size="26" placeholder="Hora"/>      
-      			<input class="title" type="text" size="26" placeholder="Dirección"/>      
-      			<input class="title" type="text" size="26" placeholder="Observación"/>  
-				<select id="articulaciones" name="Articulaciones">
-                	<option value="" disabled selected>Articulaciones</option>
-                </select>
-				<select id="impactos" name="Impactos">
-                      <option value="" disabled selected>Impactos</option>
-                </select>
-      			<input class="title" type="text" size="26" placeholder="Subsistema"/>
-				<select id="subsistemas" name="Subsistemas">
-                      <option value="" disabled selected>Subsistemas</option>
-                </select>
-				<select id="estados" name="Estado">
-    				<option value="" disabled selected>Estado</option>
-                </select>      
-				<select id="municipios" name="Municipios">
-    				<option value="" disabled selected>Municipio</option>
-				</select>
-      			<a href="#" onclick="return false" class="submitForm" style="color:black;"><button>Submit</button></a>&emsp;
-     			<a href="#" onclick="return false" class="exit" style="color:black;"><button>cancel</button></a>
+				<form id="crear_evento">
+      				<input id="titulo" name="titulo" class="title" type="text" size="26" placeholder="Titulo"/><br/>
+      				<input id="descripcion" name="descripcion" class="title" type="text" size="26" placeholder="Descripción"/><br/>      
+      				<input id="hora" name="hora" class="title" type="text" size="26" placeholder="Hora"/><br/>      
+      				<input id="direccion" name="direccion" class="title" type="text" size="26" placeholder="Dirección"/></br>    
+      				<input id="observacion" name="observacion" class="title" type="text" size="26" placeholder="Observación"/><br> 
+ 
+					<select id="articulaciones" name="articulaciones">
+                		<option value="" disabled selected>Articulaciones</option>
+                	</select><br/>
+					<select id="impactos" name="impactos">
+                    	<option value="" disabled selected>Impactos</option>
+                	</select><br/>
+					<select id="subsistemas" name="subsistemas">
+                    	<option value="" disabled selected>Subsistemas</option>
+                	</select><br/>
+					<select id="estados" name="estados">
+    					<option value="" disabled selected>Estado</option>
+                	</select><br/>      
+					<select id="municipios" name="municipios">
+    					<option value="" disabled selected>Municipio</option>
+					</select><br/>
+      				<!--<a href="#" onclick="return false" class="submitForm" style="color:black;"><button>Submit</button></a>&emsp;-->
+					<input type="submit" class="submitForm" value="Agregar">
+     				<a href="#" onclick="return false" class="exit" style="color:black;"><button>cancel</button></a>
+				</form>
     		</div>
        	</div>
 	</div>
