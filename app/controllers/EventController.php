@@ -70,13 +70,41 @@ class EventController extends \BaseController {
      }
 
 	public function allEvents(){
-		if(Request::ajax()){
-			$eventos = json_encode(DB::table('eventos')->get(array('id','title','descripcion','start','direccion','observacion','articulacion_id','impacto_id','subsistema_id','municipio_id')));
-			return $eventos;
+		if(Request::ajax())
+        {
+            $eventos = Evento::all();
+            $eventos_finales = array();
+            foreach($eventos as $evento){
+                $municipio = $evento->municipio;
+                $estado = $municipio->estado;
+                $impacto = $evento->impacto;
+                $articulacion = $evento->articulacion;
+                $subsistema = $evento->subsistema;
+                $evento = $evento->toArray();
+                
+                        
+                 $evento['estado'] = $estado->toArray();
+            
+                 unset($evento['municipio_id']); 
+                 $evento['municipio'] = $municipio->toArray();
+                
+
+                 unset($evento['articulacion_id']); 
+                 $evento['articulacion'] = $articulacion->toArray();
+          
+                unset($evento['subsistema_id']); 
+                $evento['subsistema'] = $subsistema->toArray();
+          
+                unset($evento['impacto_id']); 
+                $evento['impacto'] = $impacto->toArray();
+  
+                array_push($eventos_finales,$evento);
+            }
+            return json_encode($eventos_finales);
+
 		}
 		return array('success' => false);
 	}
-
 	/**
 	 * Display the specified resource.
 	 *
