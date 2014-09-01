@@ -32,7 +32,7 @@
 		<style>
 			.cal-popup {
 				display:none;
-				position:fixed;
+				position:relative;
 				top:50%;
 				left:50%;
 				background-color:#f5f5f5;
