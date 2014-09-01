@@ -81,8 +81,8 @@ class EventController extends \BaseController {
 				$impacto = $evento->impacto;
 				$articulacion = $evento->articulacion;
 				$subsistema = $evento->subsistema;
-				$evento = $evento->toArray();
 				
+				$evento['evento'] = $evento->toArray();
 				$evento['estado'] = $estado->toArray();
 				unset($evento['municipio_id']);
 				$evento['municipio'] = $municipio->toArray();
