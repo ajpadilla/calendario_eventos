@@ -143,6 +143,9 @@ $(document).ready(function() {
         {
         	url: 'cargar_eventos',
             type: 'GET',
+			success: function(response) {
+            	console.log(response);
+            },
             error: function() {
             	alert('there was an error while fetching events!');
             },
