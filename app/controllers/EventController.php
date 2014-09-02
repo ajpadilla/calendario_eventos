@@ -29,7 +29,7 @@ class EventController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($datos)
+	public function store()
 	{
 		$response = array();
 		if(Request::ajax()){
