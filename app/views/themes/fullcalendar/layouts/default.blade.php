@@ -21,14 +21,11 @@
               
 		<!-- GRITTER -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/gritter/css/jquery.gritter.css')}}" />
-       	<!-- JQUERY -->
-		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
-
-
- 		
+       
 		<script>
 			@yield('script')
 		</script>    
+
 		<style>
 			.cal-popup {
 				display:none;
@@ -37,7 +34,7 @@
 				left:50%;
 				background-color:#f5f5f5;
 				z-index:9999;
-				height:430px;
+				height:650px;
 				border:1px;
 				border-color:grey;
 				border-radius:3px;
@@ -91,6 +88,9 @@
 		<div>
 		
 		<!-- JAVASCRIPTS -->
+		<!-- JQUERY -->
+		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
+
 		<!-- Placed at the end of the document so the pages load faster -->
 		<!-- JQUERY UI-->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
