@@ -45,33 +45,33 @@ $(document).ready(function() {
             },
 		});
 	
-	$('#estados').click(function(){
-		//console.log('estado:'+$('#estados').val());
-		$.ajax({
-			type: "GET",
-			url:'cargarMunicipios/'+$('#estados').val(),
-			dataType:'json',
-			success: function(response) {
-				//console.log('Municipios'+JSON.stringify(response));
-				if(response.success == true) {
-                	$('#municipios').html('');
-                    $('#municipios').append('<option value=\"\">-- Municipio --</option>');
-                   		$.each(response.municipios,function (k,v){
-                        	$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
-                      	}); 
-                      }else{
-                          $('#estados').html('');
-                          $('#estados').append('<option value=\"\">-- Municipio --</option>');
-                      } 
-				},
+	var cargarEstados = function(){
+		//$('#estados').click(function(){
+			console.log('estado:'+$('#estados').val());
+			$.ajax({
+				type: "GET",
+				url:'cargarMunicipios/'+$('#estados').val(),
+				dataType:'json',
+				success: function(response) {
+					//console.log('Municipios'+JSON.stringify(response));
+					if(response.success == true) {
+						$('#municipios').html('');
+						$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+						$.each(response.municipios,function (k,v){
+							$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
+						}); 
+						}else{
+							$('#municipios').html('');
+							$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+						} 
+					},
 				error : function(jqXHR, status, error) {
 					console.log('Disculpe, existió un problema');
 				},
 			});
-
-		});
-		
-	$.ajax({
+		//});
+	};
+		$.ajax({
 		type: "GET",
 		url:'retornarArticulaciones',
 		dataType:'json',
@@ -160,8 +160,9 @@ $(document).ready(function() {
 		select: function(start, end) {
 			var eventData;
 			var data;
-				
-
+			
+			cargarEstados();
+			
 			$(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
 			
 			$(".submitForm").click(function(){
@@ -228,11 +229,13 @@ $(document).ready(function() {
 				$('#hora').val(hora.substring(11));
 				$('#direccion').val(event.direccion);
 				$('#observacion').val(event.observacion);
-				$('#articulaciones').val(event.articulacion_id);
-				$('#impactos').val(event.impacto_id);
-				$('#subsistemas').val(event.subsistema_id);
-				$('#estados').val(event.municipio_id);
-				$('#municipios').val(event.municipio_id);
+				$('#articulaciones').val(event.articulacion.id);
+				$('#impactos').val(event.impacto.id);
+				$('#subsistemas').val(event.subsistema.id);
+				$('#estados').val(event.estado.id);
+				$('#municipios').val(event.municipio.id);
+				console.log("Municipio:"+event.municipio.id);
+				cargarEstados();
 				$(".exit").click(function(){
                 	$(".popup").css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
            	 	});
