@@ -3,15 +3,19 @@
 {{
 	"
 		$(function (){
+			jQuery.validator.setDefaults({
+  				debug: true
+			});
 
 			$('#formEstado').validate({
-				rules:{nombre:{required:!0},
+				rules:{
+					nombre:{required:true},
 				},
 			});
-			$('#formEstado').ajaxForm(function() { 
-            	alert('Thank you for your comment!'); 
-            });
-
+			$('#enviar').click(function() {
+				console.log('Hola');
+    			alert($('#formEstado').valid());
+			});
 		});
 	"
 }}
