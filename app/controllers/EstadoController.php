@@ -32,15 +32,28 @@ class EstadoController extends \BaseController {
 	 */
 	public function store()
 	{
-		$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
+		/*$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
 		$validator = Validator::make(Input::all(), $rules);
 		$validator = Validator::make(Input::all(), $rules);
 		if(!$validator->fails()){
 			$estado = new Estado;
 			$estado->nombre =Input::get('nombre');
 			$estado->save();
-			return Redirect::to('estado/create');
+			return Redirect::to('/');
+		}*/
+		if(Request::ajax()){
+			$response = array();
+			$nombre_estado = Input::get('nombre');
+			$response['susses'] = true;
+			$response['nombre'] = $nombre_estado;
+			
+			$estado = new Estado;
+			$estado->nombre = $nombre_estado;
+			$estado->save();
+			
+			return json_encode($response);
 		}
+		return array('susses'=>'true');
 	}
 
 
