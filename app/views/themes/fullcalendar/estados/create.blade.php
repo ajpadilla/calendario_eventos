@@ -1,5 +1,9 @@
 @extends('themes.fullcalendar.layouts.form_content')
-  
+
+@section('')
+@stop();
+
+ 
 @section('page_header')
 	<ul class="breadcrumb">
     	<li>

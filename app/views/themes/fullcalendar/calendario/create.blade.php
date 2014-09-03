@@ -39,37 +39,73 @@
     	</div>
     	<div class="box-body form">
        		<div id='calendar'></div>
-			<div class="popup cal-popup">
+			<div id="add_event">
       			<h2>Add event!</h2>
       			<br/>
       			<h1>Event title:</h1>
-				<form id="crear_evento">
-      				<input id="titulo" name="titulo" class="title" type="text" size="26" placeholder="Titulo"/><br/>
-      				<input id="descripcion" name="descripcion" class="title" type="text" size="26" placeholder="Descripción"/><br/>      
-      				<input id="hora" name="hora" class="title" type="text" size="26" placeholder="Hora"/><br/>      
-      				<input id="direccion" name="direccion" class="title" type="text" size="26" placeholder="Dirección"/></br>    
-      				<input id="observacion" name="observacion" class="title" type="text" size="26" placeholder="Observación"/><br> 
- 
-					<select id="articulaciones" name="articulaciones">
-                		<option value="" disabled selected>Articulaciones</option>
-                	</select><br/>
-					<select id="impactos" name="impactos">
-                    	<option value="" disabled selected>Impactos</option>
-                	</select><br/>
-					<select id="subsistemas" name="subsistemas">
-                    	<option value="" disabled selected>Subsistemas</option>
-                	</select><br/>
-					<select id="estados" name="estados">
-    					<option value="" disabled selected>Estado</option>
-                	</select><br/>      
-					<select id="municipios" name="municipios">
-    					<option value="" disabled selected>Municipio</option>
-					</select><br/>
-      				<!--<a href="#" onclick="return false" class="submitForm" style="color:black;"><button>Submit</button></a>&emsp;-->
-					<input type="submit" class="submitForm" value="Agregar">
-     				<a href="#" onclick="return false" class="exit" style="color:black;"><button>cancel</button></a>
-				</form>
-    		</div>
+				{{ Form::open(array('action' => 'EventController@store','class'=>'form-horizontal','id'=>'formEvent','novalidate'=>'novalidate','files'=>true)) }}
+				<div class="form-group">
+					{{ Form::label('titulo', 'Titulo: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control','id'=>'titulo')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('descripcion', 'Descripción: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('descripcion', Input::old('descripcion'), array('class' => 'form-control','id'=>'descripcion')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('hora', 'Hora: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('hora', Input::old('hora'), array('class' => 'form-control','id'=>'hora')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('direccion', 'Dirección: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('direccion', Input::old('direccion'), array('class' => 'form-control','id'=>'direccion')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('observacion', 'Observación: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('articulaciones', 'Articulaciones: ',array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::select('articulaciones',array(),Input::old('articulaciones'),array('class' => 'form-control','id'=>'articulaciones')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('impactos', 'Impactos: ',array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::select('impactos',array(),Input::old('impactos'),array('class' => 'form-control','id'=>'impactos')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('subsistemas', 'Subsistemas: ',array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::select('subsistemas',array(),Input::old('subsistemas'),array('class' => 'form-control','id'=>'subsistemas')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('estados', 'Estados: ',array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::select('estados',array(),Input::old('estados'),array('class' => 'form-control','id'=>'estados')) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('municipios', 'Municipios: ',array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::select('municipios',array(),Input::old('municipios'),array('class' => 'form-control','id'=>'municipios')) }}
+					</div>
+				</div>
+			{{ Form::close() }}	
+			</div>
        	</div>
 	</div>
 @stop
