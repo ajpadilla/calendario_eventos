@@ -5,23 +5,22 @@
 			<li class="active">
 				<a href="#direccion_persona" data-toggle="tab" class="wiz-step">
 				<span class="step-number">1</span>
-				<span class="step-name"><i class="fa fa-check"></i>Agregar Estado</span>
+				<span class="step-name"><i class="fa fa-check"></i> Crear Direccion </span>
 				</a>
 			</li>
 			<li>
 				<a href="#datos_persona" data-toggle="tab" class="wiz-step active">
 				<span class="step-number">2</span>
-				<span class="step-name"><i class="fa fa-check"></i>Lista de estados</span>
+				<span class="step-name"><i class="fa fa-check"></i> Crear Persona</span>
 				</a>
 			</li>
 		</ul>
+		<div id="bar" class="progress progress-striped progress-sm active" role="progressbar">
+			<div class="progress-bar progress-bar-warning" style="width: 33.33333333333333%;"></div>
+		</div>
 		<div class="tab-content">
-			<div class="alert alert-danger display-none">
-				<a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.
-			</div>
-			<div class="alert alert-success display-none">
-				<a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form validation is successful!</div>
 				<div class="tab-pane active" id="direccion_persona">
+					 @include('themes.fullcalendar.estados.formEstado')
 				</div>
 				<div class="tab-pane" id="datos_persona">
 				</div>
@@ -33,7 +32,20 @@
 			<h4 class="form-section">Payment Information</h4>
 			<div class="well">	
 			</div>
+			<div class="wizard-buttons">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-offset-3 col-md-9">
+							<a href="javascript:;" class="btn btn-default prevBtn" style="display: none;">
+								<i class="fa fa-arrow-circle-left"></i> Back
+							</a>
+							<a href="javascript:;" class="btn btn-primary nextBtn">Continue <i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+			</div>
 		</div>
 	</div>
+</div>
+</div>
 </div>
 {{ Form::close() }}	
