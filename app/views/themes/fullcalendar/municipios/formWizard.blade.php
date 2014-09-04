@@ -3,25 +3,25 @@
 	<div class="wizard-content">
 		<ul class="nav nav-pills nav-justified steps">
 			<li class="active">
-				<a href="#agregar_estado" data-toggle="tab" class="wiz-step">
+				<a href="#agregar_municipio" data-toggle="tab" class="wiz-step">
 				<span class="step-number">1</span>
-				<span class="step-name"><i class="fa fa-check"></i> Crear Estado </span>
+				<span class="step-name"><i class="fa fa-check"></i> Crear Municipio</span>
 				</a>
 			</li>
 			<li>
-				<a href="#listar_estados" data-toggle="tab" class="wiz-step active">
+				<a href="#listar_muicipio" data-toggle="tab" class="wiz-step active">
 				<span class="step-number">2</span>
-				<span class="step-name"><i class="fa fa-check"></i> Listar Estado</span>
+				<span class="step-name"><i class="fa fa-check"></i> Listar Municipiosr</span>
 				</a>
 			</li>
 		</ul>
 		<div id="bar" class="progress progress-striped progress-sm active" role="progressbar">
 		</div>
 		<div class="tab-content">
-			<div class="tab-pane active" id="agregar_estado">
+			<div class="tab-pane active" id="agregar_municipio">
 					 @include('themes.fullcalendar.municipios.form')
 			</div>
-			<div class="tab-pane" id="listar_estados">
+			<div class="tab-pane" id="listar_muicipio">
 					@include('themes.fullcalendar.municipios.index')
 			</div>
 				<div class="tab-pane" id="confirmar">
