@@ -1,7 +1,8 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
-@section('')
-@stop();
+@section('script')
+	@include('themes.fullcalendar.estados.partials.validarEstado')
+@stop()
 
  
 @section('page_header')
@@ -20,7 +21,7 @@
           <h3 class="content-title pull-left">Forms</h3>
       </div>
       <div class="description">Calendario de eventos</div>
-  @stop
+@stop
   
 @section('form')
 	<div class="box border blue">

@@ -8,7 +8,7 @@
 	<div class="row">
     	<div class="col-md-12">
         	<div class="col-md-offset-3 col-md-9">
-				 {{ Form::submit('Registrar', array('class' => 'btn btn-success submitBtn','id'=>'enviar' )) }}
+				<a id="enviar" href="javascript:;" class="btn btn-primary nextBtn">Guardar<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
    	</div>

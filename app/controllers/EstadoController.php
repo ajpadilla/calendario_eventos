@@ -32,15 +32,28 @@ class EstadoController extends \BaseController {
 	 */
 	public function store()
 	{
-		$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
+		/*$rules = array('nombre'=>'required|alpha|digits_between:3,45|unique:estados,nombre');
 		$validator = Validator::make(Input::all(), $rules);
 		$validator = Validator::make(Input::all(), $rules);
 		if(!$validator->fails()){
 			$estado = new Estado;
 			$estado->nombre =Input::get('nombre');
 			$estado->save();
-			return Redirect::to('estado/create');
+			return Redirect::to('/');
+		}*/
+		if(Request::ajax()){
+			$response = array();
+			$nombre_estado = Input::get('nombre');
+			$response['susses'] = true;
+			$response['nombre'] = $nombre_estado;
+			
+			$estado = new Estado;
+			$estado->nombre = $nombre_estado;
+			$estado->save();
+			
+			return json_encode($response);
 		}
+		return array('susses'=>'false');
 	}
 
 
@@ -53,7 +66,20 @@ class EstadoController extends \BaseController {
                return ($response);
           }
       }
-
+	
+	 public function verificarExistenciaNombreEstado(){
+		if(Request::ajax())
+		{
+			$nombre_estado= Input::get('nombre');
+			$estado = Estado::where('nombre','=',$nombre_estado)->get();
+			if(count($estado) > 0){
+				return Response::json(array('msg' => 'true'));
+			}else{
+				return Response::json(array('msg' => 'false'));
+			}
+		}
+		return Response::json(array('respuesta' => 'false'));	 
+	 }
 
 	/**
 	 * Display the specified resource.
@@ -75,7 +101,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$estado = Estado::find($id);
+		return View::make('themes.fullcalendar.estados.edit')->with('estado', $estado);		
 	}
 
 
@@ -87,7 +114,16 @@ class EstadoController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$response = array();
+		if(Request::ajax()){
+			$estado = Estado::find($id);
+			$estado->nombre = Input::get('nombre');
+			$estado->save();
+			$response['susses'] = true;
+			$response['nombre'] = $estado->nombre;
+			return json_encode($response);
+		}
+		return array('susses'=>'false');
 	}
 
 
@@ -99,7 +135,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$estado = Estado::find($id);
+		$estado->delete();
 	}
 
 

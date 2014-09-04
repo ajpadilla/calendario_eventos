@@ -21,11 +21,16 @@
               
 		<!-- GRITTER -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/gritter/css/jquery.gritter.css')}}" />
-       
+ 
+		<!-- WIZARD -->
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/bootstrap-wizard/wizard.css')}}" />      
+
+ 		<!-- JQUERY -->
+		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
+
 		<script>
 			@yield('script')
 		</script>    
-
 		<style>
 			.cal-popup {
 				display:none;
@@ -88,9 +93,7 @@
 		<div>
 		
 		<!-- JAVASCRIPTS -->
-		<!-- JQUERY -->
-		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
-
+		
 		<!-- Placed at the end of the document so the pages load faster -->
 		<!-- JQUERY UI-->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
@@ -109,6 +112,14 @@
 		<link rel="stylesheet" href="{{asset('themes/Cloud_Admin/js/fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />
 		<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/fancybox/source/jquery.fancybox.pack.js')}}"></script>
 		<!--fullcalendar-->
+	
+		<!-- WIZARD -->
+		<script src="{{asset('themes/Cloud_Admin/js/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>		
+	
+		<!-- CUSTOM SCRIPT -->
+		<script src="{{ asset('themes/Cloud_Admin/js/script.js')}}"></script>
+		<script src="{{ asset('themes/Cloud_Admin/js/bootstrap-wizard/form-wizard.min.js')}}"></script>
+
         <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
         <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
         <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
