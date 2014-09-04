@@ -66,7 +66,20 @@ class EstadoController extends \BaseController {
                return ($response);
           }
       }
-
+	
+	 public function verificarExistenciaNombreEstado(){
+		if(Request::ajax())
+		{
+			$nombre_estado= Input::get('nombre');
+			$estado = Estado::where('nombre','=',$nombre_estado)->get();
+			if(count($estado) > 0){
+				return Response::json(array('msg' => 'true'));
+			}else{
+				return Response::json(array('msg' => 'false'));
+			}
+		}
+		return Response::json(array('respuesta' => 'false'));	 
+	 }
 
 	/**
 	 * Display the specified resource.
