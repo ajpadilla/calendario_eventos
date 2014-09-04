@@ -1,4 +1,3 @@
-{{ Form::open(array('action' => 'MunicipioController@store','class'=>'form-horizontal','id'=>'formMunicipios','novalidate'=>'novalidate','files'=>true)) }}	
 	<div class="form-group">
 		{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
 		<div class="col-md-8">
@@ -14,8 +13,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="col-md-offset-3 col-md-9">
-				{{ Form::submit('Registrar', array('class' => 'btn btn-success submitBtn','id'=>'enviar_municipio' )) }}
+				<a id="registrarEstado" href="javascript:;" class="btn btn-primary nextBtn">Registrar<i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 	</div>
-{{ Form::close() }}
