@@ -1,8 +1,8 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
-	@include('themes.fullcalendar.estados.partials.incluirAjaxForm')
-@stop();
+	@include('themes.fullcalendar.estados.partials.validarEstado')
+@stop()
 
  
 @section('page_header')
