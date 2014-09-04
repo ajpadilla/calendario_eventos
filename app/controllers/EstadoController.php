@@ -53,7 +53,7 @@ class EstadoController extends \BaseController {
 			
 			return json_encode($response);
 		}
-		return array('susses'=>'true');
+		return array('susses'=>'false');
 	}
 
 
@@ -114,7 +114,16 @@ class EstadoController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$response = array();
+		if(Request::ajax()){
+			$estado = Estado::find($id);
+			$estado->nombre = Input::get('nombre');
+			$estado->save();
+			$response['susses'] = true;
+			$response['nombre'] = $estado->nombre;
+			return json_encode($response);
+		}
+		return array('susses'=>'false');
 	}
 
 
@@ -126,7 +135,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$estado = Estado::find($id);
+		$estado->delete();
 	}
 
 
