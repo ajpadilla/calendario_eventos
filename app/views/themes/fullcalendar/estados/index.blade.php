@@ -43,6 +43,7 @@
 						<tr>
 							<td>ID</td>
 							<td>NOMBRE</td>
+							<td>Accion</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,6 +51,11 @@
 					<tr>
 						<td>{{ $estado->id }}</td>
 						<td>{{ $estado->nombre }}</td>
+						<td>
+								<a class="btn btn-small btn-success" href="">Mostrar estado</a>
+								<a class="btn btn-small btn-info" href="">Editar estado</a>
+						</td>
+
 					</tr>
 					@endforeach
 					</tbody>
