@@ -12,8 +12,8 @@
 			<tr>
 				<td>{{ $estado->id }}</td>
 				<td>{{ $estado->nombre }}</td>
-				<td><button type="button" class="btn btn-primary">Editar</button></td>
-				<td><button type="button" class="btn btn-danger">Borrar</button></td>
+				<td><button  type="button" class="editarEstado btn btn-primary">Editar</button></td>
+				<td><button  type="button" class="borrarEstado btn btn-danger">Borrar</button></td>
 			</tr>
 			@endforeach
 		</tbody>
