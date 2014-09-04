@@ -3,13 +3,42 @@
 {{
 	"
 		$(function (){
+			var res;
 			jQuery.validator.setDefaults({
   				debug: true
 			});
 
 			$('#formEstado').validate({
 				rules:{
-					nombre:{required:true},
+					nombre:{
+					required:true,	
+					remote: {
+						url:'" . URL::to('/verificarExistenciaNombreEstado/') ."',
+						type: 'post',
+						data: 
+						{
+							nombre: function() 
+							{
+								return $('#nombre').val();
+							}
+						},
+						dataFilter: function (data) {
+							console.log('respuesta:'+data);
+							var json = JSON.parse(data);
+							res = json.msg;
+							if (json.msg == 'true') {
+								return 'false';
+							} else {
+								return 'true';
+							}
+						}
+					}
+				  }
+				},
+				messages:{
+					nombre:{
+						remote: jQuery.validator.format('{0} is already taken'),
+					},
 				},
 			});
 			$('#enviar').click(function() {
