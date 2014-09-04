@@ -1,4 +1,4 @@
-{{ Form::open(array('action' => 'MunicipioController@store','class'=>'form-horizontal','id'=>'formWizardEstado','novalidate'=>'novalidate','files'=>true)) }}
+{{ Form::open(array('action' => 'MunicipioController@store','class'=>'form-horizontal','id'=>'formWizardMunicipio','novalidate'=>'novalidate','files'=>true)) }}
 <div class="wizard-form">
 	<div class="wizard-content">
 		<ul class="nav nav-pills nav-justified steps">
@@ -24,7 +24,10 @@
 			<div class="tab-pane" id="listar_estados">
 					@include('themes.fullcalendar.municipios.index')
 			</div>
-			<div class="well">
+				<div class="tab-pane" id="confirmar">
+					<h3 class="block">Submit account details</h3>
+					<h4 class="form-section">Account Information</h4>
+				<div class="well">
 			</div>
 		</div>
 	</div>
