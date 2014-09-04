@@ -1,4 +1,4 @@
-{{ Form::open(array('action' => 'EstadoController@store','class'=>'form-horizontal','id'=>'wizForm','novalidate'=>'novalidate','files'=>true)) }}
+{{ Form::open(array('action' => 'EstadoController@store','class'=>'form-horizontal','id'=>'formWizardEstado','novalidate'=>'novalidate','files'=>true)) }}
 <div class="wizard-form">
 	<div class="wizard-content">
 		<ul class="nav nav-pills nav-justified steps">
@@ -23,6 +23,7 @@
 					 @include('themes.fullcalendar.estados.formEstado')
 				</div>
 				<div class="tab-pane" id="datos_persona">
+					@include('themes.fullcalendar.estados.listarEstados')
 				</div>
 				<div class="tab-pane" id="confirmar">
 					<h3 class="block">Submit account details</h3>
