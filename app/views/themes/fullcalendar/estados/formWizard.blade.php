@@ -16,7 +16,7 @@
 			</li>
 		</ul>
 		<div id="bar" class="progress progress-striped progress-sm active" role="progressbar">
-			<div class="progress-bar progress-bar-warning" style="width: 33.33333333333333%;"></div>
+			<div class="progress-bar progress-bar-warning" style="width: 50.33333333333333%;"></div>
 		</div>
 		<div class="tab-content">
 				<div class="tab-pane active" id="direccion_persona">
@@ -42,10 +42,10 @@
 							<a href="javascript:;" class="btn btn-primary nextBtn">Continue <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 </div>
 {{ Form::close() }}	
