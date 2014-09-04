@@ -19,17 +19,18 @@ Route::get('/', function()
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
-Route::get('cargarEstados','EstadoController@cargarEstados');
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
 //Route::resource('estado','EstadoController');
 Route::resource('municipios','MunicipioController');
 //Route::post('eventos/{datos}','EventController@store');
 
+
+Route::get('cargarEstados','EstadoController@cargarEstados');
 Route::get('crearEstado','EstadoController@create');
 Route::post('guardarEstado','EstadoController@store');
 Route::post('verificarExistenciaNombreEstado','EstadoController@verificarExistenciaNombreEstado');
-
 Route::get('mostrarEstados','EstadoController@index');
+
 Route::post('updateStartEvent/{event_data}','EventController@updateStartEvent');
 Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrar','EventController@create');
