@@ -1,7 +1,7 @@
 	<div class="form-group">
 		{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
 		<div class="col-md-8">
-		{{ Form::select('estados',array('' => '-- Seleccione --'),Input::old('estados'),array('class' => 'form-control','id'=>'estados')) }}
+		{{ Form::select('estados',array('' => '-- Seleccimne --'),Input::old('estados'),array('class' => 'form-control','id'=>'estados')) }}
 	</div>
 </div>	
 	<div class="form-group">
@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="col-md-offset-3 col-md-9">
-				<a id="registrarEstado" href="javascript:;" class="btn btn-primary nextBtn">Registrar<i class="fa fa-arrow-circle-right"></i></a>
+				<a id="registrarMunicipio" href="javascript:;" class="btn btn-primary nextBtn">Registrar<i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 	</div>
