@@ -3,15 +3,15 @@
 	<div class="wizard-content">
 		<ul class="nav nav-pills nav-justified steps">
 			<li class="active">
-				<a href="#direccion_persona" data-toggle="tab" class="wiz-step">
+				<a href="#agregar_estado" data-toggle="tab" class="wiz-step">
 				<span class="step-number">1</span>
-				<span class="step-name"><i class="fa fa-check"></i> Crear Direccion </span>
+				<span class="step-name"><i class="fa fa-check"></i> Crear Estado </span>
 				</a>
 			</li>
 			<li>
-				<a href="#datos_persona" data-toggle="tab" class="wiz-step active">
+				<a href="#listar_estados" data-toggle="tab" class="wiz-step active">
 				<span class="step-number">2</span>
-				<span class="step-name"><i class="fa fa-check"></i> Crear Persona</span>
+				<span class="step-name"><i class="fa fa-check"></i> Listar Estado</span>
 				</a>
 			</li>
 		</ul>
@@ -19,10 +19,10 @@
 			<div class="progress-bar progress-bar-warning" style="width: 50.33333333333333%;"></div>
 		</div>
 		<div class="tab-content">
-				<div class="tab-pane active" id="direccion_persona">
+				<div class="tab-pane active" id="agregar_estado">
 					 @include('themes.fullcalendar.estados.formEstado')
 				</div>
-				<div class="tab-pane" id="datos_persona">
+				<div class="tab-pane" id="listar_estados">
 					@include('themes.fullcalendar.estados.listarEstados')
 				</div>
 				<div class="tab-pane" id="confirmar">
