@@ -101,7 +101,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$estado = Estado::find($id);
+		return View::make('themes.fullcalendar.estados.edit')->with('estado', $estado);		
 	}
 
 
