@@ -1,6 +1,6 @@
-{{ Form::open(array('action' => 'MunicipioController@store','class'=>'form-horizontal','id'=>'wizForm','novalidate'=>'novalidate','files'=>true)) }}		
+{{ Form::open(array('action' => 'MunicipioController@store','class'=>'form-horizontal','id'=>'formWizardMunicipio','novalidate'=>'novalidate','files'=>true)) }}		
 <div class="form-group">
-		{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
+		{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3','id'=>'estado')) }}
 		<div class="col-md-8">
 		{{ Form::select('estados',array($estado->id => $estado->nombre),Input::old('estados'),array('class' => 'form-control','id'=>'estados')) }}
 	</div>
@@ -9,6 +9,7 @@
 		{{ Form::label('nombre', 'Nombre: ', array('class' => 'col-md-3 control-label')) }}
 		<div class="col-md-8">
 		{{ Form::text('nombre',$municipio->nombre, array('class' => 'form-control','id'=>'nombre_municipio')) }}
+		{{ Form::text('id',$municipio->id, array('class' => 'form-control','style'=>'display: none;','id'=>'id')) }}
 		</div>
 	</div>
 	<div class="row">
