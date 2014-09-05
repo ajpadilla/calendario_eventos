@@ -14,17 +14,17 @@
 			});
 		
 			$('#registrar').click(function(){
-				console.log($('#formWizardEstado').valid());
-				/*if($('#formWizardEstado').valid() == true){
+				console.log($('#formWizard').valid());
+				if($('#formWizard').valid() == true){
 						$.ajax({
 							type:'POST',
-							url:'" . URL::to('/guardarEstado/') ."',
-							data:{ nombre: $('#nombreEstado').val()},
+							url:'" . URL::to('/guardarArticulacion/') ."',
+							data:{ nombre: $('#nombre').val()},
 							dataType:'json',
 							success : function(response) {
 								console.log(response);
 								$.fancybox({
-									'content': '<h1>Estado Agregado</h1>',
+									'content': '<h1>Articulación Agregada</h1>',
 									'autoScale' : true,
 									'transitionIn' : 'none',
 									'transitionOut' : 'none',
@@ -34,12 +34,12 @@
 									'hideOnOverlayClick' : false,
 									'hideOnContentClick' : false
 								});
-								$('#formWizardEstado').clearForm();
+								$('#formWizard').clearForm();
 							},
 							error : function(jqXHR, status, error) {
 								alert('Disculpe, existió un problema');
 								$.fancybox({
-									'content': '<h1>Error al agregar el estado</h1>',
+									'content': '<h1>Error al agregar el articulación</h1>',
 									'autoScale' : true,
 									'transitionIn' : 'none',
 									'transitionOut' : 'none',
@@ -49,10 +49,10 @@
 									'hideOnOverlayClick' : false,
 									'hideOnContentClick' : false
 								});
-								$('#formWizardEstado').clearForm();
+								$('#formWizard').clearForm();
 							},
 						});
-				}*/
+				}
 			});	
 
 			$('.borrarEstado').click(function(){
