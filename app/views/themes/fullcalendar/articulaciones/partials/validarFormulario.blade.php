@@ -7,15 +7,15 @@
  				debug: true,
 			});
 			
-			$('#formWizardEstado').validate({
+			$('#formWizard').validate({
 				rules:{
 					nombre:{required:!0},
 				}
 			});
 		
-			$('#registrarEstado').click(function(){
+			$('#registrar').click(function(){
 				console.log($('#formWizardEstado').valid());
-				if($('#formWizardEstado').valid() == true){
+				/*if($('#formWizardEstado').valid() == true){
 						$.ajax({
 							type:'POST',
 							url:'" . URL::to('/guardarEstado/') ."',
@@ -52,7 +52,7 @@
 								$('#formWizardEstado').clearForm();
 							},
 						});
-				}
+				}*/
 			});	
 
 			$('.borrarEstado').click(function(){
