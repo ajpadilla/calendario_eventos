@@ -26,6 +26,8 @@ Route::post('guardarImpactos','ImpactoController@store');
 
 
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
+Route::get('crearSubsistemas','SubsistemaController@create');
+Route::get('guardarSubsistemas','SubsistemaController@store');
 
 //Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
