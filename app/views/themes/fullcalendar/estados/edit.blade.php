@@ -1,6 +1,6 @@
 @extends('themes.fullcalendar.layouts.form_content')
 @section('script')
-	@include('themes.fullcalendar.estados.partials.validarFormularioEstado')
+	@include('themes.fullcalendar.estados.partials.validarFormularioEditarEstado')
 @stop()
 @section('page_header')
 	<ul class="breadcrumb">
