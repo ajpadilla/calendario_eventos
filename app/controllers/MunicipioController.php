@@ -96,7 +96,23 @@ class MunicipioController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		if(Request::ajax()){
+                $response = array();
+                $nombre_municipio = Input::get('nombre');
+                $id_estado = json_decode(Input::get('estado_id'));
+  
+                $response['susses'] = true;
+                $response['nombre'] = $nombre_municipio;
+                $response['estado_id']= $id_estado;
+  
+                $municipio = Municipio::find($id);
+                $municipio->nombre = $nombre_municipio;
+                $municipio->estado_id =(int)$id_estado;
+                $municipio->save();
+  
+                return json_encode($response);
+           }
+            return array('susses'=>'false');
 	}
 
 
