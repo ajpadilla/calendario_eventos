@@ -34,7 +34,8 @@ Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios'
 //Route::resource('municipios','MunicipioController');
 Route::get('crearMunicipio','MunicipioController@create');
 Route::post('guardarMunicipio','MunicipioController@store');
-
+Route::get('editarMunicipio/{id}','MunicipioController@edit');
+Route::post('actualizarMunicipio/{id}','MunicipioController@update');
 
 //Rutas de el controlador Estado
 Route::get('cargarEstados','EstadoController@cargarEstados');
