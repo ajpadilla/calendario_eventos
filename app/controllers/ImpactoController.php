@@ -9,7 +9,7 @@ class ImpactoController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+	
 	}
 
 
@@ -20,7 +20,9 @@ class ImpactoController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$impactos = Impacto::all();
+        return View::make('themes.fullcalendar.impactos.create')->with('impactos', $impactos);
+
 	}
 
 	public function retornarImpactos(){
