@@ -42,7 +42,19 @@ class ImpactoController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
+		if(Request::ajax()){
+			$response = array();
+			$response['susses'] = true;
+			$response['nombre'] = Input::get('nombre');
+			
+			$impacto = new Impacto;
+			$impacto->nombre = Input::get('nombre');
+			$impacto->save();
+					
+			return json_encode($response);
+		}
+		return array('susses'=>'false');
 	}
 
 
