@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div class="box-body form">
-		@include('themes.fullcalendar.municipios.form')
+		@include('themes.fullcalendar.municipios.formWizard')
 	</div>
 </div>
 @stop
