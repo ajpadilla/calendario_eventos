@@ -20,7 +20,8 @@ class SubsistemaController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$subsistemas= Subsistema::all();
+      	return View::make('themes.fullcalendar.subsistemas.create')->with('subsistemas', $subsistemas);
 	}
 	
 	public function retornarSubsistemas(){
