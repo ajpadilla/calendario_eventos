@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('crearArticulacion','ArticulacionController@create');
-Route::get('guardarArticulacion','ArticulacionController@store');
+Route::post('guardarArticulacion','ArticulacionController@store');
 
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
