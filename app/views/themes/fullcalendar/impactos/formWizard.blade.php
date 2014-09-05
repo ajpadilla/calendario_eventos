@@ -19,10 +19,10 @@
 		</div>
 		<div class="tab-content">
 			<div class="tab-pane active" id="agregar_estado">
-					 @include('themes.fullcalendar.articulaciones.form')
+					 @include('themes.fullcalendar.impactos.form')
 			</div>
 			<div class="tab-pane" id="listar_estados">
-					@include('themes.fullcalendar.articulaciones.index')
+					@include('themes.fullcalendar.impactos.index')
 			</div>
 				<div class="tab-pane" id="confirmar">
 					<h3 class="block">Submit account details</h3>
