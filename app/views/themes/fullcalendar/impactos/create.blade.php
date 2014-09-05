@@ -1,7 +1,7 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
-	@include('themes.fullcalendar.articulaciones.partials.validarFormulario')
+	@include('themes.fullcalendar.impactos.partials.validarFormulario')
 @stop()
 
  
