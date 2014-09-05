@@ -20,7 +20,8 @@ class SubsistemaController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$subsistemas= Subsistema::all();
+      	return View::make('themes.fullcalendar.subsistemas.create')->with('subsistemas', $subsistemas);
 	}
 	
 	public function retornarSubsistemas(){
@@ -41,7 +42,18 @@ class SubsistemaController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Request::ajax()){
+			$response = array();
+			$response['susses'] = true;
+			$response['nombre'] = Input::get('nombre');
+			
+			$subsistema = new Subsistema;
+			$subsistema->nombre = Input::get('nombre');
+			$subsistema->save();	
+					
+			return json_encode($response);
+		}
+		return array('susses'=>'false');
 	}
 
 
