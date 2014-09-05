@@ -4,6 +4,7 @@
 		<div class="col-md-8">
 			{{ Form::text('nombre', $estado->nombre, array('class' => 'form-control','id'=>'nombreEstado')) }}
 		</div>
+		{{ Form::text('id', $estado->id, array('class' => 'form-control','style'=>'display: none;','id'=>'id')) }}
 	</div>
 	<div class="row">
 		<div class="col-md-12">
