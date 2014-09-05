@@ -8,7 +8,7 @@
 		</tr>
 	</thead>
 		<tbody>
-			@foreach($articulaciones as articulacion)
+			@foreach($articulaciones as $articulacion)
 			<tr>
 				<td>{{ $articulacion->id }}</td>
 				<td>{{ $articulacion->nombre }}</td>
