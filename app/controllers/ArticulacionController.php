@@ -32,7 +32,19 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Request::ajax()){
+              $response = array();
+              $response['susses'] = true;
+              $response['nombre'] = Input::get('nombre');
+  
+              $articulacion = new Articulacion;
+              $articulacion->nombre = Input::get('nombre');
+              $articulacion->save();
+  
+              return json_encode($response);
+          }
+          return array('susses'=>'false');
+
 	}
 
 	public function retornarArticulaciones(){
