@@ -20,7 +20,8 @@ class MunicipioController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('themes.fullcalendar.municipios.create');
+		$municipios = Municipio::all();
+		return View::make('themes.fullcalendar.municipios.create')->with('municipios',$municipios);
 	}
 
 
