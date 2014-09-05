@@ -1,7 +1,7 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
-	@include('themes.fullcalendar.impactos.subsistemas.validarFormulario')
+	@include('themes.fullcalendar.subsistemas.partials.validarFormulario')
 @stop()
 
  
@@ -43,7 +43,7 @@
               </div>
           </div>
           <div class="box-body form">
-				@include('themes.fullcalendar.impactos.formWizard')
+				@include('themes.fullcalendar.subsistemas.formWizard')
           </div>
 	</div>
 @stop
