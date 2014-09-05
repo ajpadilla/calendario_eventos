@@ -11,7 +11,7 @@
 			<li>
 				<a href="#listar_muicipio" data-toggle="tab" class="wiz-step active">
 				<span class="step-number">2</span>
-				<span class="step-name"><i class="fa fa-check"></i> Listar Municipiosr</span>
+				<span class="step-name"><i class="fa fa-check"></i> Listar Municipios</span>
 				</a>
 			</li>
 		</ul>
