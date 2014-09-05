@@ -19,12 +19,15 @@ Route::get('/', function()
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('crearArticulacion','ArticulacionController@create');
 Route::post('guardarArticulacion','ArticulacionController@store');
+Route::get('editarArticulacion/{id}','ArticulacionController@edit');
+Route::post('actualizarArticulacion/{id}','ArticulacionController@update');
 
+//Rutas de los impactos
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
 Route::get('crearImpactos','ImpactoController@create');
 Route::post('guardarImpactos','ImpactoController@store');
 
-
+//Rutas de los subsistemas
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('crearSubsistemas','SubsistemaController@create');
 Route::post('guardarSubsistemas','SubsistemaController@store');
