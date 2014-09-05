@@ -8,7 +8,7 @@
 		</tr>
 	</thead>
 		<tbody>
-			@foreach($impactos as $impactp)
+			@foreach($impactos as $impacto)
 			<tr>
 				<td>{{ $impacto->id }}</td>
 				<td>{{ $impacto->nombre }}</td>
