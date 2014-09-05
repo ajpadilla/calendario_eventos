@@ -37,7 +37,8 @@
 							'hideOnOverlayClick' : false,
 							'hideOnContentClick' : false
 						});
-									},
+						$('#formWizardMunicipio').clearForm();
+					},
 					error : function(jqXHR, status, error) {
 						$.fancybox({
 							'content': '<h1>Error al enviar los datos del municipio</h1>',
@@ -50,6 +51,8 @@
 							'hideOnOverlayClick' : false,
 							'hideOnContentClick' : false
 						});
+						
+						$('#formWizardMunicipio').clearForm();
 					}
 				});
 			}
