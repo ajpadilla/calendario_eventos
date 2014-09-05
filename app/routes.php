@@ -15,12 +15,16 @@ Route::get('/', function()
 {
 	return View::make('themes.fullcalendar.calendario.create');
 });
-
+//Rutas de las articulaciones
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('crearArticulacion','ArticulacionController@create');
 Route::post('guardarArticulacion','ArticulacionController@store');
 
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+Route::get('crearImpactos','ImpactoController@create');
+Route::post('guardarImpactos','ImpactoController@store');
+
+
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 
 //Rutas del controlador Munucupio
