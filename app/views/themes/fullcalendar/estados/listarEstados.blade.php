@@ -12,8 +12,8 @@
 			<tr>
 				<td>{{ $estado->id }}</td>
 				<td>{{ $estado->nombre }}</td>
-				<td><button  type="button" class="editarEstado btn btn-primary">Editar</button></td>
-				<td><button  type="button" class="borrarEstado btn btn-danger">Borrar</button></td>
+				<td><a  href="{{URL::to('editarEstado/'.$estado->id)}}" class="btn btn-primary">Editar<i class="fa fa-arrow-circle-right"></i></a></td>
+				<td><a  href="" class="btn btn-danger">Borrar<i class="fa fa-arrow-circle-right"></i></a></td>
 			</tr>
 			@endforeach
 		</tbody>
