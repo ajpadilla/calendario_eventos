@@ -23,10 +23,8 @@
 									console.log(data);
 									var json = JSON.parse(data);
 									if (json.msg == 'true') {
-										return 'false';
-									} else {
-									return 'true';
-								}
+										return false;
+									}
 							}
 						}	
 					}
