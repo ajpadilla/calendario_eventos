@@ -22,7 +22,9 @@ Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 
 //Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
-Route::resource('municipios','MunicipioController');
+//Route::resource('municipios','MunicipioController');
+Route::get('crearMunicipio','MunicipioController@create');
+Route::post('guardarMunicipio','MunicipioController@store');
 
 
 //Rutas de el controlador Estado

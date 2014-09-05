@@ -20,7 +20,8 @@ class MunicipioController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('themes.fullcalendar.municipios.create');
+		$municipios = Municipio::all();
+		return View::make('themes.fullcalendar.municipios.create')->with('municipios',$municipios);
 	}
 
 
@@ -31,7 +32,24 @@ class MunicipioController extends \BaseController {
 	 */
 	public function store()
 	{
-	 //	
+		if(Request::ajax()){
+              $response = array();
+              $nombre_municipio = Input::get('nombre');
+			  $id_estado = json_decode(Input::get('estado_id'));			  
+
+              $response['susses'] = true;
+              $response['nombre'] = $nombre_municipio;
+			  $response['estado_id']= $id_estado;
+
+			  $municipio = new Municipio;
+			  $municipio->nombre = $nombre_municipio;
+			  $municipio->estado_id =(int)$id_estado;
+			  $municipio->save();
+
+              return json_encode($response);
+         }
+          return array('susses'=>'false');	 
+	
 	}
 
 	public function cargarMunicipios($id_estado){
