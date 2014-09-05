@@ -18,13 +18,13 @@
 				if($('#formWizard').valid() == true){
 						$.ajax({
 							type:'POST',
-							url:'" . URL::to('/guardarImpactos/') ."',
+							url:'" . URL::to('/guardarSubsistemas/') ."',
 							data:{ nombre: $('#nombre').val()},
 							dataType:'json',
 							success : function(response) {
 								console.log(response);
 								$.fancybox({
-									'content': '<h1>Impacto Agregado</h1>',
+									'content': '<h1>Subsistema Agregado</h1>',
 									'autoScale' : true,
 									'transitionIn' : 'none',
 									'transitionOut' : 'none',
@@ -39,7 +39,7 @@
 							error : function(jqXHR, status, error) {
 								alert('Disculpe, existió un problema');
 								$.fancybox({
-									'content': '<h1>Error al agregar el impacto</h1>',
+									'content': '<h1>Error al agregar el subsistema</h1>',
 									'autoScale' : true,
 									'transitionIn' : 'none',
 									'transitionOut' : 'none',
