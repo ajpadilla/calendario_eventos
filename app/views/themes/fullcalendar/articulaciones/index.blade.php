@@ -8,12 +8,12 @@
 		</tr>
 	</thead>
 		<tbody>
-			@foreach($estados as $estado)
+			@foreach($articulaciones as articulacion)
 			<tr>
-				<td>{{ $estado->id }}</td>
-				<td>{{ $estado->nombre }}</td>
-				<td><button  type="button" class="editarEstado btn btn-primary">Editar</button></td>
-				<td><button  type="button" class="borrarEstado btn btn-danger">Borrar</button></td>
+				<td>{{ $articulacion->id }}</td>
+				<td>{{ $articulacion->nombre }}</td>
+				<td><button  type="button" class="editar btn btn-primary">Editar</button></td>
+				<td><button  type="button" class="borrar btn btn-danger">Borrar</button></td>
 			</tr>
 			@endforeach
 		</tbody>
