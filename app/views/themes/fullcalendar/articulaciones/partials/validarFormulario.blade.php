@@ -55,11 +55,11 @@
 				}
 			});	
 
-			$('.borrarEstado').click(function(){
+			$('.borrar').click(function(){
 				console.log('Borrar:');
 			});
 			
-			$('.editarEstado').click(function(){
+			$('.editar').click(function(){
 				console.log('Editar');
 			});
 		
