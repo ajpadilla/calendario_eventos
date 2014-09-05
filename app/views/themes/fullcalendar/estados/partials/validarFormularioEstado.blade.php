@@ -9,8 +9,33 @@
 			
 			$('#formWizardEstado').validate({
 				rules:{
-					nombre:{required:!0},
-				}
+					nombre:{
+							required:!0,
+							remote: {
+								url:'" . URL::to('/verificarExistenciaNombreEstado/') ."',
+								type: 'post',
+								data: {
+									nombre: function() {
+										return $('#nombreEstado').val();
+									}
+								},
+								dataFilter: function (data) {
+									console.log(data);
+									var json = JSON.parse(data);
+									if (json.msg == 'true') {
+										return 'false';
+									} else {
+									return 'true';
+								}
+							}
+						}	
+					}
+				},
+				messages:{
+					nombre:{
+						remote: jQuery.validator.format('{0} is already taken'),
+					},
+				}	
 			});
 		
 			$('#registrarEstado').click(function(){
