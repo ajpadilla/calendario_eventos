@@ -42,7 +42,15 @@ class SubsistemaController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Request::ajax()){
+			$response = array();
+			$response['susses'] = true;
+			$response['nombre'] = Input::get('nombre');
+	
+						
+			return json_encode($response);
+		}
+		return array('susses'=>'false');
 	}
 
 
