@@ -20,7 +20,8 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$articulaciones = Articulacion::all();
+		return View::make('themes.fullcalendar.estados.create')->with('articulaciones', $articulaciones);
 	}
 
 
