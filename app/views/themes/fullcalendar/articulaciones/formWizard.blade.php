@@ -1,4 +1,4 @@
-{{ Form::open(array('action' => 'EstadoController@store','class'=>'form-horizontal','id'=>'formWizardEstado','novalidate'=>'novalidate','files'=>true)) }}
+{{ Form::open(array('action' => 'ArticulacionController@store','class'=>'form-horizontal','id'=>'formWizard','novalidate'=>'novalidate','files'=>true)) }}
 <div class="wizard-form">
 	<div class="wizard-content">
 		<ul class="nav nav-pills nav-justified steps">
@@ -19,10 +19,10 @@
 		</div>
 		<div class="tab-content">
 			<div class="tab-pane active" id="agregar_estado">
-					 @include('themes.fullcalendar.estados.formEstado')
+					 @include('themes.fullcalendar.articulaciones.form')
 			</div>
 			<div class="tab-pane" id="listar_estados">
-					@include('themes.fullcalendar.estados.listarEstados')
+					@include('themes.fullcalendar.articulaciones.index')
 			</div>
 				<div class="tab-pane" id="confirmar">
 					<h3 class="block">Submit account details</h3>
