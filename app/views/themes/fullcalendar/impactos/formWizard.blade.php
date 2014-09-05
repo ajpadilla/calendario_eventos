@@ -5,13 +5,13 @@
 			<li class="active">
 				<a href="#agregar_estado" data-toggle="tab" class="wiz-step">
 				<span class="step-number">1</span>
-				<span class="step-name"><i class="fa fa-check"></i> Crear Articulación </span>
+				<span class="step-name"><i class="fa fa-check"></i> Crear Impacto </span>
 				</a>
 			</li>
 			<li>
 				<a href="#listar_estados" data-toggle="tab" class="wiz-step active">
 				<span class="step-number">2</span>
-				<span class="step-name"><i class="fa fa-check"></i> Listar Articulación</span>
+				<span class="step-name"><i class="fa fa-check"></i> Listar Impactos</span>
 				</a>
 			</li>
 		</ul>
