@@ -1,5 +1,5 @@
  <table class="table table-striped table-bordered">
-       <thead>
+  2     <thead>
            <tr>
                <td>Id</td>
                <td>Nombre</td>
@@ -8,10 +8,10 @@
            </tr>
        </thead>
           <tbody>
-              @foreach($estados as $estado)
+              @foreach($municipios as $municipio)
               <tr>
-                  <td>{{ $estado->id }}</td>
-                  <td>{{ $estado->nombre }}</td>
+                  <td>{{ $municipio->id }}</td>
+                  <td>{{ $municipio->nombre }}</td>
                   <td><button  type="button" class="editarEstado btn btn-primary">Editar</button></td>
                   <td><button  type="button" class="borrarEstado btn btn-danger">Borrar</button></td>
               </tr>
