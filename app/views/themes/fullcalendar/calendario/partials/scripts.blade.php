@@ -1,6 +1,9 @@
 {{
 	"
 		$('document').ready(function() {
+			$.validator.setDefaults({
+				debug: true,
+			});
 			
 			$('#hora').inputmask({'mask':'99:99:99'});
 			$.validator.addMethod('alpha',
@@ -9,7 +12,7 @@
 					}, 'Alpha Characters Only.'
 			);
 			
-			$('#crear_evento').validate({
+			$('#formEvent').validate({
 				rules:{
 					titulo:{required:!0,rangelength: [3 , 45]},
 					descripcion:{required:!0,},
@@ -21,9 +24,6 @@
 					subsistemas:{required:!0},
 					municipios:{required:!0},
 				},
-				submitHandler: function(form) {
-					form.submit();
-				}
 			});
 			$.ajax({
 				type: 'GET',
@@ -109,15 +109,15 @@
 					}
 				});
 
-			$('#add_event').click(function(){
-					console.log('algo');
-					console.log('estado:'+$('#estados').val());
+			$('#estados').click(function(){
+					//console.log('algo');
+					//console.log('estado:'+$('#estados').val());
 					$.ajax({
 						type: 'GET',
 						url:'" . URL::to('/cargarMunicipios/') ."'+'/'+$('#estados').val(),
 						dataType:'json',
 						success: function(response) {
-							console.log('Municipios'+JSON.stringify(response));
+							//console.log('Municipios'+JSON.stringify(response));
 							if(response.success == true) {
 								$('#municipios').html('');
 								$('#municipios').append('<option value=\"\">-- Municipio --</option>');
@@ -146,7 +146,7 @@
 					url: 'cargar_eventos',
 					type: 'GET',
 					success: function(response) {
-						console.log(response);
+						//console.log(response);
 					},
 					error: function() {
 						alert('there was an error while fetching events!');
@@ -160,51 +160,76 @@
 				selectable: true,
 				selectHelper: true,
 				select: function(start, end) {
-					var eventData;
-					var data;
+					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'0%'}, 300);
 					
-					$.ajax({
-						type: 'GET',
-						url:'cargarMunicipios/'+1,
-						dataType:'json',
-						success: function(response) {
-							console.log('Municipios'+JSON.stringify(response));
-							if(response.success == true) {
-								$('#municipios').html('');
-								$('#municipios').append('<option value=\"\">-- Municipio --</option>');
-								$.each(response.municipios,function (k,v){
-									$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
-								}); 
-								}else{
-									$('#municipios').html('');
-									$('#municipios').append('<option value=\"\">-- Municipio --</option>');
-								} 
-							},
-						error : function(jqXHR, status, error) {
-							console.log('Disculpe, existió un problema');
-						},
-					});
+					
+					$('#registrar').click(function(){
+						var eventData = {
+							title : $('#titulo').val(),
+							start : $.fullCalendar.moment(start).format()
+						};
+						var data ={
+							title : $('#titulo').val(),
+							descripcion : $('#descripcion').val(),
+							start : $.fullCalendar.moment(start).format() +' '+$('#hora').val(),
+							direccion : $('#direccion').val(),
+							observacion : $('#observacion').val(),
+							articulacion : $('#articulaciones').val(),
+							impacto : $('#impactos').val(),
+							subsistema : $('#subsistemas').val(),
+							municipio : $('#municipios').val(),
+						};
 
-					
-					jQuery.fancybox({
-						'content': $('#add_event').html(),
-						'autoScale' : true,
-						'transitionIn' : 'none',
-						'transitionOut' : 'none',
-						'scrolling' : 'no',
-						'type' : 'inline',
-						'showCloseButton' : true,
-						'hideOnOverlayClick' : true,
-						'hideOnContentClick' : true
-					}); 
-					
-					},
-					editable: true,
-					eventLimit: true,
-					eventClick: function(event, element) {
+						//console.log($('#formEvent').valid());
+						if($('#formEvent').valid() == 1){
+							$.ajax({
+									type:'POST',
+									url:'" . URL::to('/eventos/') ."'+'/'+JSON.stringify(data),
+									dataType:'json',
+									success : function(response) {
+										console.log(response);
+										$.fancybox({
+												'content': '<h1>Evento registrado</h1>',
+												'autoScale' : true,
+												'transitionIn' : 'none',
+												'transitionOut' : 'none',
+												'scrolling' : 'no',
+												'type' : 'inline',
+												'showCloseButton' : false,
+												'hideOnOverlayClick' : false,
+												'hideOnContentClick' : false
+										});
+										$('#formEvent').clearForm();
+									},
+									error : function(jqXHR, status, error) {
+										$.fancybox({
+												'content': '<h1>Error al registrar el evento</h1>',
+												'autoScale' : true,
+												'transitionIn' : 'none',
+												'transitionOut' : 'none',
+												'scrolling' : 'no',
+												'type' : 'inline',
+												'showCloseButton' : false,
+												'hideOnOverlayClick' : false,
+												'hideOnContentClick' : false
+										});
+									},
+								});
+							$('#calendar').fullCalendar('renderEvent',eventData);
+						}
+						$('#calendar').fullCalendar('unselect');
+                		$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+					});				
+
+					$('.exit').click(function(){
+                		$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+              		});
+				},
+				editable: true,
+				eventLimit: true,
+				eventClick: function(event, element) {
 						var data;
 						var hora;
-						$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
 						hora = $.fullCalendar.moment(event.start).format();
 						console.log(hora.substring(11));
 						$('#titulo').val(event.title);	
