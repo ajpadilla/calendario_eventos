@@ -163,14 +163,14 @@
 					}
 				});
 			$('#estados').click(function(){
-				console.log('algo');
-				console.log('estado:'+$('#estado').val());
+				//console.log('algo');
+				//console.log('estado:'+$('#estado').val());
 				$.ajax({
 					type: 'GET',
 					url: '" . URL::to('/cargarMunicipios') ."'+'/'+$('#estados').val(),
 					dataType:'json',
 					success: function(response) {
-						console.log('Municipios'+JSON.stringify(response));
+						//console.log('Municipios'+JSON.stringify(response));
 						if(response.success == true) {
 							$('#municipio').html('');
 							$('#municipio').append('<option value=\"\">-- Municipio --</option>');
