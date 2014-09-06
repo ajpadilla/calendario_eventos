@@ -20,7 +20,7 @@ class PersonaController extends BaseController {
 	 */
 	public function create()
 	{		
-		return View::make('persona.create');
+		return View::make('themes.fullcalendar.persona.create');
 	}
 
 	/**
@@ -30,7 +30,29 @@ class PersonaController extends BaseController {
 	 */
 	public function store()
 	{
+		$response = array();
+		if(Request::ajax())
+		{
+			$response['datos'] = Input::all();
+			$response['success'] = true;
 			
+			
+			$persona = new Persona;
+			$persona->cedula = Input::get('cedula');
+			$persona->nombres = Input::get('nombres');
+			$persona->apellidos = Input::get('apellidos');
+			$persona->nacionalidad = Input::get('nacionalidad');
+			$persona->sexo = Input::get('sexo');
+			$persona->direccion = Input::get('direccion');
+			$persona->telefono = Input::get('telefono');
+			$persona->email = Input::get('email');
+			$persona->municipio_id = Input::get('municipio');
+			$persona->save();
+		
+			return $response;
+				
+		}
+		return array('success' => false);
 	}
 
 	/**

@@ -1,43 +1,26 @@
 <div class="form-group">
-	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-8">
-    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
-    </div>
-</div>
-<div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
    		{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
     </div>
 </div>
 <div class="form-group">
-	{{ Form::label('primer_nombre', 'Primer Nombre: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('nombres', 'Nombres: ',array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
-   		{{ Form::text('primer_nombre', Input::old('primer_nombre'), array('class' => 'form-control','id'=>'primer_nombre')) }}
+   		{{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control','id'=>'nombres')) }}
     </div>
 </div>
 <div class="form-group">
-	{{ Form::label('segundo_nombre', 'Segundo Nombre: ',array('class' => 'col-md-3 control-label')) }}
-   	<div class="col-md-8">
-    	{{ Form::text('segundo_nombre', Input::old('segundo_nombre'), array('class' => 'form-control','id'=>'segundo_nombre')) }}
-   	</div>
-</div>
-<div class="form-group">
-	{{ Form::label('primer_apellido', 'Primer Apellido: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('apellidos', 'Apellidos: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('primer_apellido', Input::old('primer_apellido'), array('class' => 'form-control','id'=>'primer_apellido')) }}
+    	{{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control','id'=>'apellidos')) }}
     </div>
 </div>
+
 <div class="form-group">
-	{{ Form::label('segundo_apellido', 'Segundo Apellido: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('segundo_apellido', Input::old('segundo_apellido'), array('class' => 'form-control','id'=>'segundo_apellido')) }}
-   	</div>
-</div>
-<div class="form-group">
-	{{ Form::label('fecha_nacimiento', 'Fecha de Nacimiento: ',array('class' => 'col-md-3 control-label')) }}
-	<div class="col-md-8">
-    	{{ Form::custom('date', 'fecha_nacimiento', Input::old('fecha_nacimiento'), array('class' => 'form-control','id'=>'fecha')) }}
+    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
     </div>
 </div>
 <div class="form-group">
@@ -48,9 +31,16 @@
   	</div>
 </div>
 <div class="form-group">
-	{{ Form::label('movil', 'Móvil: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('Dirección', 'Dirección: ',array('class'=>'control-label col-md-3')) }}
+	<div class="col-md-8">
+	{{ Form::textarea('direccion', Input::old('direccion'), array('class' => 'form-control','rows'=>'3','cols'=>'3','id'=>'direccion')) }}
+	</div>
+</div>
+
+<div class="form-group">
+	{{ Form::label('telefono', 'Telefono: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('movil', Input::old('movil'), array('class' => 'form-control','id'=>'movil')) }}
+    	{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control','id'=>'telefono')) }}
     </div>
 </div>
 <div class="form-group">
@@ -59,11 +49,17 @@
  		{{ Form::text('email', Input::old('email'), array('class' => 'form-control','id'=>'email')) }}
    	</div>
 </div>
-<div class="formgroup">
-	{{ Form::label('foto', 'Foto: ',array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-8">
-    	{{ Form::file('foto', Input::old('foto'), array('class' => 'form-control','id'=>'foto')) }}
-   	</div>
+<div class="form-group">
+	{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
+<div class="col-md-8">
+	{{ Form::select('estado',array('' => '-- Seleccione --'),Input::old('estado'),array('class' => 'form-control','id'=>'estados')) }}
+</div>
+</div>
+<div class="form-group">
+	{{ Form::label('municipio', 'Municipio: ',array('class'=>'control-label col-md-3')) }}
+<div class="col-md-8">
+	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
+</div>
 </div>
 <div class="wizard-buttons">
 	<div class="row">
@@ -72,8 +68,8 @@
             	<a href="javascript:;" class="btn btn-default prevBtn" style="display: none;">
                 	<i class="fa fa-arrow-circle-left"></i> Back
                	</a>
-                <a href="javascript:;" class="btn btn-primary nextBtn" id="persona">
-                	Continue <i class="fa fa-arrow-circle-right"></i>
+                <a id="registrar" href="javascript:;" class="btn btn-primary nextBtn" id="persona">
+                	Registrar <i class="fa fa-arrow-circle-right"></i>
                	</a>
             </div>
 		</div>

@@ -2,9 +2,12 @@
 {{
 	"
 		$('document').ready(function () {
+			
+			$.validator.setDefaults({
+				debug: true,
+			});
 
-			$('input[name=telefono]').inputmask({'mask':'9999-9999999'});
-			$('input[name=movil]').inputmask({'mask':'9999-9999999'});
+			$('input[name=telefono]').inputmask({'mask':'99999999999'});
 			
 			 $.validator.addMethod('alpha', 
                               function(value, element) {
@@ -13,14 +16,14 @@
                               'Alpha Characters Only.'
        		);
 
-			$('#wizForm').validate({
+		$('#wizForm').validate({
 			doNotHideMessage:!0,
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
                     		numero:{required:!0},
                    			telefono:{required:!0},
-                        	ubicacion:{required:!0,rangelength: [10, 256]},
+                        	direccion:{required:!0,rangelength: [10, 256]},
                         	municipio:{required:!0},
 							nacionalidad:{required:!0},
 							cedula:{
@@ -29,7 +32,7 @@
 									rangelength: [5, 10],
 									remote: {
        								url:'" . URL::to('/existenciaCedula/') ."',
-        							type: 'post',
+        							type: 'GET',
         							data: {
           								cedula: function() {
 											return $('#cedula').val();
@@ -46,19 +49,15 @@
         							}
       							}
 							},
-							primer_nombre:{required:!0,alpha: true,rangelength: [1 , 45]},
-							segundo_nombre:{required:!0,alpha: true,rangelength: [1 , 45]},
-							primer_apellido:{required:!0,alpha: true,rangelength: [1 , 45]},
-							segundo_apellido:{required:!0,alpha: true,rangelength: [1 , 45]},
-							fecha_nacimiento:{required:!0,date: true},
+							nombres:{required:!0,alpha: true,rangelength: [1 , 45]},
+							apellidos:{required:!0,alpha: true,rangelength: [1 , 45]},
 							sexo:{required:!0},
-							movil:{required:!0},
 							email:{
 									required:!0,
 									email: true,
 									remote:{
                                       url:'" . URL::to('/existenciaEmail/') ."',
-                                      type: 'post',
+                                      type: 'GET',
                                       data: {
                                      	email: function() {
                                         	return $('#email').val();
@@ -102,48 +101,95 @@
 						element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
 					}
                  });
+				$('#registrar').click(function(){
+					console.log($('#wizForm').valid());
+					if($('#wizForm').valid() == true)
+					{	
+						$.ajax({
+								type:'POST',
+								url:'" . URL::to('/guardarPersona/') ."',
+								data:$('#wizForm').serialize(),
+								dataType:'json',
+								success : function(response) {
+									console.log(response);
+									$.fancybox({
+										'content': '<h1>Persona Agregada</h1>',
+										'autoScale' : true,
+										'transitionIn' : 'none',
+										'transitionOut' : 'none',
+										'scrolling' : 'no',
+										'type' : 'inline',
+										'showCloseButton' : false,
+										'hideOnOverlayClick' : false,
+										'hideOnContentClick' : false
+									});
+									$('#formWizardEstado').clearForm();
+								},
+								error : function(jqXHR, status, error) {
+									//alert('Disculpe, existió un problema');
+									$.fancybox({
+										'content': '<h1>Error al agregar a la persona</h1>',
+										'autoScale' : true,
+										'transitionIn' : 'none',
+										'transitionOut' : 'none',
+										'scrolling' : 'no',
+										'type' : 'inline',
+										'showCloseButton' : false,
+										'hideOnOverlayClick' : false,
+										'hideOnContentClick' : false
+									});
+									$('#formWizardEstado').clearForm();
+								},
+						});
+					}
+				});
+				
+				$.ajax({
+					type: 'GET',
+					url:'" . URL::to('/cargarEstados/') ."',
+					dataType:'json',
+					success: function(response) {
+						if (response.success == true) {
+							//console.log(response.estados);
+							$('#estados').html('');
+							$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+							$.each(response.estados,function (k,v){
+								$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
+							});
+						}else{
+							$('#estados').html('');
+							$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+						}
+					}
+				});
+			$('#estados').click(function(){
+				console.log('algo');
+				console.log('estado:'+$('#estado').val());
+				$.ajax({
+					type: 'GET',
+					url: '" . URL::to('/cargarMunicipios') ."'+'/'+$('#estados').val(),
+					dataType:'json',
+					success: function(response) {
+						console.log('Municipios'+JSON.stringify(response));
+						if(response.success == true) {
+							$('#municipio').html('');
+							$('#municipio').append('<option value=\"\">-- Municipio --</option>');
+							$.each(response.municipios,function (k,v){
+								$('#municipio').append('<option value=\"'+k+'\">'+v+'</option>');
+							});
+						}else{
+							$('#municipio').html('');
+							$('#municipio').append('<option value=\"\">-- Municipio --</option>');
+						}
+					},
+					error : function(jqXHR, status, error) {
+						console.log('Disculpe, existió un problema');
+					},
+				});
+			});			
 	
-			$('#formWizard').bootstrapWizard({
-				nextSelector:'.nextBtn',
-                previousSelector:'.prevBtn',
-				tabClass: 'nav nav-pills',
-				onNext:function(tab, navigation, index)
-                {
-					
-					var rango = navigation.find('li').length;
-					var next = index + 1;
-					if($('#wizForm').valid() == 1){
-						//alert($('#wizForm').valid())
-						$('.alert-danger').hide();
-                    	$('.stepHeader',$('#formWizard')).text('Step '+(index+1)+' of '+rango);
-						for(var l=navigation.find('li'),d=0;index>d;d++)
-						jQuery(l[d]).addClass('done');
-					}else{
-						return false;
-					}
-					if(next >= rango){
-						$('#formWizard').find('.submitBtn').show();
-					}
-                },
-				onPrevious:function(tab, navigation, index){
-					var rango = navigation.find('li').length;
-                    r=index+1;
-                   	$('.stepHeader',$('#formWizard')).text('Step '+(index+1)+' of '+rango);
-					$('#formWizard').find('.submitBtn').hide();
-				},
-				onTabShow: function(tab, navigation, index){
-					var total = navigation.find('li').length;
-					var current = index+1;
-					var percent = (current/total) * 100;
-					$('#formWizard').find('.progress-bar').css({width:percent+'%'});
-				},
-				onTabClick:function()
-                {
-                	return true;
-                },
+	
 
-			});
-			$('#formWizard').find('.prevBtn').show();
-		 });
+		});
 	"
 }}
