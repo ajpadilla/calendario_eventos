@@ -21,6 +21,7 @@ Route::get('crearArticulacion','ArticulacionController@create');
 Route::post('guardarArticulacion','ArticulacionController@store');
 Route::get('editarArticulacion/{id}','ArticulacionController@edit');
 Route::post('actualizarArticulacion/{id}','ArticulacionController@update');
+Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
 
 //Rutas de los impactos
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
