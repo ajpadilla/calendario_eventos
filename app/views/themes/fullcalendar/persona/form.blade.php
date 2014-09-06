@@ -72,7 +72,7 @@
             	<a href="javascript:;" class="btn btn-default prevBtn" style="display: none;">
                 	<i class="fa fa-arrow-circle-left"></i> Back
                	</a>
-                <a href="javascript:;" class="btn btn-primary nextBtn" id="persona">
+                <a id="registrar" href="javascript:;" class="btn btn-primary nextBtn" id="persona">
                 	Continue <i class="fa fa-arrow-circle-right"></i>
                	</a>
             </div>
