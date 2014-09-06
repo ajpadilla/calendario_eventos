@@ -30,7 +30,20 @@ class PersonaController extends BaseController {
 	 */
 	public function store()
 	{
+		$response = array();
+		if(Request::ajax())
+		{
+			$response['datos'] = Input::all();
+			$response['success'] = true;
+
+			$persona = new Persona(json_decode(Input::all(),true));
+			if($persona->validate()){
+				return $response;
+			}
 			
+			return array('success' => 'no valido');
+		}
+		return array('success' => false);
 	}
 
 	/**
