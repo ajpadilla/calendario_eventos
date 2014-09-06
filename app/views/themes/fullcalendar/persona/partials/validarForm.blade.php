@@ -16,7 +16,7 @@
                               'Alpha Characters Only.'
        		);
 
-			$('#wizForm').validate({
+						$('#wizForm').validate({
 			doNotHideMessage:!0,
 			errorClass:'error-span',
 			errorElement:'span',
@@ -104,6 +104,53 @@
 				$('#registrar').click(function(){
 					console.log($('#wizForm').valid());
 				});
+				
+				$.ajax({
+					type: 'GET',
+					url:'" . URL::to('/cargarEstados/') ."',
+					dataType:'json',
+					success: function(response) {
+						if (response.success == true) {
+							//console.log(response.estados);
+							$('#estados').html('');
+							$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+							$.each(response.estados,function (k,v){
+								$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
+							});
+						}else{
+							$('#estados').html('');
+							$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+						}
+					}
+				});
+			$('#estados').click(function(){
+				console.log('algo');
+				console.log('estado:'+$('#estado').val());
+				$.ajax({
+					type: 'GET',
+					url: '" . URL::to('/cargarMunicipios') ."'+'/'+$('#estados').val(),
+					dataType:'json',
+					success: function(response) {
+						console.log('Municipios'+JSON.stringify(response));
+						if(response.success == true) {
+							$('#municipio').html('');
+							$('#municipio').append('<option value=\"\">-- Municipio --</option>');
+							$.each(response.municipios,function (k,v){
+								$('#municipio').append('<option value=\"'+k+'\">'+v+'</option>');
+							});
+						}else{
+							$('#municipio').html('');
+							$('#municipio').append('<option value=\"\">-- Municipio --</option>');
+						}
+					},
+					error : function(jqXHR, status, error) {
+						console.log('Disculpe, existió un problema');
+					},
+				});
+			});			
+	
+	
+
 		});
 	"
 }}
