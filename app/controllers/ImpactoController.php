@@ -78,7 +78,8 @@ class ImpactoController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$impacto = Impacto::find($id);
+        return View::make('themes.fullcalendar.impactos.edit')->with('impacto', $impacto);
 	}
 
 
@@ -90,7 +91,18 @@ class ImpactoController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		 if(Request::ajax()){
+              $response = array();
+              $response['susses'] = true;
+              $response['nombre'] = Input::get('nombre');
+  
+              $impacto = Impacto::find($id);
+              $impacto->nombre = Input::get('nombre');
+              $impacto->save();
+  
+              return json_encode($response);
+          }
+          return array('susses'=>'false');
 	}
 
 

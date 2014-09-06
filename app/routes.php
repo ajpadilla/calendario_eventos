@@ -27,6 +27,8 @@ Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
 Route::get('crearImpactos','ImpactoController@create');
 Route::post('guardarImpactos','ImpactoController@store');
+Route::get('editarImpacto/{id}','ImpactoController@edit');
+Route::post('actualizarImpacto/{id}','ImpactoController@update');
 
 //Rutas de los subsistemas
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
