@@ -1,5 +1,9 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
+@section('script')
+	@include('themes.fullcalendar.calendario.partials.scripts')
+@stop()
+
 @section('page_header')
 	<ul class="breadcrumb">
     	<li>
@@ -39,11 +43,11 @@
     	</div>
     	<div class="box-body form">
        		<div id='calendar'></div>
-			<div id="add_event">
+				<div id="add_event" class="popup cal-popup">
       			<h2>Add event!</h2>
       			<br/>
       			<h1>Event title:</h1>
-				{{ Form::open(array('action' => 'EventController@store','class'=>'form-horizontal','id'=>'formEvent','novalidate'=>'novalidate','files'=>true)) }}
+				<form id="formEvent">
 				<div class="form-group">
 					{{ Form::label('titulo', 'Titulo: ', array('class' => 'col-md-3 control-label')) }}
 					<div class="col-md-8">
@@ -71,7 +75,7 @@
 				<div class="form-group">
 					{{ Form::label('observacion', 'Observación: ', array('class' => 'col-md-3 control-label')) }}
 					<div class="col-md-8">
-						{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
+						{{ Form::text('observacion', Input::old('observacion'), array('class' => 'form-control','id'=>'observacion')) }}
 					</div>
 				</div>
 				<div class="form-group">
@@ -104,7 +108,16 @@
 						{{ Form::select('municipios',array(),Input::old('municipios'),array('class' => 'form-control','id'=>'municipios')) }}
 					</div>
 				</div>
-			{{ Form::close() }}	
+				<hr/>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-offset-3 col-md-9">
+							<a id="registrar" href="javascript:;" class="btn btn-primary">Registrar<i class="fa fa-arrow-circle-right"></i></a>
+							<a id="cancelar" href="javascript:;" class="btn btn-danger exit">Cancelar<i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				</form>
 			</div>
        	</div>
 	</div>

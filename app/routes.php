@@ -65,7 +65,7 @@ Route::get('borrarEstado/{id}','EstadoController@destroy');
 
 //Rutas del controlados Eventos
 //Route::resource('estado','EstadoController');
-//Route::post('eventos/{datos}','EventController@store');
+Route::post('eventos/{datos}','EventController@store');
 Route::post('updateStartEvent/{event_data}','EventController@updateStartEvent');
 Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrar','EventController@create');

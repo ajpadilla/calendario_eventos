@@ -29,15 +29,13 @@ class EventController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($datos)
 	{
 		$response = array();
 		if(Request::ajax()){
 			$response['datos'] = $datos;
 			$response['success'] = true;
 			$datos_evento = json_decode($datos,true);
-			Session::put('persona',$datos_evento);	
-			
 						
 			$evento = new Evento;
 			$evento->title = $datos_evento['title'];
