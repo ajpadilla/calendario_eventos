@@ -1,6 +1,7 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
+	@include('themes.fullcalendar.persona.partials.validarForm')
 @stop
 
 @section('page_header')
