@@ -228,6 +228,7 @@
 				editable: true,
 				eventLimit: true,
 				eventClick: function(event, element) {
+					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'0%'}, 300);
 						var data;
 						var hora;
 						hora = $.fullCalendar.moment(event.start).format();
@@ -240,9 +241,52 @@
 						$('#articulaciones').val(event.articulacion.id);
 						$('#impactos').val(event.impacto.id);
 						$('#subsistemas').val(event.subsistema.id);
-						$('#municipios').val(event.municipio.id);
 						$('#estados').val(event.estado.id);
+						$('#municipios').val(event.municipio.id);
 						console.log('Municipio:'+event.municipio.id);
+					
+						$('#registrar').click(function(){
+							//console.log($('#formEvent').valid());
+							if($('#formEvent').valid() == 1){
+								$.ajax({
+									type:'POST',
+									url:'" . URL::to('/eventos/') ."'+'/'+JSON.stringify(data),
+									dataType:'json',
+									success : function(response) {
+										console.log(response);
+										$.fancybox({
+											'content': '<h1>Evento registrado</h1>',
+											'autoScale' : true,
+											'transitionIn' : 'none',
+											'transitionOut' : 'none',
+											'scrolling' : 'no',
+											'type' : 'inline',
+											'showCloseButton' : false,
+											'hideOnOverlayClick' : false,
+											'hideOnContentClick' : false
+										});
+										$('#formEvent').clearForm();
+									},
+									error : function(jqXHR, status, error) {
+										$.fancybox({
+											'content': '<h1>Error al registrar el evento</h1>',
+											'autoScale' : true,
+											'transitionIn' : 'none',
+											'transitionOut' : 'none',
+											'scrolling' : 'no',
+											'type' : 'inline',
+											'showCloseButton' : false,
+											'hideOnOverlayClick' : false,
+											'hideOnContentClick' : false
+										});
+									},
+								});
+							}
+							$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+						});
+						$('.exit').click(function(){
+							$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+						});					
 					},
 					eventDrop: function(event, delta){
 						console.log('id:'+ event.id +' '+'fecha:'+$.fullCalendar.moment(event.start).format());
