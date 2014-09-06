@@ -1,25 +1,26 @@
 <div class="form-group">
-	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-8">
-    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
-    </div>
-</div>
-<div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
    		{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
     </div>
 </div>
 <div class="form-group">
-	{{ Form::label('nombre', 'Nombre: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('nombres', 'Nombres: ',array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
-   		{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control','id'=>'nombre')) }}
+   		{{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control','id'=>'nombres')) }}
     </div>
 </div>
 <div class="form-group">
-	{{ Form::label('apellido', 'Apellido: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('apellidos', 'Apellidos: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('apellido', Input::old('apellido'), array('class' => 'form-control','id'=>'apellido')) }}
+    	{{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control','id'=>'apellidos')) }}
+    </div>
+</div>
+
+<div class="form-group">
+	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
+    <div class="col-md-8">
+    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
     </div>
 </div>
 <div class="form-group">
@@ -30,9 +31,16 @@
   	</div>
 </div>
 <div class="form-group">
-	{{ Form::label('movil', 'Móvil: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('Dirección', 'Dirección: ',array('class'=>'control-label col-md-3')) }}
+	<div class="col-md-8">
+	{{ Form::textarea('direccion', Input::old('direccion'), array('class' => 'form-control','rows'=>'3','cols'=>'3','id'=>'direccion')) }}
+	</div>
+</div>
+
+<div class="form-group">
+	{{ Form::label('telefono', 'Telefono: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('movil', Input::old('movil'), array('class' => 'form-control','id'=>'movil')) }}
+    	{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control','id'=>'telefono')) }}
     </div>
 </div>
 <div class="form-group">
@@ -40,12 +48,6 @@
 	<div class="col-md-8">
  		{{ Form::text('email', Input::old('email'), array('class' => 'form-control','id'=>'email')) }}
    	</div>
-</div>
-<div class="form-group">
-	{{ Form::label('Dirección', 'Dirección: ',array('class'=>'control-label col-md-3')) }}
-<div class="col-md-8">
-	{{ Form::textarea('direccion', Input::old('direccion'), array('class' => 'form-control','rows'=>'3','cols'=>'3','id'=>'direccion')) }}
-</div>
 </div>
 <div class="form-group">
 	{{ Form::label('municipio', 'Municipio: ',array('class'=>'control-label col-md-3')) }}
