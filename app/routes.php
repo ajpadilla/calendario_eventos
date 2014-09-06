@@ -34,6 +34,8 @@ Route::post('actualizarImpacto/{id}','ImpactoController@update');
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('crearSubsistemas','SubsistemaController@create');
 Route::post('guardarSubsistemas','SubsistemaController@store');
+Route::get('editarSubsistema/{id}','SubsistemaController@edit');
+Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
 
 //Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
