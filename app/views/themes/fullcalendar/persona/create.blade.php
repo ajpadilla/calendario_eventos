@@ -1,4 +1,4 @@
-@extends('layouts.form_content')
+@extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
 @stop
@@ -22,7 +22,7 @@
 @stop
 
 @section('form')
-	<div class="box border red" id="formWizard">
+	<div class="box border blue">
     	<div class="box-title">
 			<h4><i class="fa fa-reorder"></i>Inscribir nuevo alumno - <span class="stepHeader">Step 1 of 3</span></h4>
            	<div class="tools hidden-xs">
@@ -41,7 +41,7 @@
             </div>
     	</div>
     	<div class="box-body form">
-			@include('themes.fullcalendar.persona.formWizard')
+			@include('themes.fullcalendar.persona.form_wizard')
        	</div>
 	</div>
 @stop
