@@ -20,7 +20,7 @@ class PersonaController extends BaseController {
 	 */
 	public function create()
 	{		
-		return View::make('persona.create');
+		return View::make('themes.fullcalendar.persona.create');
 	}
 
 	/**
