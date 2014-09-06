@@ -163,14 +163,14 @@
 					}
 				});
 			$('#estados').click(function(){
-				console.log('algo');
-				console.log('estado:'+$('#estado').val());
+				//console.log('algo');
+				//console.log('estado:'+$('#estado').val());
 				$.ajax({
 					type: 'GET',
 					url: '" . URL::to('/cargarMunicipios') ."'+'/'+$('#estados').val(),
 					dataType:'json',
 					success: function(response) {
-						console.log('Municipios'+JSON.stringify(response));
+						//console.log('Municipios'+JSON.stringify(response));
 						if(response.success == true) {
 							$('#municipio').html('');
 							$('#municipio').append('<option value=\"\">-- Municipio --</option>');
@@ -188,7 +188,29 @@
 				});
 			});			
 	
-	
+						
+			$.ajax({
+				type: 'GET',
+				url: '" . URL::to('/retornarEventos/') ."',
+				dataType:'json',
+				success: function(response) {
+					console.log('eventos:'+JSON.stringify(response));
+					if(response.success == true) {
+						$('#eventos').html('');
+						$('#eventos').append('<option value=\"\"></option>');
+						$.each(response.eventos,function (k,v){
+							$('#eventos').append('<option value=\"'+k+'\">'+v+'</option>');
+						});
+						}else{
+							$('#eventos').html('');
+							$('#eventos').append('<option value=\"\">-- Eventos --</option>');
+						}
+					},
+					error : function(jqXHR, status, error) {
+						console.log('Disculpe, existió un problema');
+					},
+				});
+
 
 		});
 	"

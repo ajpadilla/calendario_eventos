@@ -10,7 +10,7 @@ class PersonaController extends BaseController {
 	public function index()
 	{
 		$personas = Persona::all();
-		return View::make('persona.index')->with('personas', $personas);
+		return View::make('themes.fullcalendar.persona.index')->with('personas', $personas);
 	}
 
 	/**
@@ -48,6 +48,13 @@ class PersonaController extends BaseController {
 			$persona->email = Input::get('email');
 			$persona->municipio_id = Input::get('municipio');
 			$persona->save();
+		
+			//return Input::get('evento_ids');
+			foreach(Input::get('evento_ids') as $evento_id){
+				$evento = new Evento;
+				$evento->id = $evento_id;
+				$persona->eventos()->save($evento);
+			}
 		
 			return $response;
 				

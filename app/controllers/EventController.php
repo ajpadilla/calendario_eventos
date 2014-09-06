@@ -82,7 +82,7 @@ class EventController extends \BaseController {
 				$articulacion = $evento->articulacion;
 				$subsistema = $evento->subsistema;
 				
-				$evento['evento'] = $evento->toArray();
+				//$evento['evento'] = $evento->toArray();
 				$evento['estado'] = $estado->toArray();
 				unset($evento['municipio_id']);
 				$evento['municipio'] = $municipio->toArray();
@@ -97,6 +97,17 @@ class EventController extends \BaseController {
 			return json_encode($eventos_finales);
 		}
 		return array('success' => false);
+	}
+
+	public function retornarEventos(){
+		$response = array();
+        $eventos = Evento::all()->lists('title', 'id');
+        if(count($eventos) > 0) {
+       		$response['success'] = true;
+        	$response['eventos'] = $eventos;
+        	return ($response);
+       }
+	  return array('success' => false);
 	}
 
 	/**

@@ -22,6 +22,10 @@ class Persona extends \Eloquent  {
 					'municipio_id'=>'required'
 				   );
 
+	public function eventos(){
+		return $this->belongsToMany('Evento','beneficiarios','persona_id','evento_id')->withPivot('id');
+	}	
+
 	public static function getPersonaByCedula($cedula){
 		return Persona::whereCedula($cedula)->get();
 	}
