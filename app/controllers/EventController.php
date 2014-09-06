@@ -138,9 +138,32 @@ class EventController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id,$datos)
 	{
-		//
+		$response = array();
+		if(Request::ajax())
+		{
+			$response['id'] = $id;
+			$response['datos'] = $datos;
+			$response['success'] = true;
+			$datos_evento = json_decode($datos,true);
+						
+			$evento =  Evento::find($id);
+			$evento->title = $datos_evento['title'];
+			$evento->descripcion = $datos_evento['descripcion'];
+			$evento->start = $datos_evento['start'];
+			$evento->direccion = $datos_evento['direccion'];
+			$evento->observacion = $datos_evento['observacion'];
+			$evento->articulacion_id = (int)$datos_evento['articulacion'];
+			$evento->impacto_id = (int)$datos_evento['impacto'];
+			$evento->subsistema_id = (int)$datos_evento['subsistema'];
+			$evento->municipio_id = (int)$datos_evento['municipio'];
+			$evento->save();
+							
+			return json_encode($response);
+		}
+		return array('success' => false);
+
 	}
 
 
