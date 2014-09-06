@@ -32,7 +32,7 @@
 									rangelength: [5, 10],
 									remote: {
        								url:'" . URL::to('/existenciaCedula/') ."',
-        							type: 'post',
+        							type: 'GET',
         							data: {
           								cedula: function() {
 											return $('#cedula').val();
@@ -57,7 +57,7 @@
 									email: true,
 									remote:{
                                       url:'" . URL::to('/existenciaEmail/') ."',
-                                      type: 'post',
+                                      type: 'GET',
                                       data: {
                                      	email: function() {
                                         	return $('#email').val();
