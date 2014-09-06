@@ -35,12 +35,6 @@
    	</div>
 </div>
 <div class="form-group">
-	{{ Form::label('fecha_nacimiento', 'Fecha de Nacimiento: ',array('class' => 'col-md-3 control-label')) }}
-	<div class="col-md-8">
-    	{{ Form::custom('date', 'fecha_nacimiento', Input::old('fecha_nacimiento'), array('class' => 'form-control','id'=>'fecha')) }}
-    </div>
-</div>
-<div class="form-group">
 	{{ Form::label('sexo', 'Género: ',array('class' => 'col-md-3 control-label')) }}
    	<div class="col-md-4">
     	Femenino {{ Form::radio('sexo', 'f', Input::old('sexo'), array('class' => 'radio-inline')) }}
