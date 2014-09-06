@@ -1,9 +1,6 @@
 @extends('layouts.form_content')
 
 @section('script')
-	@include('layouts.partials.form-wizard-direccion_persona')
-	@include('layouts.partials.datosFormWizard')
-	@include('layouts.partials.getMunicipiosByEstado')
 @stop
 
 @section('page_header')
@@ -21,7 +18,7 @@
    	<div class="clearfix">
     	<h3 class="content-title pull-left">Forms</h3>
     </div>
-    <div class="description">Formulario para inscribir alumnos</div>
+    <div class="description">Formulario para agregar personas</div>
 @stop
 
 @section('form')
@@ -44,7 +41,7 @@
             </div>
     	</div>
     	<div class="box-body form">
-       		@include('persona.form_wizard')
+			@include('themes.fullcalendar.persona.formWizard')
        	</div>
 	</div>
 @stop
