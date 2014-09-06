@@ -69,3 +69,4 @@ Route::get('borrarEstado/{id}','EstadoController@destroy');
 Route::post('updateStartEvent/{event_data}','EventController@updateStartEvent');
 Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrar','EventController@create');
+Route::get('retornarEventos','EventController@retornarEventos');
