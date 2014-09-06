@@ -1,6 +1,6 @@
 <?php
 
-class Persona extends Model {
+class Persona extends \Eloquent  {
 
 	/**
 	 * The database table used by the model.
@@ -9,18 +9,7 @@ class Persona extends Model {
 	 */
 	protected $table = 'personas';
 
-	protected $fillable = array(
-							'cedula',
-							'nombre',
-							'apellido',
-							'nacionalidad',
-							'sexo',
-							'direccion'
-							'telefono',
-							'email',
-							'municipio_id'
-							);
-	
+		
 	public static $rules = array(
 					'cedula' => 'required|unique:personas,cedula|numeric|digits_between:5,10',
 					'nombre' => 'required|alpha|between:1,45',
@@ -28,7 +17,7 @@ class Persona extends Model {
 					'nacionalidad' => 'required',
 					'sexo' => 'required|in:m,f',
 					'direccion' => 'required',
-					'telefono' => 'between:7,12',
+					'telefono' => 'required|between:7,12',
 					'email' => 'email|unique:personas,email',
 					'municipio_id'=>'required'
 				   );
