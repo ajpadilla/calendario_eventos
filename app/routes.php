@@ -15,6 +15,11 @@ Route::get('/', function()
 {
 	return View::make('themes.fullcalendar.calendario.create');
 });
+
+//Rutas para las personas
+Route::get('crearPersona','PersonaController@create');
+Route::post('guardarPersona','PersonaController@store');
+
 //Rutas de las articulaciones
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('crearArticulacion','ArticulacionController@create');
