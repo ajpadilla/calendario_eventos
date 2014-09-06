@@ -11,28 +11,16 @@
     </div>
 </div>
 <div class="form-group">
-	{{ Form::label('primer_nombre', 'Primer Nombre: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('nombre', 'Nombre: ',array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
-   		{{ Form::text('primer_nombre', Input::old('primer_nombre'), array('class' => 'form-control','id'=>'primer_nombre')) }}
+   		{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control','id'=>'nombre')) }}
     </div>
 </div>
 <div class="form-group">
-	{{ Form::label('segundo_nombre', 'Segundo Nombre: ',array('class' => 'col-md-3 control-label')) }}
-   	<div class="col-md-8">
-    	{{ Form::text('segundo_nombre', Input::old('segundo_nombre'), array('class' => 'form-control','id'=>'segundo_nombre')) }}
-   	</div>
-</div>
-<div class="form-group">
-	{{ Form::label('primer_apellido', 'Primer Apellido: ',array('class' => 'col-md-3 control-label')) }}
+	{{ Form::label('apellido', 'Apellido: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('primer_apellido', Input::old('primer_apellido'), array('class' => 'form-control','id'=>'primer_apellido')) }}
+    	{{ Form::text('apellido', Input::old('apellido'), array('class' => 'form-control','id'=>'apellido')) }}
     </div>
-</div>
-<div class="form-group">
-	{{ Form::label('segundo_apellido', 'Segundo Apellido: ',array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-8">
-    	{{ Form::text('segundo_apellido', Input::old('segundo_apellido'), array('class' => 'form-control','id'=>'segundo_apellido')) }}
-   	</div>
 </div>
 <div class="form-group">
 	{{ Form::label('sexo', 'Género: ',array('class' => 'col-md-3 control-label')) }}
@@ -53,11 +41,17 @@
  		{{ Form::text('email', Input::old('email'), array('class' => 'form-control','id'=>'email')) }}
    	</div>
 </div>
-<div class="formgroup">
-	{{ Form::label('foto', 'Foto: ',array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-8">
-    	{{ Form::file('foto', Input::old('foto'), array('class' => 'form-control','id'=>'foto')) }}
-   	</div>
+<div class="form-group">
+	{{ Form::label('Dirección', 'Dirección: ',array('class'=>'control-label col-md-3')) }}
+<div class="col-md-8">
+	{{ Form::textarea('direccion', Input::old('direccion'), array('class' => 'form-control','rows'=>'3','cols'=>'3','id'=>'direccion')) }}
+</div>
+</div>
+<div class="form-group">
+	{{ Form::label('municipio', 'Municipio: ',array('class'=>'control-label col-md-3')) }}
+<div class="col-md-8">
+	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
+</div>
 </div>
 <div class="wizard-buttons">
 	<div class="row">
@@ -67,7 +61,7 @@
                 	<i class="fa fa-arrow-circle-left"></i> Back
                	</a>
                 <a id="registrar" href="javascript:;" class="btn btn-primary nextBtn" id="persona">
-                	Continue <i class="fa fa-arrow-circle-right"></i>
+                	Registrar <i class="fa fa-arrow-circle-right"></i>
                	</a>
             </div>
 		</div>
