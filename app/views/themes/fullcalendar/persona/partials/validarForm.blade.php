@@ -7,7 +7,7 @@
 				debug: true,
 			});
 
-			$('input[name=telefono]').inputmask({'mask':'9999-9999999'});
+			$('input[name=telefono]').inputmask({'mask':'99999999999'});
 			
 			 $.validator.addMethod('alpha', 
                               function(value, element) {
@@ -16,14 +16,14 @@
                               'Alpha Characters Only.'
        		);
 
-						$('#wizForm').validate({
+		$('#wizForm').validate({
 			doNotHideMessage:!0,
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
                     		numero:{required:!0},
                    			telefono:{required:!0},
-                        	ubicacion:{required:!0,rangelength: [10, 256]},
+                        	direccion:{required:!0,rangelength: [10, 256]},
                         	municipio:{required:!0},
 							nacionalidad:{required:!0},
 							cedula:{
@@ -49,8 +49,8 @@
         							}
       							}
 							},
-							nombre:{required:!0,alpha: true,rangelength: [1 , 45]},
-							apellido:{required:!0,alpha: true,rangelength: [1 , 45]},
+							nombres:{required:!0,alpha: true,rangelength: [1 , 45]},
+							apellidos:{required:!0,alpha: true,rangelength: [1 , 45]},
 							sexo:{required:!0},
 							email:{
 									required:!0,
@@ -103,6 +103,45 @@
                  });
 				$('#registrar').click(function(){
 					console.log($('#wizForm').valid());
+					if($('#wizForm').valid() == true)
+					{	
+						$.ajax({
+								type:'POST',
+								url:'" . URL::to('/guardarPersona/') ."',
+								data:$('#wizForm').serialize(),
+								dataType:'json',
+								success : function(response) {
+									console.log(response);
+									$.fancybox({
+										'content': '<h1>Persona Agregada</h1>',
+										'autoScale' : true,
+										'transitionIn' : 'none',
+										'transitionOut' : 'none',
+										'scrolling' : 'no',
+										'type' : 'inline',
+										'showCloseButton' : false,
+										'hideOnOverlayClick' : false,
+										'hideOnContentClick' : false
+									});
+									$('#formWizardEstado').clearForm();
+								},
+								error : function(jqXHR, status, error) {
+									//alert('Disculpe, existió un problema');
+									$.fancybox({
+										'content': '<h1>Error al agregar a la persona</h1>',
+										'autoScale' : true,
+										'transitionIn' : 'none',
+										'transitionOut' : 'none',
+										'scrolling' : 'no',
+										'type' : 'inline',
+										'showCloseButton' : false,
+										'hideOnOverlayClick' : false,
+										'hideOnContentClick' : false
+									});
+									$('#formWizardEstado').clearForm();
+								},
+						});
+					}
 				});
 				
 				$.ajax({
