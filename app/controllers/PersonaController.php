@@ -10,7 +10,7 @@ class PersonaController extends BaseController {
 	public function index()
 	{
 		$personas = Persona::all();
-		return View::make('persona.index')->with('personas', $personas);
+		return View::make('themes.fullcalendar.persona.index')->with('personas', $personas);
 	}
 
 	/**
