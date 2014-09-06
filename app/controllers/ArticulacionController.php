@@ -112,7 +112,9 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$articulacion = Articulacion::find($id);
+		$articulacion->delete();
+		////return Redirect::to('nerds');
 	}
 
 
