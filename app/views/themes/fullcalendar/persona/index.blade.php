@@ -28,8 +28,8 @@
 								<td>{{ $persona->cedula }}</td>
 								<td>{{ $persona->nombres }}</td>
 								<td>{{ $persona->apellidos }}</td>
-								<td></td>
-								<td></td>
+								<td><a href="" class="btn btn-primary">Editar<i class="fa fa-arrow-circle-right"></i></a></td>
+<td><a href="" class="btn btn-danger">Borrar<i class="fa fa-arrow-circle-right"></i></a></td>
 							</tr>
 						@endforeach						
 					</tbody>					
