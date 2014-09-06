@@ -77,7 +77,9 @@ class SubsistemaController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		
+		$subsistema = Subsistema::find($id);
+      	return View::make('themes.fullcalendar.subsistemas.edit')->with('subsistema', $subsistema);
 	}
 
 
@@ -89,7 +91,18 @@ class SubsistemaController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		 if(Request::ajax()){
+              $response = array();
+              $response['susses'] = true;
+              $response['nombre'] = Input::get('nombre');
+  
+              $subsistema = Subsistema::find($id);
+              $subsistema->nombre = Input::get('nombre');
+              $subsistema->save();
+  
+              return json_encode($response);
+          }
+         return array('susses'=>'false');
 	}
 
 
