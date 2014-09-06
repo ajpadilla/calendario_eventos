@@ -35,11 +35,12 @@
 			.cal-popup {
 				display:none;
 				position:fixed;
-				top:50%;
-				left:50%;
+				top:40%;
+				left:40%;
 				background-color:#f5f5f5;
 				z-index:9999;
-				height:650px;
+				height:730px;
+				width:500px;
 				border:1px;
 				border-color:grey;
 				border-radius:3px;
