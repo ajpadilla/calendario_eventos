@@ -50,6 +50,12 @@
    	</div>
 </div>
 <div class="form-group">
+	{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
+<div class="col-md-8">
+	{{ Form::select('estado',array('' => '-- Seleccione --'),Input::old('estado'),array('class' => 'form-control','id'=>'estados')) }}
+</div>
+</div>
+<div class="form-group">
 	{{ Form::label('municipio', 'Municipio: ',array('class'=>'control-label col-md-3')) }}
 <div class="col-md-8">
 	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
