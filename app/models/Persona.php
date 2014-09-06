@@ -1,16 +1,43 @@
 <?php
 
 class Persona extends Model {
-	protected $table = 'personas';
-	protected $fillable = array();
-	public static $rules = array();
-	
-	public function municipio(){
-		 return $this->belongsTo('Municipio');
-	}
 
-	public function eventos(){	
-		return $this->belongsToMany('Evento','beneficiarios','persona_id','evento_id');
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'personas';
+
+	protected $fillable = array(
+							'cedula',
+							'nombre',
+							'apellido',
+							'nacionalidad',
+							'sexo',
+							'direccion'
+							'telefono',
+							'email',
+							'municipio_id'
+							);
+	
+	public static $rules = array(
+					'cedula' => 'required|unique:personas,cedula|numeric|digits_between:5,10',
+					'nombre' => 'required|alpha|between:1,45',
+					'apellido' => 'required|alpha|between:1,45',
+					'nacionalidad' => 'required',
+					'sexo' => 'required|in:m,f',
+					'direccion' => 'required',
+					'telefono' => 'between:7,12',
+					'email' => 'email|unique:personas,email',
+					'municipio_id'=>'required'
+				   );
+
+	public static function getPersonaByCedula($cedula){
+		return Persona::whereCedula($cedula)->get();
 	}
 	
+	public static function getPersonaByEmail($email){
+		return Persona::whereEmail($email)->get();
+	}
 }
