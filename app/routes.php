@@ -19,6 +19,8 @@ Route::get('/', function()
 //Rutas para las personas
 Route::get('crearPersona','PersonaController@create');
 Route::post('guardarPersona','PersonaController@store');
+Route::get('existenciaCedula','PersonaController@existenciaCedula');
+Route::get('existenciaEmail','PersonaController@existenciaEmail');
 
 //Rutas de las articulaciones
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
