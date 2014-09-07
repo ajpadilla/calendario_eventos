@@ -2,7 +2,12 @@
 <div class="form-group">
 		{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3','id'=>'estado')) }}
 		<div class="col-md-8">
-		{{ Form::select('estados',array($estado->id => $estado->nombre),Input::old('estados'),array('class' => 'form-control','id'=>'estados')) }}
+		{{ Form::select(
+				'estados',
+				$estados,
+				$estado,
+				array('class' => 'form-control')
+			) }}
 	</div>
 </div>	
 	<div class="form-group">
