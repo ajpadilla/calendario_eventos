@@ -160,6 +160,17 @@
 				selectable: true,
 				selectHelper: true,
 				select: function(start, end) {
+					$('#titulo').val();
+                         $('#descripcion').val();
+                         $('#hora').val();
+                         $('#direccion').val();
+                         $('#observacion').val();
+                         $('#articulaciones').val();
+                         $('#impactos').val();
+                         $('#subsistemas').val();
+                         $('#estados').val();
+                         $('#municipios').val();
+
 					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'0%'}, 300);
 					
 					
@@ -188,7 +199,7 @@
 									dataType:'json',
 									success : function(response) {
 										console.log(response);
-										$.fancybox({
+										/*$.fancybox({
 												'content': '<h1>Evento registrado</h1>',
 												'autoScale' : true,
 												'transitionIn' : 'none',
@@ -198,7 +209,7 @@
 												'showCloseButton' : false,
 												'hideOnOverlayClick' : false,
 												'hideOnContentClick' : false
-										});
+										});*/
 										$('#formEvent').clearForm();
 									},
 									error : function(jqXHR, status, error) {
@@ -217,13 +228,13 @@
 								});
 							$('#calendar').fullCalendar('renderEvent',eventData);
 							//$('#calendar').fullCalendar('refetchEvents');
-                			$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+                			$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
 						}
 						$('#calendar').fullCalendar('unselect');
 					});				
 
 					$('.exit').click(function(){
-                		$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+                		$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
               		});
 				},
 				editable: true,
@@ -268,7 +279,7 @@
 									dataType:'json',
 									success : function(response) {
 										console.log(response);
-										$.fancybox({
+										/*$.fancybox({
 											'content': '<h1>Evento actualizado</h1>',
 											'autoScale' : true,
 											'transitionIn' : 'none',
@@ -278,7 +289,7 @@
 											'showCloseButton' : false,
 											'hideOnOverlayClick' : false,
 											'hideOnContentClick' : false
-										});
+										});*/
 									},
 									error : function(jqXHR, status, error) {
 										$.fancybox({
@@ -296,11 +307,11 @@
 								});
 								
 								//$('#calendar').fullCalendar('refetchEvents');
-								$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+								$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
 							}
 						});
 						$('.exit').click(function(){
-							$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
+							$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
 						});					
 					},
 					eventDrop: function(event, delta){
