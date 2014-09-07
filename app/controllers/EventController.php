@@ -108,7 +108,6 @@ class EventController extends \BaseController {
 	  return array('success' => false);
 	}
 
->>>>>>> 033e6c907ef03b2d73378b9a042e06a631a7a392
 	/**
 	 * Display the specified resource.
 	 *
