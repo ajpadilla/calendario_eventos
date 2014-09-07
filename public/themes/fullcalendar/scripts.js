@@ -1,5 +1,10 @@
 $(document).ready(function() {
-	
+	var options = {
+		beforeSubmit: showRequest, 
+		success: showResponse,
+	};
+	$("#crear_evento").ajaxForm(options);
+
 	$('#hora').inputmask({'mask':'99:99:99'});
 	$.validator.addMethod('alpha',
 		function(value, element) {
@@ -45,32 +50,6 @@ $(document).ready(function() {
             },
 		});
 	
-	$('#estados').click(function(){
-		//console.log('estado:'+$('#estados').val());
-		$.ajax({
-			type: "GET",
-			url:'cargarMunicipios/'+$('#estados').val(),
-			dataType:'json',
-			success: function(response) {
-				//console.log('Municipios'+JSON.stringify(response));
-				if(response.success == true) {
-                	$('#municipios').html('');
-                    $('#municipios').append('<option value=\"\">-- Municipio --</option>');
-                   		$.each(response.municipios,function (k,v){
-                        	$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
-                      	}); 
-                      }else{
-                          $('#estados').html('');
-                          $('#estados').append('<option value=\"\">-- Municipio --</option>');
-                      } 
-				},
-				error : function(jqXHR, status, error) {
-					console.log('Disculpe, existió un problema');
-				},
-			});
-
-		});
-		
 	$.ajax({
 		type: "GET",
 		url:'retornarArticulaciones',
@@ -132,7 +111,33 @@ $(document).ready(function() {
 				}
 			}
 		});
-		
+
+	$('#add_event').click(function(){
+			console.log('algo');
+			console.log('estado:'+$('#estados').val());
+			$.ajax({
+				type: "GET",
+				url:'cargarMunicipios/'+$('#estados').val(),
+				dataType:'json',
+				success: function(response) {
+					console.log('Municipios'+JSON.stringify(response));
+					if(response.success == true) {
+						$('#municipios').html('');
+						$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+						$.each(response.municipios,function (k,v){
+							$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
+						}); 
+						}else{
+							$('#municipios').html('');
+							$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+						} 
+					},
+				error : function(jqXHR, status, error) {
+					console.log('Disculpe, existió un problema');
+				},
+			});
+		});
+
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
@@ -143,6 +148,9 @@ $(document).ready(function() {
         {
         	url: 'cargar_eventos',
             type: 'GET',
+			success: function(response) {
+            	console.log(response);
+            },
             error: function() {
             	alert('there was an error while fetching events!');
             },
@@ -157,60 +165,42 @@ $(document).ready(function() {
 		select: function(start, end) {
 			var eventData;
 			var data;
-				
-
-			$(".popup").css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'45%'}, 300);
 			
-			$(".submitForm").click(function(){
-		
-				var title = $('#titulo').val();
-				var descripcion = $('#descripcion').val();
-				var hora = $('#hora').val();	
-				var direccion= $('#direccion').val();
-				var observacion = $('#observacion').val();
-				var articulacion = $('#articulaciones').val();
-				var impacto = $('#impactos').val();
-				var subsistema = $('#subsistemas').val();
-				var municipio = $('#municipios').val();
-				
-				if (title) {
-					eventData = {
-						title: title,
-						start: start,
-					}
-				};
-			
-				data = {
-					title: title,	
-					descripcion: descripcion,
-					start: $.fullCalendar.moment(start).format()+' '+hora,
-					direccion: direccion,
-					observacion: observacion,
-					articulacion: articulacion,
-					impacto: impacto,
-					subsistema: subsistema,
-					municipio: municipio
-				};
-				console.log("consola:" + JSON.stringify(data));		
-				if($('#crear_evento').valid() == 1){
-					$('#calendar').fullCalendar('renderEvent', eventData, true);
-					$.ajax({
-						type: "POST",
-						url:'eventos/' + JSON.stringify(data),
-						success: function(response) {
-							console.log(response);
-						},
-						error : function(jqXHR, status, error) {
-							console.log('Disculpe, existió un problema');
-						},
-					});
-				};
-				$('#calendar').fullCalendar('unselect');
+			$.ajax({
+				type: "GET",
+				url:'cargarMunicipios/'+1,
+				dataType:'json',
+				success: function(response) {
+					console.log('Municipios'+JSON.stringify(response));
+					if(response.success == true) {
+						$('#municipios').html('');
+						$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+						$.each(response.municipios,function (k,v){
+							$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
+						}); 
+						}else{
+							$('#municipios').html('');
+							$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+						} 
+					},
+				error : function(jqXHR, status, error) {
+					console.log('Disculpe, existió un problema');
+				},
 			});
 
-			$(".exit").click(function(){
-            	$(".popup").css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'55%','display':'none'}, 300);
-            });
+			
+			jQuery.fancybox({
+				'content': $('#add_event').html(),
+				'autoScale' : true,
+				'transitionIn' : 'none',
+				'transitionOut' : 'none',
+				'scrolling' : 'no',
+				'type' : 'inline',
+				'showCloseButton' : true,
+				'hideOnOverlayClick' : true,
+				'hideOnContentClick' : true
+			}); 
+			
 			},
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
@@ -255,4 +245,26 @@ $(document).ready(function() {
 		});
 		
 	});
-
+// pre-submit callback 
+function showRequest(formData, jqForm, options) { 
+	setTimeout(jQuery.fancybox({
+		'content': "<h1>Enviando datos</h1>",
+		'autoScale' : true,
+		'transitionIn' : 'none',
+		'transitionOut' : 'none',
+		'scrolling' : 'no',
+		'type' : 'inline',
+		'showCloseButton' : false,
+		'hideOnOverlayClick' : false,
+		'hideOnContentClick' : false
+	}), 5000 );
+	return jQuery("#crear_evento").valid();
+} 
+ 
+// post-submit callback 
+function showResponse(responseText, statusText, xhr, $form)  { 
+		jQuery.fancybox({
+		'content' : responseText,
+		'autoScale' : true
+	});
+} 

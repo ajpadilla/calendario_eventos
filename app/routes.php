@@ -16,41 +16,58 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
+//Rutas para las personas
+Route::get('crearPersona','PersonaController@create');
+Route::post('guardarPersona','PersonaController@store');
+Route::get('existenciaCedula','PersonaController@existenciaCedula');
+Route::get('existenciaEmail','PersonaController@existenciaEmail');
+Route::get('listarPersonas','PersonaController@index');
+
+//Rutas de las articulaciones
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
+Route::get('crearArticulacion','ArticulacionController@create');
+Route::post('guardarArticulacion','ArticulacionController@store');
+Route::get('editarArticulacion/{id}','ArticulacionController@edit');
+Route::post('actualizarArticulacion/{id}','ArticulacionController@update');
+Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
+
+//Rutas de los impactos
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+Route::get('crearImpactos','ImpactoController@create');
+Route::post('guardarImpactos','ImpactoController@store');
+Route::get('editarImpacto/{id}','ImpactoController@edit');
+Route::post('actualizarImpacto/{id}','ImpactoController@update');
+
+//Rutas de los subsistemas
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
-Route::get('cargarEstados','EstadoController@cargarEstados');
+Route::get('crearSubsistemas','SubsistemaController@create');
+Route::post('guardarSubsistemas','SubsistemaController@store');
+Route::get('editarSubsistema/{id}','SubsistemaController@edit');
+Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
+
+//Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
-Route::resource('estado','EstadoController');
-Route::resource('municipios','MunicipioController');
+//Route::resource('municipios','MunicipioController');
+Route::get('crearMunicipio','MunicipioController@create');
+Route::post('guardarMunicipio','MunicipioController@store');
+Route::get('editarMunicipio/{id}','MunicipioController@edit');
+Route::post('actualizarMunicipio/{id}','MunicipioController@update');
+
+//Rutas de el controlador Estado
+Route::get('cargarEstados','EstadoController@cargarEstados');
+Route::get('crearEstado','EstadoController@create');
+Route::post('guardarEstado','EstadoController@store');
+Route::post('verificarExistenciaNombreEstado','EstadoController@verificarExistenciaNombreEstado');
+Route::get('mostrarEstados','EstadoController@index');
+Route::get('editarEstado/{id}','EstadoController@edit');
+Route::post('actualizarEstado/{id}','EstadoController@update');
+Route::get('borrarEstado/{id}','EstadoController@destroy');
+
+//Rutas del controlados Eventos
+//Route::resource('estado','EstadoController');
 Route::post('eventos/{datos}','EventController@store');
-Route::post('updateStartEvent/{event_data}','EventController@updateStartEvent');
+Route::post('updateStartEvent/{datos}','EventController@updateStartEvent');
+Route::post('actualizarEvento/{id}/{datos}','EventController@update');
 Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrar','EventController@create');
-Route::get('prueba/{id}',function($id){
-    $eventos = Evento::all();
-    $eventos_finales = array();
-    foreach($eventos as $evento){
-        $municipio = $evento->municipio;
-        $estado = $municipio->estado;
-        $impacto = $evento->impacto;
-        $articulacion = $evento->articulacion;
-        $subsistema = $evento->subsistema;
-        $evento = $evento->toArray();
-
-        unset($evento['municipio_id']); 
-        $evento['municipio'] = $municipio->toArray();
-        
-        unset($evento['articulacion_id']); 
-        $evento['articulacion'] = $articulacion->toArray();
-        
-        unset($evento['subsistema_id']); 
-        $evento['subsistema'] = $subsistema->toArray();
-        
-        unset($evento['impacto_id']); 
-        $evento['impacto'] = $impacto->toArray();
-        
-        array_push($eventos_finales,$evento);
-    }
-    return json_encode($eventos_finales);
-});
+Route::get('retornarEventos','EventController@retornarEventos');

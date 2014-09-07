@@ -14,6 +14,7 @@
 	
 	 	$('#registrarMunicipio').click(function(){
 			console.log($('#formWizardMunicipio').valid());
+			console.log('id_estado:'+$('#estados').val() +' '+ 'municipio:' + $('#nombre_municipio').val());
 			 if($('#formWizardMunicipio').valid() == true){
 				var datos = {
 					nombre : $('#nombre_municipio').val(),
@@ -21,13 +22,13 @@
 				}	
 				$.ajax({
 					type: 'POST',
-					url:'" . URL::to('/guardarMunicipio/') ."',
+					url:'" . URL::to('/actualizarMunicipio/') ."'+'/'+$('#id').val(),
 					data: datos,
 					dataType:'json',
 					success: function(response) {
 						console.log(response);
 						$.fancybox({
-							'content': '<h1>Municipio Agregado</h1>',
+							'content': '<h1>Municipio Actualizado</h1>',
 							'autoScale' : true,
 							'transitionIn' : 'none',
 							'transitionOut' : 'none',
@@ -37,11 +38,10 @@
 							'hideOnOverlayClick' : false,
 							'hideOnContentClick' : false
 						});
-						$('#formWizardMunicipio').clearForm();
 					},
 					error : function(jqXHR, status, error) {
 						$.fancybox({
-							'content': '<h1>Error al enviar los datos del municipio</h1>',
+							'content': '<h1>Error al actualizar los datos del municipio</h1>',
 							'autoScale' : true,
 							'transitionIn' : 'none',
 							'transitionOut' : 'none',
@@ -52,30 +52,30 @@
 							'hideOnContentClick' : false
 						});
 						
-						$('#formWizardMunicipio').clearForm();
 					}
 				});
 			}
 		});
 
-	
-		$.ajax({
-			type: 'GET',
-			url:'" . URL::to('/cargarEstados/') ."',
-			dataType:'json',
-			success: function(response) {
-			if (response.success == true) {
-			//console.log(response.estados);
-			$('#estados').html('');
-				$('#estados').append('<option value=\"\">-- Seleccione --</option>');
-				$.each(response.estados,function (k,v){
-				$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
-			});
-			}else{
-				$('#estados').html('');
-				$('#estados').append('<option value=\"\">-- Seleccione --</option>');
-			}
-			}
+		$('#estado').click(function(){
+				$.ajax({
+					type: 'GET',
+					url:'" . URL::to('/cargarEstados/') ."',
+					dataType:'json',
+					success: function(response) {
+					if (response.success == true) {
+					//console.log(response.estados);
+					$('#estados').html('');
+						$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+						$.each(response.estados,function (k,v){
+						$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
+					});
+					}else{
+						$('#estados').html('');
+						$('#estados').append('<option value=\"\">-- Seleccione --</option>');
+					}
+					}
+				});
 		});
 	});" 
 }}

@@ -1,7 +1,7 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
-	@include('themes.fullcalendar.estados.partials.validarFormularioEstado')
+	@include('themes.fullcalendar.articulaciones.partials.validarFormulario')
 @stop()
 
  
@@ -43,7 +43,7 @@
               </div>
           </div>
           <div class="box-body form">
-				@include('themes.fullcalendar.estados.formWizard')
+				@include('themes.fullcalendar.articulaciones.formWizard')
           </div>
 	</div>
 @stop

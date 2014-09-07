@@ -20,7 +20,8 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$articulaciones = Articulacion::all();
+		return View::make('themes.fullcalendar.articulaciones.create')->with('articulaciones', $articulaciones);
 	}
 
 
@@ -31,7 +32,19 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Request::ajax()){
+              $response = array();
+              $response['susses'] = true;
+              $response['nombre'] = Input::get('nombre');
+  
+              $articulacion = new Articulacion;
+              $articulacion->nombre = Input::get('nombre');
+              $articulacion->save();
+  
+              return json_encode($response);
+          }
+          return array('susses'=>'false');
+
 	}
 
 	public function retornarArticulaciones(){
@@ -63,7 +76,8 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$articulacion = Articulacion::find($id);
+        return View::make('themes.fullcalendar.articulaciones.edit')->with('articulacion', $articulacion);
 	}
 
 
@@ -75,7 +89,18 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		if(Request::ajax()){
+                $response = array();
+                $response['susses'] = true;
+                $response['nombre'] = Input::get('nombre');
+  
+                $articulacion = Articulacion::find($id);
+               $articulacion->nombre = Input::get('nombre');
+                $articulacion->save();
+  
+                return json_encode($response);
+        }
+            return array('susses'=>'false');
 	}
 
 
@@ -87,7 +112,9 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$articulacion = Articulacion::find($id);
+		$articulacion->delete();
+		////return Redirect::to('nerds');
 	}
 
 
