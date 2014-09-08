@@ -34,6 +34,7 @@ Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
 
 //Rutas de los impactos
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+Route::get('mostrarImpactos','ImpactoController@index');
 Route::get('crearImpactos','ImpactoController@create');
 Route::post('guardarImpactos','ImpactoController@store');
 Route::get('editarImpacto/{id}','ImpactoController@edit');
