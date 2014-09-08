@@ -88,7 +88,8 @@ class MunicipioController extends \BaseController {
 	public function edit($id)
 	{
 		$municipio = Municipio::find($id);
-		$estado = Estado::find($municipio->estado_id);
+		$estado = $municipio->estado->id;
+		$estados = Estado::lists('nombre', 'id');
 		return View::make('themes.fullcalendar.municipios.editar',compact('municipio','estado'));
 	}
 
