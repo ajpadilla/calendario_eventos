@@ -9,7 +9,8 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$articulaciones = Articulacion::all();
+		return View::make('themes.fullcalendar.articulaciones.index')->with('articulaciones', $articulaciones);
 	}
 
 
@@ -20,8 +21,7 @@ class ArticulacionController extends \BaseController {
 	 */
 	public function create()
 	{
-		$articulaciones = Articulacion::all();
-		return View::make('themes.fullcalendar.articulaciones.create')->with('articulaciones', $articulaciones);
+		return View::make('themes.fullcalendar.articulaciones.create');
 	}
 
 
