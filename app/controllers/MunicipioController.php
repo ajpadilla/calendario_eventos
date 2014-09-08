@@ -21,13 +21,7 @@ class MunicipioController extends \BaseController {
 	 */
 	public function create()
 	{
-		$municipios = Municipio::all();
-		return View::make('themes.fullcalendar.municipios.create')->with('municipios',$municipios);
-		
-		$municipio = Municipio::find($id);
-        $estado = Estado::find($municipio->estado_id);
-        return View::make('themes.fullcalendar.municipios.editar',compact('municipio','estado'));
-
+		return View::make('themes.fullcalendar.municipios.create');
 	}
 
 
