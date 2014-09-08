@@ -166,10 +166,10 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearImpactos')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="notifications.html">
+											<a class="" href="{{URL::to('mostrarImpactos')}}">
 												<span class="sub-menu-text">Lista de impactos</span>
 											</a>
 										</li>
