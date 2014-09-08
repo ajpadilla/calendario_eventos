@@ -10,7 +10,7 @@ class EstadoController extends \BaseController {
 	public function index()
 	{
 		$estados = Estado::all();
-		return View::make('themes.fullcalendar.estados.index')->with('estados', $estados);
+		return View::make('themes.fullcalendar.estados.listarEstados')->with('estados', $estados);
 	}
 
 

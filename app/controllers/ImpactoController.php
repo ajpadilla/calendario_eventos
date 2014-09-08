@@ -9,7 +9,8 @@ class ImpactoController extends \BaseController {
 	 */
 	public function index()
 	{
-	
+		$impactos = Impacto::all();
+        return View::make('themes.fullcalendar.impactos.index')->with('impactos', $impactos);
 	}
 
 
@@ -20,8 +21,7 @@ class ImpactoController extends \BaseController {
 	 */
 	public function create()
 	{
-		$impactos = Impacto::all();
-        return View::make('themes.fullcalendar.impactos.create')->with('impactos', $impactos);
+        return View::make('themes.fullcalendar.impactos.create');
 
 	}
 

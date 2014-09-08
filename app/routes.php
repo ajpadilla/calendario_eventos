@@ -25,6 +25,7 @@ Route::get('listarPersonas','PersonaController@index');
 
 //Rutas de las articulaciones
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
+Route::get('mostrarArticulaciones','ArticulacionController@index');
 Route::get('crearArticulacion','ArticulacionController@create');
 Route::post('guardarArticulacion','ArticulacionController@store');
 Route::get('editarArticulacion/{id}','ArticulacionController@edit');
@@ -33,6 +34,7 @@ Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
 
 //Rutas de los impactos
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+Route::get('mostrarImpactos','ImpactoController@index');
 Route::get('crearImpactos','ImpactoController@create');
 Route::post('guardarImpactos','ImpactoController@store');
 Route::get('editarImpacto/{id}','ImpactoController@edit');
@@ -41,13 +43,14 @@ Route::post('actualizarImpacto/{id}','ImpactoController@update');
 //Rutas de los subsistemas
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('crearSubsistemas','SubsistemaController@create');
+Route::get('mostrarSubsistemas','SubsistemaController@index');
 Route::post('guardarSubsistemas','SubsistemaController@store');
 Route::get('editarSubsistema/{id}','SubsistemaController@edit');
 Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
 
 //Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
-//Route::resource('municipios','MunicipioController');
+Route::get('mostrarMunicipios','MunicipioController@index');
 Route::get('crearMunicipio','MunicipioController@create');
 Route::post('guardarMunicipio','MunicipioController@store');
 Route::get('editarMunicipio/{id}','MunicipioController@edit');
