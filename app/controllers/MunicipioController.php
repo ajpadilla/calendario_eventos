@@ -90,7 +90,7 @@ class MunicipioController extends \BaseController {
 		$municipio = Municipio::find($id);
 		$estado = $municipio->estado->id;
 		$estados = Estado::lists('nombre', 'id');
-		return View::make('themes.fullcalendar.municipios.editar',compact('municipio','estado'));
+		return View::make('themes.fullcalendar.municipios.editar',compact('municipio','estado','estados'));
 	}
 
 
