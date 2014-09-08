@@ -100,7 +100,7 @@
 											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="notifications.html">
+											<a class="" href="{{URL::to('mostrarEstados')}}">
 												<span class="sub-menu-text">Lista de estados</span>
 											</a>
 										</li>
