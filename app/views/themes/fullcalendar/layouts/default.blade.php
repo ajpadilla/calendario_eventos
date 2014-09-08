@@ -148,11 +148,11 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearSubsistemas')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="notifications.html">
-												<span class="sub-menu-text">Lista de estados</span>
+											<a class="" href="{{URL::to('mostrarSubsistemas')}}">
+												<span class="sub-menu-text">Lista de subsistemas</span>
 											</a>
 										</li>
 									</ul>
@@ -170,7 +170,7 @@
 										</li>
 										<li>
 											<a class="" href="notifications.html">
-												<span class="sub-menu-text">Lista de estados</span>
+												<span class="sub-menu-text">Lista de impactos</span>
 											</a>
 										</li>
 									</ul>
