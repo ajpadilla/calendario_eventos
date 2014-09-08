@@ -116,8 +116,8 @@
 											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="notifications.html">
-												<span class="sub-menu-text">Lista de estados</span>
+											<a class="" href="{{URL::to('mostrarMunicipios')}}">
+												<span class="sub-menu-text">Lista de municipios</span>
 											</a>
 										</li>
 									</ul>
