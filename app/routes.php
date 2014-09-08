@@ -42,6 +42,7 @@ Route::post('actualizarImpacto/{id}','ImpactoController@update');
 //Rutas de los subsistemas
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('crearSubsistemas','SubsistemaController@create');
+Route::get('mostrarSubsistemas','SubsistemaController@index');
 Route::post('guardarSubsistemas','SubsistemaController@store');
 Route::get('editarSubsistema/{id}','SubsistemaController@edit');
 Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
