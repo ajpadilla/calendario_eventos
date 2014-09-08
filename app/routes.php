@@ -25,6 +25,7 @@ Route::get('listarPersonas','PersonaController@index');
 
 //Rutas de las articulaciones
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
+Route::get('mostrarArticulaciones','ArticulacionController@index');
 Route::get('crearArticulacion','ArticulacionController@create');
 Route::post('guardarArticulacion','ArticulacionController@store');
 Route::get('editarArticulacion/{id}','ArticulacionController@edit');
