@@ -184,11 +184,11 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="notifications.html">
-												<span class="sub-menu-text">Lista de estados</span>
+											<a class="" href="{{URL::to('listarPersonas')}}">
+												<span class="sub-menu-text">Lista de personas</span>
 											</a>
 										</li>
 									</ul>
