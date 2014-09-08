@@ -47,7 +47,7 @@ Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
 
 //Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
-//Route::resource('municipios','MunicipioController');
+Route::get('mostrarMunicipios','MunicipioController@index');
 Route::get('crearMunicipio','MunicipioController@create');
 Route::post('guardarMunicipio','MunicipioController@store');
 Route::get('editarMunicipio/{id}','MunicipioController@edit');
