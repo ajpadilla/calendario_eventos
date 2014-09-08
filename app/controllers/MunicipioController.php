@@ -9,7 +9,8 @@ class MunicipioController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$municipios = Municipio::all();
+        return View::make('themes.fullcalendar.municipios.index')->with('municipios',$municipios);
 	}
 
 
@@ -24,8 +25,8 @@ class MunicipioController extends \BaseController {
 		return View::make('themes.fullcalendar.municipios.create')->with('municipios',$municipios);
 		
 		$municipio = Municipio::find($id);
-          $estado = Estado::find($municipio->estado_id);
-          return View::make('themes.fullcalendar.municipios.editar',compact('municipio','estado'));
+        $estado = Estado::find($municipio->estado_id);
+        return View::make('themes.fullcalendar.municipios.editar',compact('municipio','estado'));
 
 	}
 
