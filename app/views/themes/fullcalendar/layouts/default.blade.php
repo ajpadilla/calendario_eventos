@@ -113,7 +113,7 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearMunicipio')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
 											<a class="" href="{{URL::to('mostrarMunicipios')}}">
@@ -130,11 +130,11 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearArticulacion')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="notifications.html">
-												<span class="sub-menu-text">Lista de estados</span>
+											<a class="" href="{{URL::to('mostrarArticulaciones')}}">
+												<span class="sub-menu-text">Lista de articulaciones</span>
 											</a>
 										</li>
 									</ul>
