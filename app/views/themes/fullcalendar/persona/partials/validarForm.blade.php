@@ -21,6 +21,7 @@
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
+							eventos:{required:true},
                     		numero:{required:!0},
                    			telefono:{required:!0},
                         	direccion:{required:!0,rangelength: [10, 256]},
