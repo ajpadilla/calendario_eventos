@@ -76,7 +76,8 @@ class PersonaController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		return "Vamos al form de editar con: $id";
+		$persona = Persona::find($id);
+		return View::make('themes.fullcalendar.persona.edit')->with('persona',$persona);
 	}
 
 	/**
