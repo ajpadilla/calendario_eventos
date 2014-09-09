@@ -1,7 +1,7 @@
 <div class="form-group">
-	{{ Form::label('eventos[]', 'Eventos:',array('class'=>'control-label col-md-3')) }}
+	{{ Form::label('eventos', 'Eventos:',array('class'=>'control-label col-md-3')) }}
 	<div class="col-md-8">
-		{{ Form::select('evento_ids[]',array(),Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos','multiple'=>'multiple')) }}
+		{{ Form::select('eventos',array(),Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos','multiple'=>'multiple')) }}
 	</div>
 </div>
 
