@@ -19,8 +19,9 @@ class PersonaController extends BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{		
-		return View::make('themes.fullcalendar.persona.create');
+	{	
+		$estados = Estado::lists('nombre', 'id');
+		return View::make('themes.fullcalendar.persona.create')->with('estados',$estados);
 	}
 
 	/**
@@ -77,7 +78,9 @@ class PersonaController extends BaseController {
 	public function edit($id)
 	{
 		$persona = Persona::find($id);
-		return View::make('themes.fullcalendar.persona.edit')->with('persona',$persona);
+		$estados = Estado::lists('nombre', 'id');
+		$municipios = Municipio::lists('nombre','id');
+		return View::make('themes.fullcalendar.persona.edit',compact('persona','estados','municipios'));
 	}
 
 	/**
