@@ -1,9 +1,9 @@
   1 {{ Form::open(array('action' => 'PersonaController@store','class'=>'form-horizontal','id'=>'wizForm','novalidate'=>'novalidate','files'=>true)) }}
 
 <div class="form-group">
-	{{ Form::label('eventos', 'Eventos:',array('class'=>'control-label col-md-3')) }}
+	{{ Form::label('evento_ids[]', 'Eventos:',array('class'=>'control-label col-md-3')) }}
 	<div class="col-md-8">
-		{{ Form::select('eventos',$eventos,Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos_edit','multiple'=>'multiple')) }}
+		{{ Form::select('evento_ids[]',$eventos,Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos_edit','multiple'=>'multiple')) }}
 	</div>
 </div>
 
@@ -35,8 +35,8 @@
 <div class="form-group">
 	{{ Form::label('sexo', 'Género: ',array('class' => 'col-md-3 control-label')) }}
    	<div class="col-md-4">
-    	Femenino {{ Form::radio('sexo', 'f', Input::old('sexo'), array('class' => 'radio-inline')) }}
-        Masculino {{ Form::radio('sexo', 'm', Input::old('sexo'), array('class' => 'radio-inline')) }}
+    	Femenino {{ Form::radio('sexo', 'f',$persona->sexo, array('class' => 'radio-inline')) }}
+        Masculino {{ Form::radio('sexo', 'm',$persona->sexo, array('class' => 'radio-inline')) }}
   	</div>
 </div>
 <div class="form-group">
