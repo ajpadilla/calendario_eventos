@@ -1,4 +1,11 @@
 <div class="form-group">
+	{{ Form::label('eventos[]', 'Eventos:',array('class'=>'control-label col-md-3')) }}
+	<div class="col-md-8">
+		{{ Form::select('evento_ids[]',array(),Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos','multiple'=>'multiple')) }}
+	</div>
+</div>
+
+<div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
    		{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
@@ -60,12 +67,6 @@
 <div class="col-md-8">
 	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
 </div>
-</div>
-<div class="form-group">
-	{{ Form::label('eventos[]', 'Eventos:',array('class'=>'control-label col-md-3')) }}
-	<div class="col-md-8">
-		{{ Form::select('evento_ids[]',array(),Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos','multiple'=>'multiple')) }}
-	</div>
 </div>
 <div class="wizard-buttons">
 	<div class="row">
