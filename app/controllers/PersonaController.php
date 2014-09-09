@@ -80,7 +80,8 @@ class PersonaController extends BaseController {
 		$persona = Persona::find($id);
 		$estados = Estado::lists('nombre', 'id');
 		$municipios = Municipio::lists('nombre','id');
-		return View::make('themes.fullcalendar.persona.edit',compact('persona','estados','municipios'));
+		$eventos =  $persona->eventos->lists('title','id');
+		return View::make('themes.fullcalendar.persona.edit',compact('persona','estados','municipios','eventos'));
 	}
 
 	/**
