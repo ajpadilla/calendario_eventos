@@ -3,7 +3,12 @@
 {{
 	"
 		$('document').ready(function () {
-			$('#').dataTable();
+			console.log('load');
+			$('#beneficiarios').dataTable({
+				 'processing': true,
+				 'serverSide': true,
+				 'ajax':'" . URL::to('/retorntarBeneficiarios/') ."',
+			});
 		});
 	"
 }}
