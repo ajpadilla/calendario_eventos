@@ -27,6 +27,10 @@
 
  		<!-- JQUERY -->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
+		
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css')}}">
+  	
 
 		<script>
 			@yield('script')
