@@ -18,6 +18,7 @@ Route::get('/', function()
 
 //Rutas para el modelo beneficiarios
 Route::get('mostrarBeneficiarios','BeneficiarioController@index');
+Route::get('retorntarBeneficiarios','BeneficiarioController@retorntarBeneficiarios');
 
 //Rutas para el modelo personas
 Route::get('crearPersona','PersonaController@create');
