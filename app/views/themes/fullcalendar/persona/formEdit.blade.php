@@ -4,8 +4,10 @@
 	{{ Form::label('evento_ids[]', 'Eventos:',array('class'=>'control-label col-md-3')) }}
 	<div class="col-md-8">
 		{{ Form::select('evento_ids[]',$eventos,Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos_edit','multiple'=>'multiple')) }}
+		{{ Form::text('id', $persona->id, array('class' => 'form-control','style'=>'display: none;','id'=>'id')) }}	
 	</div>
 </div>
+
 
 <div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
