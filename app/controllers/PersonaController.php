@@ -92,7 +92,31 @@ class PersonaController extends BaseController {
 	 */
 	public function update($id)
 	{
-		return "Aquí, actualizando a: $id";
+		if(Request::ajax())
+		{
+			$response['datos'] = Input::all();
+			$response['success'] = true;
+			
+			
+			$persona = Persona::find($id);
+			$persona->cedula = Input::get('cedula');
+			$persona->nombres = Input::get('nombres');
+			$persona->apellidos = Input::get('apellidos');
+			$persona->nacionalidad = Input::get('nacionalidad');
+			$persona->sexo = Input::get('sexo');
+			$persona->direccion = Input::get('direccion');
+			$persona->telefono = Input::get('telefono');
+			$persona->email = Input::get('email');
+			$persona->municipio_id = Input::get('municipio');
+			$persona->save();
+		
+			$persona->eventos()->sync(Input::get('evento_ids'));			
+		
+			return $response;
+				
+		}
+		return array('success' => false);
+
 	}
 
 	/**
