@@ -16,7 +16,11 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
-//Rutas para las personas
+//Rutas para el modelo beneficiarios
+Route::get('mostrarBeneficiarios','BeneficiarioController@index');
+Route::get('retorntarBeneficiarios','BeneficiarioController@retorntarBeneficiarios');
+
+//Rutas para el modelo personas
 Route::get('crearPersona','PersonaController@create');
 Route::get('editarPersona/{id}','PersonaController@edit');
 Route::post('actualizarPersona/{id}','PersonaController@update');

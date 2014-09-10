@@ -9,9 +9,31 @@ class BeneficiarioController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('themes.fullcalendar.beneficiario.create');
 	}
 
+	
+	public function retorntarBeneficiarios(){
+		
+		if(Request::ajax())
+		{
+				$beneficiarios = Beneficiario::all();
+				$beneficiarios_finales = array(array('algo','alvaro','padilla'));
+				$eventos = array();
+				$datos_eventos = array();
+				foreach($beneficiarios as $beneficiario){
+					$evento = $beneficiario->evento;
+					$persona = $beneficiario->persona;
+				
+					$eventos['title'] = $evento->title;
+					$eventos['nombres'] = $persona->nombres;
+					$eventos['apellidos'] = $persona->apellidos;	
+					array_push($datos_eventos,$evento);
+				}
+				//print_r($datos_eventos);
+				return json_encode($beneficiarios_finales);
+		}
+	}
 
 	/**
 	 * Show the form for creating a new resource.

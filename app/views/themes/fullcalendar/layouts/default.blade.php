@@ -27,6 +27,10 @@
 
  		<!-- JQUERY -->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
+		
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css')}}">
+  	
 
 		<script>
 			@yield('script')
@@ -311,17 +315,16 @@
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/gritter/js/jquery.gritter.min.js')}}"></script>
 
 	<!-- CUSTOM SCRIPT -->
-		<script src="{{ asset('themes/Cloud_Admin/js/script.js')}}"></script>
-		<script>
-
+	<script src="{{ asset('themes/Cloud_Admin/js/script.js')}}"></script>
+	
+	<!-- DataTables -->
+	<script type="text/javascript" charset="utf8" src="{{asset('themes/Cloud_Admin/js/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+	
+	<script>
 		jQuery(document).ready(function() {		
-
 			App.setPage("form");  //Set current page
-
 			App.init(); //Initialise plugins and elements
-
 		});
-
 	</script>
 </body>
 </html>
