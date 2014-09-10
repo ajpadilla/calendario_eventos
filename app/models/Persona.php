@@ -22,6 +22,12 @@ class Persona extends \Eloquent  {
 					'municipio_id'=>'required'
 				   );
 
+	public function municipio()
+	{
+		return $this->belongsTo('Municipio');
+	}
+	
+
 	public function eventos(){
 		return $this->belongsToMany('Evento','beneficiarios','persona_id','evento_id')->withPivot('id');
 	}	

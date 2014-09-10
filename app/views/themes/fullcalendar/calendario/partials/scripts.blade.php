@@ -191,7 +191,6 @@
 							municipio : $('#municipios').val(),
 						};
 
-						//console.log($('#formEvent').valid());
 						if($('#formEvent').valid() == 1){
 							$.ajax({
 									type:'POST',
@@ -210,6 +209,8 @@
 												'hideOnOverlayClick' : false,
 												'hideOnContentClick' : false
 										});*/
+										$('#calendar').fullCalendar('renderEvent',response);
+										$('#calendar').fullCalendar('refetchEvents');
 										$('#formEvent').clearForm();
 									},
 									error : function(jqXHR, status, error) {
@@ -226,8 +227,6 @@
 										});
 									},
 								});
-							$('#calendar').fullCalendar('renderEvent',eventData);
-							//$('#calendar').fullCalendar('refetchEvents');
                 			$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
 						}
 						$('#calendar').fullCalendar('unselect');
@@ -255,14 +254,13 @@
 						$('#subsistemas').val(event.subsistema.id);
 						$('#estados').val(event.estado.id);
 						$('#municipios').val(event.municipio.id);
-						console.log('Municipio:'+event.municipio.id);
 					
 						$('#registrar').click(function(){
 												
 							var data ={
 									title : $('#titulo').val(),
 									descripcion : $('#descripcion').val(),
-									start : $.fullCalendar.moment(event.start).format(),
+									start : $.fullCalendar.moment(event.start).format() +' '+$('#hora').val(),
 									direccion : $('#direccion').val(),
 									observacion : $('#observacion').val(),
 									articulacion : $('#articulaciones').val(),
@@ -271,7 +269,6 @@
 									municipio : $('#municipios').val(),
 							};
 		
-							//console.log($('#formEvent').valid());
 							if($('#formEvent').valid() == 1){
 								$.ajax({
 									type:'POST',
@@ -290,6 +287,9 @@
 											'hideOnOverlayClick' : false,
 											'hideOnContentClick' : false
 										});*/
+										//$('#calendar').fullCalendar('renderEvent',response);
+										$('#calendar').fullCalendar('refetchEvents');
+										$('#formEvent').clearForm();
 									},
 									error : function(jqXHR, status, error) {
 										$.fancybox({
@@ -306,7 +306,6 @@
 									},
 								});
 								
-								//$('#calendar').fullCalendar('refetchEvents');
 								$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
 							}
 						});

@@ -19,8 +19,9 @@ class PersonaController extends BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{		
-		return View::make('themes.fullcalendar.persona.create');
+	{	
+		$estados = Estado::lists('nombre', 'id');
+		return View::make('themes.fullcalendar.persona.create')->with('estados',$estados);
 	}
 
 	/**
@@ -76,7 +77,11 @@ class PersonaController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		return "Vamos al form de editar con: $id";
+		$persona = Persona::find($id);
+		$estados = Estado::lists('nombre', 'id');
+		$municipios = Municipio::lists('nombre','id');
+		$eventos =  $persona->eventos->lists('title','id');
+		return View::make('themes.fullcalendar.persona.edit',compact('persona','estados','municipios','eventos'));
 	}
 
 	/**
@@ -87,7 +92,31 @@ class PersonaController extends BaseController {
 	 */
 	public function update($id)
 	{
-		return "Aquí, actualizando a: $id";
+		if(Request::ajax())
+		{
+			$response['datos'] = Input::all();
+			$response['success'] = true;
+			
+			
+			$persona = Persona::find($id);
+			$persona->cedula = Input::get('cedula');
+			$persona->nombres = Input::get('nombres');
+			$persona->apellidos = Input::get('apellidos');
+			$persona->nacionalidad = Input::get('nacionalidad');
+			$persona->sexo = Input::get('sexo');
+			$persona->direccion = Input::get('direccion');
+			$persona->telefono = Input::get('telefono');
+			$persona->email = Input::get('email');
+			$persona->municipio_id = Input::get('municipio');
+			$persona->save();
+		
+			$persona->eventos()->sync(Input::get('evento_ids'));			
+		
+			return $response;
+				
+		}
+		return array('success' => false);
+
 	}
 
 	/**

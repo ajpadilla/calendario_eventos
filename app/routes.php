@@ -18,6 +18,8 @@ Route::get('/', function()
 
 //Rutas para las personas
 Route::get('crearPersona','PersonaController@create');
+Route::get('editarPersona/{id}','PersonaController@edit');
+Route::post('actualizarPersona/{id}','PersonaController@update');
 Route::post('guardarPersona','PersonaController@store');
 Route::get('existenciaCedula','PersonaController@existenciaCedula');
 Route::get('existenciaEmail','PersonaController@existenciaEmail');

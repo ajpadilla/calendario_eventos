@@ -1,71 +1,75 @@
+  1 {{ Form::open(array('action' => 'PersonaController@store','class'=>'form-horizontal','id'=>'wizForm','novalidate'=>'novalidate','files'=>true)) }}
+
 <div class="form-group">
 	{{ Form::label('evento_ids[]', 'Eventos:',array('class'=>'control-label col-md-3')) }}
 	<div class="col-md-8">
-		{{ Form::select('evento_ids[]',array(),Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos','multiple'=>'multiple')) }}
+		{{ Form::select('evento_ids[]',$eventos,Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos_edit','multiple'=>'multiple')) }}
+		{{ Form::text('id', $persona->id, array('class' => 'form-control','style'=>'display: none;','id'=>'id')) }}	
 	</div>
 </div>
+
 
 <div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-   		{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
+   		{{ Form::text('cedula', $persona->cedula, array('class' => 'form-control','id'=>'cedula')) }}
     </div>
 </div>
 <div class="form-group">
 	{{ Form::label('nombres', 'Nombres: ',array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
-   		{{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control','id'=>'nombres')) }}
+   		{{ Form::text('nombres', $persona->nombres, array('class' => 'form-control','id'=>'nombres')) }}
     </div>
 </div>
 <div class="form-group">
 	{{ Form::label('apellidos', 'Apellidos: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control','id'=>'apellidos')) }}
+    	{{ Form::text('apellidos', $persona->apellidos, array('class' => 'form-control','id'=>'apellidos')) }}
     </div>
 </div>
 
 <div class="form-group">
 	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
+    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),$persona->nacionalidad,array('class' => 'form-control','id'=>'nacionalidad')) }}
     </div>
 </div>
 <div class="form-group">
 	{{ Form::label('sexo', 'Género: ',array('class' => 'col-md-3 control-label')) }}
    	<div class="col-md-4">
-    	Femenino {{ Form::radio('sexo', 'f', Input::old('sexo'), array('class' => 'radio-inline')) }}
-        Masculino {{ Form::radio('sexo', 'm', Input::old('sexo'), array('class' => 'radio-inline')) }}
+    	Femenino {{ Form::radio('sexo', 'f',$persona->sexo, array('class' => 'radio-inline')) }}
+        Masculino {{ Form::radio('sexo', 'm',$persona->sexo, array('class' => 'radio-inline')) }}
   	</div>
 </div>
 <div class="form-group">
 	{{ Form::label('Dirección', 'Dirección: ',array('class'=>'control-label col-md-3')) }}
 	<div class="col-md-8">
-	{{ Form::textarea('direccion', Input::old('direccion'), array('class' => 'form-control','rows'=>'3','cols'=>'3','id'=>'direccion')) }}
+	{{ Form::textarea('direccion', $persona->direccion, array('class' => 'form-control','rows'=>'3','cols'=>'3','id'=>'direccion')) }}
 	</div>
 </div>
 
 <div class="form-group">
 	{{ Form::label('telefono', 'Telefono: ',array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
-    	{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control','id'=>'telefono')) }}
+    	{{ Form::text('telefono',$persona->telefono, array('class' => 'form-control','id'=>'telefono')) }}
     </div>
 </div>
 <div class="form-group">
 	{{ Form::label('email', 'E-mail: ',array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
- 		{{ Form::text('email', Input::old('email'), array('class' => 'form-control','id'=>'email')) }}
+ 		{{ Form::text('email', $persona->email, array('class' => 'form-control','id'=>'email')) }}
    	</div>
 </div>
 <div class="form-group">
 	{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
 <div class="col-md-8">
-	{{ Form::select('estado',$estados,Input::old('estado'),array('class' => 'form-control','id'=>'estados')) }}
+	{{ Form::select('estado',$estados,$persona->municipio->estado->id,array('class' => 'form-control','id'=>'estados')) }}
 </div>
 </div>
 <div class="form-group">
 	{{ Form::label('municipio', 'Municipio: ',array('class'=>'control-label col-md-3')) }}
 <div class="col-md-8">
-	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
+	{{ Form::select('municipio',$municipios,$persona->municipio->id,array('class' => 'form-control','id'=>'municipio')) }}
 </div>
 </div>
 <div class="wizard-buttons">
@@ -82,3 +86,5 @@
 		</div>
 	</div>
 </div>
+{{ Form::close() }}
+
