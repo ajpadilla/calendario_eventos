@@ -21,6 +21,7 @@
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
+						    'evento_ids[]':{required:!0},
                     		numero:{required:!0},
                    			telefono:{required:!0},
                         	direccion:{required:!0,rangelength: [10, 256]},
@@ -115,7 +116,31 @@
 						console.log('Disculpe, existió un problema');
 					},
 				});
-			});			
+			});
+		
+			/*$.ajax({
+				type: 'GET',
+				url: '" . URL::to('/retornarEventos/') ."',
+				dataType:'json',
+				success: function(response) {
+					console.log('eventos:'+JSON.stringify(response));
+					if(response.success == true) {
+						$('#eventos').html('');
+						$('#eventos').append('<option value=\"\"></option>');
+						$.each(response.eventos,function (k,v){
+							$('#eventos').append('<option value=\"'+k+'\">'+v+'</option>');
+						});
+						}else{
+							$('#eventos').html('');
+							$('#eventos').append('<option value=\"\">-- Eventos --</option>');
+						}
+					},
+					error : function(jqXHR, status, error) {
+						console.log('Disculpe, existió un problema');
+					},
+				});*/
+
+			
 	
 		});
 	"

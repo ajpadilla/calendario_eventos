@@ -21,6 +21,7 @@
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
+						   'evento_ids[]':{required:!0},
 							evento_ids:{required:true},
                     		numero:{required:!0},
                    			telefono:{required:!0},
@@ -193,7 +194,6 @@
 						console.log('Disculpe, existió un problema');
 					},
 				});
-
 
 		});
 	"
