@@ -1,7 +1,7 @@
 @extends('themes.fullcalendar.layouts.form_content')
 
 @section('script')
-	@include('themes.fullcalendar.articulaciones.partials.dataTableScript')
+	@include('themes.fullcalendar.beneficiario.partials.dataTableScript')
 @stop()
 
  
