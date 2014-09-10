@@ -21,11 +21,17 @@
               
 		<!-- GRITTER -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/gritter/css/jquery.gritter.css')}}" />
-       	<!-- JQUERY -->
+ 
+		<!-- WIZARD -->
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/bootstrap-wizard/wizard.css')}}" />      
+
+ 		<!-- JQUERY -->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery/jquery-2.0.3.min.js')}}"></script>
+		
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css')}}">
+  	
 
-
- 		
 		<script>
 			@yield('script')
 		</script>    
@@ -37,7 +43,8 @@
 				left:50%;
 				background-color:#f5f5f5;
 				z-index:9999;
-				height:430px;
+				height:730px;
+				width:500px;
 				border:1px;
 				border-color:grey;
 				border-radius:3px;
@@ -67,6 +74,134 @@
 				</ul>
          	</div>
 		</header>   	
+	
+		 <section id="page">
+				<div id="sidebar" class="sidebar">
+					<div class="sidebar-menu nav-collapse">
+						<div class="divide-20"></div>
+						<!-- SEARCH BAR -->
+						<div id="search-bar">
+							<input class="search" type="text" placeholder="Search"><i class="fa fa-search search-icon"></i>
+						</div>
+						<!-- /SEARCH BAR -->	
+						<!-- SIDEBAR QUICK-LAUNCH -->
+						<!-- <div id="quicklaunch">
+						<!-- /SIDEBAR QUICK-LAUNCH -->
+						<!--<!-- SIDEBAR MENU -->
+							<ul>
+								<li class="active">
+									<a href="{{URL::to('/')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
+										<span class="selected"></span>
+									</a>	
+								</li>
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Estado</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarEstados')}}">
+												<span class="sub-menu-text">Lista de estados</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Municipio</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearMunicipio')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarMunicipios')}}">
+												<span class="sub-menu-text">Lista de municipios</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Articulación</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearArticulacion')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarArticulaciones')}}">
+												<span class="sub-menu-text">Lista de articulaciones</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								
+								
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Subsistema</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearSubsistemas')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarSubsistemas')}}">
+												<span class="sub-menu-text">Lista de subsistemas</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								
+								
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Impacto</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearImpactos')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarImpactos')}}">
+												<span class="sub-menu-text">Lista de impactos</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+						
+								
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Persona</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('listarPersonas')}}">
+												<span class="sub-menu-text">Lista de personas</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+							</div>
+						</div>
+		
+	
+
 		<div id="main-content">
 			<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
 			<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -89,8 +224,9 @@
 				@yield('body')	
 			</div>
 		<div>
-		
+	</section>
 		<!-- JAVASCRIPTS -->
+		
 		<!-- Placed at the end of the document so the pages load faster -->
 		<!-- JQUERY UI-->
 		<script src="{{asset('themes/Cloud_Admin/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
@@ -109,10 +245,86 @@
 		<link rel="stylesheet" href="{{asset('themes/Cloud_Admin/js/fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />
 		<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/fancybox/source/jquery.fancybox.pack.js')}}"></script>
 		<!--fullcalendar-->
+	
+		<!-- WIZARD -->
+		<script src="{{asset('themes/Cloud_Admin/js/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>		
+	
+		<!-- CUSTOM SCRIPT -->
+		<script src="{{ asset('themes/Cloud_Admin/js/bootstrap-wizard/form-wizard.min.js')}}"></script>
+
         <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
         <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
         <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
         <script src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
-        <script src="{{asset('themes/fullcalendar/scripts.js')}}"></script>
+		
+		<!-- DATE RANGE PICKER -->
+		<script src="{{asset('themes/Cloud_Admin/js/bootstrap-daterangepicker/moment.min.js')}}"></script>
+		<script src="{{asset('themes/Cloud_Admin/js/bootstrap-daterangepicker/daterangepicker.min.js')}}"></script>
+		<!-- SLIMSCROLL -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js')}}"></script>
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js')}}"></script>
+
+	<!-- BLOCK UI -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/jQuery-BlockUI/jquery.blockUI.min.js')}}"></script>
+
+	<!-- SPARKLINES -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/sparklines/jquery.sparkline.min.js')}}"></script>
+
+	<!-- EASY PIE CHART -->
+
+	<script src="{{asset('themes/Cloud_Admin/js/jquery-easing/jquery.easing.min.js')}}"></script>
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/easypiechart/jquery.easypiechart.min.js')}}"></script>
+
+	<!-- FLOT CHARTS -->
+
+	<script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.min.js')}}"></script>
+
+	<script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.time.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.selection.min.js')}}"></script>
+
+	<script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.resize.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.pie.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.stack.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.crosshair.min.js')}}"></script>
+
+	<!-- TODO -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/jquery-todo/js/paddystodolist.js')}}"></script>
+
+	<!-- TIMEAGO -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/timeago/jquery.timeago.min.js')}}"></script>
+
+
+
+	<!-- COOKIE -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/jQuery-Cookie/jquery.cookie.min.js')}}"></script>
+
+	<!-- GRITTER -->
+
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/gritter/js/jquery.gritter.min.js')}}"></script>
+
+	<!-- CUSTOM SCRIPT -->
+	<script src="{{ asset('themes/Cloud_Admin/js/script.js')}}"></script>
+	
+	<!-- DataTables -->
+	<script type="text/javascript" charset="utf8" src="{{asset('themes/Cloud_Admin/js/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+	
+	<script>
+		jQuery(document).ready(function() {		
+			App.setPage("form");  //Set current page
+			App.init(); //Initialise plugins and elements
+		});
+	</script>
 </body>
 </html>

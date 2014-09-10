@@ -1,6 +1,5 @@
 @extends('themes.fullcalendar.layouts.default')
 
-
 @section('script')
 @stop
 

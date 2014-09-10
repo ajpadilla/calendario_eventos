@@ -36,8 +36,6 @@ class EventController extends \BaseController {
 			$response['datos'] = $datos;
 			$response['success'] = true;
 			$datos_evento = json_decode($datos,true);
-			Session::put('persona',$datos_evento);	
-			
 						
 			$evento = new Evento;
 			$evento->title = $datos_evento['title'];
@@ -71,40 +69,46 @@ class EventController extends \BaseController {
 
 	public function allEvents(){
 		if(Request::ajax())
-        {
-            $eventos = Evento::all();
-            $eventos_finales = array();
-            foreach($eventos as $evento){
-                $municipio = $evento->municipio;
-                $estado = $municipio->estado;
-                $impacto = $evento->impacto;
-                $articulacion = $evento->articulacion;
-                $subsistema = $evento->subsistema;
-                $evento = $evento->toArray();
-                
-                        
-                 $evento['estado'] = $estado->toArray();
-            
-                 unset($evento['municipio_id']); 
-                 $evento['municipio'] = $municipio->toArray();
-                
-
-                 unset($evento['articulacion_id']); 
-                 $evento['articulacion'] = $articulacion->toArray();
-          
-                unset($evento['subsistema_id']); 
-                $evento['subsistema'] = $subsistema->toArray();
-          
-                unset($evento['impacto_id']); 
-                $evento['impacto'] = $impacto->toArray();
-  
-                array_push($eventos_finales,$evento);
-            }
-            return json_encode($eventos_finales);
-
+	{
+			$eventos = Evento::all();
+			$eventos_finales = array();
+			foreach($eventos as $evento)
+			{
+				$municipio = $evento->municipio;
+				$estado = $municipio->estado;
+				$impacto = $evento->impacto;
+				$articulacion = $evento->articulacion;
+				$subsistema = $evento->subsistema;
+				
+				//$evento['evento'] = $evento->toArray();
+				$evento['estado'] = $estado->toArray();
+				unset($evento['municipio_id']);
+				$evento['municipio'] = $municipio->toArray();
+				unset($evento['articulacion_id']);
+				$evento['articulacion'] = $articulacion->toArray();
+				unset($evento['subsistema_id']);
+				$evento['subsistema'] = $subsistema->toArray();
+				unset($evento['impacto_id']);
+				$evento['impacto'] = $impacto->toArray();
+				array_push($eventos_finales,$evento);
+			}
+			return json_encode($eventos_finales);
 		}
 		return array('success' => false);
 	}
+
+	public function retornarEventos(){
+		$response = array();
+        $eventos = Evento::all()->lists('title', 'id');
+        if(count($eventos) > 0) {
+       		$response['success'] = true;
+        	$response['eventos'] = $eventos;
+        	return ($response);
+       }
+	  return array('success' => false);
+	}
+
+>>>>>>> 44f0426d59372492f9d0742096afd40649c4e282
 	/**
 	 * Display the specified resource.
 	 *
@@ -135,9 +139,32 @@ class EventController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id,$datos)
 	{
-		//
+		$response = array();
+		if(Request::ajax())
+		{
+			$response['id'] = $id;
+			$response['datos'] = $datos;
+			$response['success'] = true;
+			$datos_evento = json_decode($datos,true);
+						
+			$evento =  Evento::find($id);
+			$evento->title = $datos_evento['title'];
+			$evento->descripcion = $datos_evento['descripcion'];
+			$evento->start = $datos_evento['start'];
+			$evento->direccion = $datos_evento['direccion'];
+			$evento->observacion = $datos_evento['observacion'];
+			$evento->articulacion_id = (int)$datos_evento['articulacion'];
+			$evento->impacto_id = (int)$datos_evento['impacto'];
+			$evento->subsistema_id = (int)$datos_evento['subsistema'];
+			$evento->municipio_id = (int)$datos_evento['municipio'];
+			$evento->save();
+							
+			return json_encode($response);
+		}
+		return array('success' => false);
+
 	}
 
 
