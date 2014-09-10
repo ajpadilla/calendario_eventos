@@ -26,62 +26,9 @@
                         	direccion:{required:!0,rangelength: [10, 256]},
                         	municipio:{required:!0},
 							nacionalidad:{required:!0},
-							cedula:{
-									required:!0,
-									digits:true,
-									rangelength: [5, 10],
-									remote: {
-       								url:'" . URL::to('/existenciaCedula/') ."',
-        							type: 'GET',
-        							data: {
-          								cedula: function() {
-											return $('#cedula').val();
-         	 							}
-        							},
-									dataFilter: function (data) {
-										console.log(data);
-										var json = JSON.parse(data);
-        								if (json.msg == 'true') {
-            								return 'false';
-       	 								} else {
-            								return 'true';
-        								}
-        							}
-      							}
-							},
 							nombres:{required:!0,alpha: true,rangelength: [1 , 45]},
 							apellidos:{required:!0,alpha: true,rangelength: [1 , 45]},
 							sexo:{required:!0},
-							email:{
-									required:!0,
-									email: true,
-									remote:{
-                                      url:'" . URL::to('/existenciaEmail/') ."',
-                                      type: 'GET',
-                                      data: {
-                                     	email: function() {
-                                        	return $('#email').val();
-                                          }
-                                      },
-                                      dataFilter: function (data) {
-                                          console.log(data);
-                                          var json = JSON.parse(data);
-                                          if (json.msg == 'true') {
-                                              return 'false';
-                                          } else {
-                                              return 'true';
-                                          }
-                                      }
-                                  }
-							},
-					},
-					messages:{
-						cedula:{
-							remote: jQuery.validator.format('{0} is already taken'),
-						},
-						email: {
-							remote: jQuery.validator.format('{0} is already taken'),
-						}	
 					},
 					invalidHandler:function(event, validator){
                   		var errors = validator.numberOfInvalids();
@@ -107,13 +54,13 @@
 					{	
 						$.ajax({
 								type:'POST',
-								url:'" . URL::to('/guardarPersona/') ."',
+								url:'" . URL::to('/actualizarPersona/') ."'+'/'+$('#id').val(),
 								data:$('#wizForm').serialize(),
 								dataType:'json',
 								success : function(response) {
 									console.log(response);
 									$.fancybox({
-										'content': '<h1>Persona Agregada</h1>',
+										'content': '<h1>Datos Actualizados</h1>',
 										'autoScale' : true,
 										'transitionIn' : 'none',
 										'transitionOut' : 'none',
@@ -128,7 +75,7 @@
 								error : function(jqXHR, status, error) {
 									//alert('Disculpe, existió un problema');
 									$.fancybox({
-										'content': '<h1>Error al agregar a la persona</h1>',
+										'content': '<h1>Error al actualizar datos de la persona</h1>',
 										'autoScale' : true,
 										'transitionIn' : 'none',
 										'transitionOut' : 'none',
@@ -170,30 +117,6 @@
 				});
 			});			
 	
-						
-			$.ajax({
-				type: 'GET',
-				url: '" . URL::to('/retornarEventos/') ."',
-				dataType:'json',
-				success: function(response) {
-					console.log('eventos:'+JSON.stringify(response));
-					if(response.success == true) {
-						$('#eventos').html('');
-						$('#eventos').append('<option value=\"\"></option>');
-						$.each(response.eventos,function (k,v){
-							$('#eventos').append('<option value=\"'+k+'\">'+v+'</option>');
-						});
-						}else{
-							$('#eventos').html('');
-							$('#eventos').append('<option value=\"\">-- Eventos --</option>');
-						}
-					},
-					error : function(jqXHR, status, error) {
-						console.log('Disculpe, existió un problema');
-					},
-				});
-
-
 		});
 	"
 }}
