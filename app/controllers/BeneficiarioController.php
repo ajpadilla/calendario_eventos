@@ -9,7 +9,7 @@ class BeneficiarioController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('themes.fullcalendar.beneficiario.index');
 	}
 
 
