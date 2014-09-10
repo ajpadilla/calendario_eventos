@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="box-body form">
-		<table class="table table-striped table-bordered">
+		<table id="beneficiarios" class="table table-striped table-bordered">
 			<thead>
 				<tr>
 					<td>Evento</td>
