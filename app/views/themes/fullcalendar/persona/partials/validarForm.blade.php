@@ -5,6 +5,7 @@
 			
 			$.validator.setDefaults({
 				debug: true,
+				ignore: ':hidden:not(select)'
 			});
 
 			$('input[name=telefono]').inputmask({'mask':'99999999999'});
@@ -15,13 +16,18 @@
                               }, 
                               'Alpha Characters Only.'
        		);
+			$.validator.addMethod('needsSelection', function (value, element) {
+                  var count = $(element).find('option:selected').length;
+                  return count > 0;
+              }, jQuery.validator.format('Por favor seleccione {0} al menos 1 item'));
+
 
 		$('#wizForm').validate({
 			doNotHideMessage:!0,
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
-							evento_ids:{required:true},
+							evento_ids:{needsSelection:true},
                     		numero:{required:!0},
                    			telefono:{required:!0},
                         	direccion:{required:!0,rangelength: [10, 256]},
