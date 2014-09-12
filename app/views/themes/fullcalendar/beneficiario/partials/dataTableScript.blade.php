@@ -3,12 +3,12 @@
 {{
 	"
 		$('document').ready(function () {
-			console.log('load');
-			$('#beneficiarios').dataTable({
-				 'processing': true,
-				 'serverSide': true,
-				 'ajax':'" . URL::to('/retorntarBeneficiarios/') ."',
-			});
+			//console.log('load');
+				$('#beneficiarios').dataTable( {
+            		'bProcessing': true,
+            		'bServerSide': true,
+            		'AjaxSource': '" .URL::to('retorntarBeneficiarios')."'
+        		});
 		});
 	"
 }}
