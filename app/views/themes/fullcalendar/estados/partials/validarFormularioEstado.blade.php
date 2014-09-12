@@ -9,7 +9,7 @@
 				
 			$.validator.addMethod('lettersonly', function(value, element) {
 				var reg = /^([a-z ñáéíóú]{2,60})$/i;
-				return this.optional(element) || /^[a-z ñáéíóú]+$/i.test(value);
+				return this.optional(element) || /^[a-zA-Z\ \'\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1\u00FC\u00DC]+$/.test(value);
 			}, 'Only letters, please.');
 			
 			$('#formWizardEstado').validate({
@@ -30,6 +30,8 @@
 									var json = JSON.parse(data);
 									if (json.msg == 'true') {
 										return false;
+									}else{
+										return true;
 									}
 							}
 						}	
