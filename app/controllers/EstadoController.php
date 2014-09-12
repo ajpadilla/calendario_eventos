@@ -83,6 +83,7 @@ class EstadoController extends \BaseController {
 		return Response::json(array('respuesta' => false));	 
 	 }
 
+		
 	/**
 	 * Display the specified resource.
 	 *
