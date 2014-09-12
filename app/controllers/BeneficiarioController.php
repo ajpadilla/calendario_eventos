@@ -18,7 +18,7 @@ class BeneficiarioController extends \BaseController {
 		if(Request::ajax())
 		{
 				$beneficiarios = Beneficiario::all();
-				$beneficiarios_finales = array(array('algo','alvaro','padilla'));
+				$beneficiarios_finales = array('algo','alvaro','padilla');
 				$eventos = array();
 				$datos_eventos = array();
 				foreach($beneficiarios as $beneficiario){
