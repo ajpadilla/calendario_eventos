@@ -19,7 +19,7 @@
 							lettersonly:true,
 							remote: {
 								url:'" . URL::to('/verificarExistenciaNombreEstado/') ."',
-								type: 'post',
+								type: 'POST',
 								data: {
 									nombre: function() {
 										return $('#nombreEstado').val();
@@ -28,7 +28,8 @@
 								dataFilter: function (data) {
 									console.log(data);
 									var json = JSON.parse(data);
-									if (json.msg == 'true') {
+									console.log('json:'+json.msg);
+									if (json.msg == false) {
 										return false;
 									}else{
 										return true;
@@ -62,7 +63,7 @@
 			});
 		
 			$('#registrarEstado').click(function(){
-				console.log($('#formWizardEstado').valid());
+				console.log('validate:'+$('#formWizardEstado').valid());
 				if($('#formWizardEstado').valid() == true){
 						$.ajax({
 							type:'POST',
@@ -99,7 +100,7 @@
 								});
 								$('#formWizardEstado').clearForm();
 							},
-						});
+						})
 				}
 			});	
 
