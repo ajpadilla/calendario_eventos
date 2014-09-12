@@ -6,11 +6,17 @@
 			$.validator.setDefaults({
  				debug: true,
 			});
+				
+			$.validator.addMethod('lettersonly', function(value, element) {
+				var reg = /^([a-z ñáéíóú]{2,60})$/i;
+				return this.optional(element) || /^[a-z ñáéíóú]+$/i.test(value);
+			}, 'Only letters, please.');
 			
 			$('#formWizardEstado').validate({
 				rules:{
 					nombre:{
 							required:!0,
+							lettersonly:true,
 							remote: {
 								url:'" . URL::to('/verificarExistenciaNombreEstado/') ."',
 								type: 'post',
@@ -33,6 +39,23 @@
 					nombre:{
 						remote: jQuery.validator.format('{0} is already taken'),
 					},
+				},
+				invalidHandler:function(event, validator){
+					var errors = validator.numberOfInvalids();
+					if (errors) {
+						$('.alert-danger').show();
+					}else{
+						$('.alert-danger').hide();
+					}
+				},
+				highlight:function(element){
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight:function(element){
+					$(element).closest('.form-group').removeClass('has-error');
+				},
+				success:function(element){
+					element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
 				}	
 			});
 		
