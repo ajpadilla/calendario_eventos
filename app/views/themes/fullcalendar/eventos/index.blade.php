@@ -13,22 +13,22 @@
 </div>
 <div class="box-body form">
 @if(!$eventos->isEmpty())
-<h3>Lista de subsistemas</h3>
+<h3>Lista de eventos</h3>
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<td>Fecha</td>
+			<td>Fecha - Hora</td>
 			<td>Nombre</td>
-			<td>Datos<td>
+			<td>Datos</td>
 		</tr>
 	</thead>
 		<tbody>
 			@foreach($eventos as $evento)
 			<tr>
 				<td>{{$evento->start}}</td>
-				<td>{{$evento->title}}</td>
-				<td><a href="" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
-</tr>
+				<td>{{$evento->title}}</td>	
+				<td><a href="{{URL::to('mostrarEvento/'.$evento->id)}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
+			</tr>
 			</tr>
 			@endforeach
 		</tbody>
