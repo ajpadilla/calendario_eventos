@@ -79,5 +79,5 @@ Route::post('eventos/{datos}','EventController@store');
 Route::post('updateStartEvent/{datos}','EventController@updateStartEvent');
 Route::post('actualizarEvento/{id}/{datos}','EventController@update');
 Route::get('cargar_eventos','EventController@allEvents');
-Route::get('mostrar','EventController@create');
+Route::get('mostrarEventos','EventController@index');
 Route::get('retornarEventos','EventController@retornarEventos');
