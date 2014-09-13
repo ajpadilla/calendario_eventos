@@ -61,6 +61,7 @@ Route::get('crearMunicipio','MunicipioController@create');
 Route::post('guardarMunicipio','MunicipioController@store');
 Route::get('editarMunicipio/{id}','MunicipioController@edit');
 Route::post('actualizarMunicipio/{id}','MunicipioController@update');
+Route::post('verificarNombreMunicipio','MunicipioController@verificarNombreMunicipio');
 
 //Rutas de el controlador Estado
 Route::get('cargarEstados','EstadoController@cargarEstados');
