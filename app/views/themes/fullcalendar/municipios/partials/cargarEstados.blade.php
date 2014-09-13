@@ -70,7 +70,7 @@
 	
 	 	$('#registrarMunicipio').click(function(){
 			console.log($('#formWizardMunicipio').valid());
-			 /*if($('#formWizardMunicipio').valid() == true){
+			 if($('#formWizardMunicipio').valid() == true){
 				var datos = {
 					nombre : $('#nombre_municipio').val(),
 					estado_id : $('#estados').val(),
@@ -111,7 +111,7 @@
 						$('#formWizardMunicipio').clearForm();
 					}
 				});
-			}*/
+			}
 		});
 
 	
