@@ -50,8 +50,12 @@ class PersonaController extends BaseController {
 			$persona->municipio_id = Input::get('municipio');
 			$persona->save();
 		
-			$persona->eventos()->sync(Input::get('evento_ids'));			
-		
+			//$persona->eventos()->sync(Input::get('evento_ids'));			
+			
+			foreach(Input::get('evento_ids') as $evento_id){
+				$persona->eventos()->sync(array($evento_id => array('tipo'=>Input::get('tipo'))));			
+			}		
+
 			return $response;
 				
 		}
