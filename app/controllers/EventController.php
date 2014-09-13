@@ -9,7 +9,9 @@ class EventController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('themes.fullcalendar.eventos.list');
+		$eventos = Evento::all();
+		//var_dump($eventos);
+		return View::make('themes.fullcalendar.eventos.index',compact('eventos'));
 	}
 
 
