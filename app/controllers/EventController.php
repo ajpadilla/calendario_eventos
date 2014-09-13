@@ -9,7 +9,7 @@ class EventController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('themes.fullcalendar.eventos.list');
 	}
 
 
