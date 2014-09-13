@@ -29,7 +29,7 @@ class Persona extends \Eloquent  {
 	
 
 	public function eventos(){
-		return $this->belongsToMany('Evento','beneficiarios','persona_id','evento_id')->withPivot('id');
+		return $this->belongsToMany('Evento','beneficiarios','persona_id','evento_id')->withPivot('tipo');
 	}	
 
 	public static function getPersonaByCedula($cedula){
