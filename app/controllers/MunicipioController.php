@@ -62,6 +62,29 @@ class MunicipioController extends \BaseController {
 		}
 	}
 
+	public function verificarNombreMunicipio(){	
+		if(Request::ajax()){
+        	$response = array();
+            $nombre_municipio = Input::get('nombre');
+			$id_estado = json_decode(Input::get('estado_id'));			  
+
+            $response['susses'] = true;
+            $response['nombre'] = $nombre_municipio;
+			$response['estado_id']= $id_estado;
+			
+			$estado = Estado::find($id_estado);
+			foreach($estado->municipios as $municipio){
+				if($municipio->nombre == $nombre_municipio){
+					return Response::json(array('msg' => false));
+				}
+			}
+			return Response::json(array('msg' => true));
+		  	//return json_encode($response);
+         }
+          return array('susses'=>'false');	 
+
+	}
+	
 	/**
 	 * Display the specified resource.
 	 *

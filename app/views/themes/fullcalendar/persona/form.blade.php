@@ -4,6 +4,12 @@
 		{{ Form::select('evento_ids[]',array(),Input::old('evento_ids[]'),array('class'=>'form-control','id'=>'eventos','multiple'=>'multiple')) }}
 	</div>
 </div>
+<div class="form-group">
+	{{ Form::label('tipo', 'Tipo de persona: ',array('class'=>'control-label col-md-3')) }}
+<div class="col-md-8">
+	{{ Form::select('tipo',array('tipo de persona' => array('espectador'=>'espectador','directivo'=>'directivo','administrativo'=>'administrativo','docente'=>'docente','obrero'=>'obrero')),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
+</div>
+</div>
 
 <div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
@@ -65,7 +71,7 @@
 <div class="form-group">
 	{{ Form::label('municipio', 'Municipio: ',array('class'=>'control-label col-md-3')) }}
 <div class="col-md-8">
-	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
+	{{ Form::select('municipio',array('' => '-- Seleccione --'),Input::old('municipio'),array('class' => 'form-control','id'=>'municipios')) }}
 </div>
 </div>
 <div class="wizard-buttons">
