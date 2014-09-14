@@ -7,7 +7,10 @@
 			$('#beneficiarios').dataTable({
 				 'processing': true,
 				 'serverSide': true,
-				 'ajax':'" . URL::to('/retorntarBeneficiarios/') ."',
+                'ajax': {
+                    'url': '" . URL::to('/retorntarBeneficiarios/') ."',
+                }
+
 			});
 		});
 	"
