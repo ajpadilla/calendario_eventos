@@ -160,6 +160,7 @@
 				selectable: true,
 				selectHelper: true,
 				select: function(start, end) {
+					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'0%'}, 300);
 					$('#titulo').val();
                          $('#descripcion').val();
                          $('#hora').val();
@@ -171,7 +172,6 @@
                          $('#estados').val();
                          $('#municipios').val();
 
-					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'0%'}, 300);
 					
 					
 					$('#registrar').click(function(){
@@ -239,7 +239,7 @@
 				editable: true,
 				eventLimit: true,
 				eventClick: function(event, element) {
-					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'0%'}, 300);
+					$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'50%'}, 300);
 						var data;
 						var hora;
 						hora = $.fullCalendar.moment(event.start).format();
