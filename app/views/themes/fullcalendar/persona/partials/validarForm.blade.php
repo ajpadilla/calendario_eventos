@@ -22,7 +22,6 @@
 			errorElement:'span',
                    	rules:{
 						   'evento_ids[]':{required:!0},
-							evento_ids:{required:true},
                     		numero:{required:!0},
                    			telefono:{required:!0},
                         	direccion:{required:!0,rangelength: [10, 256]},
@@ -51,8 +50,8 @@
         							}
       							}
 							},
-							nombres:{required:!0,alpha: true,rangelength: [1 , 45]},
-							apellidos:{required:!0,alpha: true,rangelength: [1 , 45]},
+							nombres:{required:!0,rangelength: [1 , 45]},
+							apellidos:{required:!0,rangelength: [1 , 45]},
 							sexo:{required:!0},
 							email:{
 									required:!0,
