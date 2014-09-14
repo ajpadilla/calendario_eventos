@@ -38,12 +38,12 @@
 		<style>
 			.cal-popup {
 				display:none;
-				position:relative;
-				top:50%;
-				left:50%;
+				position:absolute;
+				top:10%;
+				left:20%;
 				background-color:#f5f5f5;
 				z-index:9999;
-				height:730px;
+				height:760px;
 				width:500px;
 				border:1px;
 				border-color:grey;
