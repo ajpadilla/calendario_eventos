@@ -7,7 +7,7 @@
 <div class="form-group">
 	{{ Form::label('tipo', 'Tipo de persona: ',array('class'=>'control-label col-md-3')) }}
 <div class="col-md-8">
-	{{ Form::select('tipo',array('tipo de persona' => array('espectador'=>'espectador','directivo'=>'directivo','administrativo'=>'administrativo','docente'=>'docente','obrero'=>'obrero')),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
+	{{ Form::select('tipo',array('tipo de persona' => array('estudiante'=>'estudiante','directivo'=>'directivo','administrativo'=>'administrativo','docente'=>'docente','obrero'=>'obrero')),Input::old('municipio'),array('class' => 'form-control','id'=>'municipio')) }}
 </div>
 </div>
 
