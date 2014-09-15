@@ -94,6 +94,25 @@
 										<span class="selected"></span>
 									</a>	
 								</li>
+
+                                 <li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Eventos</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarEventos')}}">
+												<span class="sub-menu-text">Lista de eventos</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+                           
+
 								<li class="has-sub">
 									<a href="javascript:;" class="">
 										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Estado</span>
