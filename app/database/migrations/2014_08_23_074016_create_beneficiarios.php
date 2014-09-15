@@ -15,7 +15,7 @@ class CreateBeneficiarios extends Migration {
 		Schema::create('beneficiarios', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->enum('tipo',array('espectador','directivo','administrativo','docente','obrero'));
+            $table->enum('tipo',array('estudiante','directivo','administrativo','docente','obrero'));
             $table->integer('evento_id')->unsigned();
             $table->integer('persona_id')->unsigned();
 			$table->timestamps();
