@@ -132,11 +132,17 @@ class EventController extends \BaseController {
         $porcentajes_sexo = $this->porcentajePorSexo($contador_personas);
         $contador_tipo = $this->contarTipoPersonas($evento);
         $porcentaje_tipo = $this->porcentajePorTipoPersona($contador_tipo,$contador_personas);
-        print_r($contador_personas);
+        /*print_r($contador_personas);
         print_r($porcentajes_sexo);
         print_r($contador_tipo);
-        print_r($porcentaje_tipo);
-		//return View::make('themes.fullcalendar.eventos.show',compact('evento','fecha'));
+        print_r($porcentaje_tipo);*/
+        
+		return View::make('themes.fullcalendar.eventos.show',compact('evento',
+                                                                     'fecha',
+                                                                     'contador_personas',
+                                                                     'porcentajes_sexo',
+                                                                     'contador_tipo',
+                                                                     'porcentaje_tipo'));
 	}
 
     
@@ -155,8 +161,8 @@ class EventController extends \BaseController {
    
    public function porcentajePorSexo($contador){
         $porcentaje = array('hombres'=>'','mujeres'=>'');
-        $porcentaje['hombres'] = (($contador['hombres'] * 100) / $contador['total_personas']);
-        $porcentaje['mujeres'] = (($contador['mujeres'] * 100) / $contador['total_personas']);
+        $porcentaje['hombres'] = round(($contador['hombres'] * 100) / $contador['total_personas'],2);
+        $porcentaje['mujeres'] = round(($contador['mujeres'] * 100) / $contador['total_personas'],2);
         return $porcentaje;
    }
 
@@ -186,11 +192,11 @@ class EventController extends \BaseController {
 
     public function porcentajePorTipoPersona($contador_tipo, $contador_personas){
         $porcentaje = array('estudiante'=>'','directivo'=>'','administrativo'=>'','docente'=>'','obrero'=>'');
-        $porcentaje['estudiante'] = (($contador_tipo['estudiante'] * 100) / $contador_personas['total_personas']);
-        $porcentaje['directivo'] = (($contador_tipo['directivo'] * 100) / $contador_personas['total_personas']);
-        $porcentaje['docente'] = (($contador_tipo['docente'] * 100) / $contador_personas['total_personas']);
-        $porcentaje['administrativo'] = (($contador_tipo['administrativo'] * 100) / $contador_personas['total_personas']);
-        $porcentaje['obrero'] = (($contador_tipo['obrero'] * 100) / $contador_personas['total_personas']);
+        $porcentaje['estudiante'] = round(($contador_tipo['estudiante'] * 100) / $contador_personas['total_personas'],2);
+        $porcentaje['directivo'] = round(($contador_tipo['directivo'] * 100) / $contador_personas['total_personas'],2);
+        $porcentaje['docente'] = round(($contador_tipo['docente'] * 100) / $contador_personas['total_personas'],2);
+        $porcentaje['administrativo'] = round(($contador_tipo['administrativo'] * 100) / $contador_personas['total_personas'],2);
+        $porcentaje['obrero'] = round(($contador_tipo['obrero'] * 100) / $contador_personas['total_personas'],2);
         return $porcentaje;
     }
 
