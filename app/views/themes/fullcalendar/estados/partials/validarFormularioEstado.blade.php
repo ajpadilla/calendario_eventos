@@ -26,21 +26,15 @@
 									}
 								},
 								dataFilter: function (data) {
-									console.log(data);
-									var json = JSON.parse(data);
-									console.log('json:'+json.msg);
-									if (json.msg == false) {
-										return false;
-									}else{
-										return true;
-									}
-							}
+									console.log('data:'+ data);
+                                    return data;
+								}
 						}	
 					}
 				},
 				messages:{
 					nombre:{
-						remote: jQuery.validator.format('{0} is already taken'),
+						remote: jQuery.validator.format('El estado ya existe'),
 					},
 				},
 				invalidHandler:function(event, validator){
