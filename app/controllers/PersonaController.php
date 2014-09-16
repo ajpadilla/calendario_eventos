@@ -177,9 +177,9 @@ class PersonaController extends BaseController {
 			$cedula = Input::get('cedula');
 			$persona = Persona::getPersonaByCedula($cedula);
 			if(count($persona) > 0){
-				return Response::json(array('msg' => 'true'));
+				return Response::json(false);
 			}else{
-				 return Response::json(array('msg' => 'false'));
+				 return Response::json(true);
 			}
        	}
         
@@ -194,9 +194,9 @@ class PersonaController extends BaseController {
              $email = Input::get('email');
              $persona = Persona::getPersonaByEmail($email);
              if(count($persona) > 0){
-                 return Response::json(array('msg' => 'true'));
+                 return Response::json(false);
              }else{
-                  return Response::json(array('msg' => 'false'));
+                  return Response::json(true);
              }
          }
          return Response::json(array('respuesta' => 'false'));
