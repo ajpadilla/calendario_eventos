@@ -56,6 +56,20 @@ class ArticulacionController extends \BaseController {
        	}		
 	}
 	
+     public function verificarExistenciaNombreArticulacion(){
+        if(Request::ajax())
+        {
+            $nombre= Input::get('nombre');
+            $articulacion = Articulacion::where('nombre','=',$nombre)->get();
+            if(count($articulacion) > 0){
+                return Response::json(false);
+            }else{
+                return Response::json(true);
+            }
+        }
+        return Response::json(array('respuesta' => false));  
+     }
+    
 	/**
 	 * Display the specified resource.
 	 *
