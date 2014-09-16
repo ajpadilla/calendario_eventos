@@ -12,6 +12,13 @@
 </div>
 
 <div class="form-group">
+	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
+    <div class="col-md-8">
+    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
+    </div>
+</div>
+
+<div class="form-group">
 	{{ Form::label('cedula', 'Cédula: ', array('class' => 'col-md-3 control-label')) }}
     <div class="col-md-8">
    		{{ Form::text('cedula', Input::old('cedula'), array('class' => 'form-control','id'=>'cedula')) }}
@@ -30,12 +37,6 @@
     </div>
 </div>
 
-<div class="form-group">
-	{{ Form::label('nacionalidad', 'Nacionalidad: ',array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-8">
-    	{{ Form::select('nacionalidad',array('v' => 'V', 'e' => 'E'),Input::old('nacionalidad'),array('class' => 'form-control','id'=>'nacionalidad')) }}
-    </div>
-</div>
 <div class="form-group">
 	{{ Form::label('sexo', 'Género: ',array('class' => 'col-md-3 control-label')) }}
    	<div class="col-md-4">
