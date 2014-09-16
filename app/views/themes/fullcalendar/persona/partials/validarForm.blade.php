@@ -8,21 +8,18 @@
 			});
 
 			$('input[name=telefono]').inputmask({'mask':'99999999999'});
-			
-			 $.validator.addMethod('alpha', 
-                              function(value, element) {
-                                  return  /^[a-zA-Z]*$/.test(value);
-                              }, 
-                              'Alpha Characters Only.'
-       		);
-
+		    
+        $.validator.addMethod('lettersonly', function(value, element) {
+                var reg = /^([a-z ñáéíóú]{2,60})$/i;
+                return this.optional(element) || /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1\u00FC\u00DC]+$/.test(value);
+            }, 'Solo letras, por favor.');	
+	    		 
 		$('#wizForm').validate({
 			doNotHideMessage:!0,
 			errorClass:'error-span',
 			errorElement:'span',
                    	rules:{
 						   'evento_ids[]':{required:!0},
-                    		numero:{required:!0},
                    			telefono:{required:!0},
                         	direccion:{required:!0,rangelength: [10, 256]},
                         	municipio:{required:!0},
@@ -40,18 +37,13 @@
          	 							}
         							},
 									dataFilter: function (data) {
-										console.log(data);
-										var json = JSON.parse(data);
-        								if (json.msg == 'true') {
-            								return 'false';
-       	 								} else {
-            								return 'true';
-        								}
-        							}
+										console.log('dataCedula:'+data);
+                                        return data;
+									}
       							}
 							},
-							nombres:{required:!0,rangelength: [1 , 45]},
-							apellidos:{required:!0,rangelength: [1 , 45]},
+							nombres:{required:!0,lettersonly:true,rangelength: [1 , 45]},
+							apellidos:{required:true,lettersonly:true,rangelength: [1 , 45]},
 							sexo:{required:!0},
 							email:{
 									required:!0,
@@ -65,23 +57,18 @@
                                           }
                                       },
                                       dataFilter: function (data) {
-                                          console.log(data);
-                                          var json = JSON.parse(data);
-                                          if (json.msg == 'true') {
-                                              return 'false';
-                                          } else {
-                                              return 'true';
-                                          }
+                                          console.log('dataEmail:'+data);
+                                          return data;
                                       }
                                   }
 							},
 					},
 					messages:{
 						cedula:{
-							remote: jQuery.validator.format('{0} is already taken'),
+							remote: jQuery.validator.format('Cedula registrada'),
 						},
 						email: {
-							remote: jQuery.validator.format('{0} is already taken'),
+							remote: jQuery.validator.format('Email registrado'),
 						}	
 					},
 					invalidHandler:function(event, validator){
@@ -124,7 +111,7 @@
 										'hideOnOverlayClick' : false,
 										'hideOnContentClick' : false
 									});
-									$('#formWizardEstado').clearForm();
+									$('#wizForm').clearForm();
 								},
 								error : function(jqXHR, status, error) {
 									//alert('Disculpe, existió un problema');
@@ -139,7 +126,6 @@
 										'hideOnOverlayClick' : false,
 										'hideOnContentClick' : false
 									});
-									$('#formWizardEstado').clearForm();
 								},
 						});
 					}
