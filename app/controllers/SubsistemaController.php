@@ -56,6 +56,19 @@ class SubsistemaController extends \BaseController {
 		return array('susses'=>'false');
 	}
 
+    public function verificarExistenciaNombreSubsistema(){
+        if(Request::ajax())
+        {
+            $nombre = Input::get('nombre');
+            $subsistema = Subsistema::where('nombre','=',$nombre)->get();
+            if(count($subsistema) > 0){
+                return Response::json(false);
+            }else{
+                return Response::json(true);
+            }
+        }
+        return Response::json(array('respuesta' => false));  
+     }
 
 	/**
 	 * Display the specified resource.
