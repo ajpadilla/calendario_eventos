@@ -6,16 +6,61 @@
 			$.validator.setDefaults({
  				debug: true,
 			});
-			
+	        
+            $.validator.addMethod('lettersonly', function(value, element) {
+                var reg = /^([a-z ñáéíóú]{2,60})$/i;
+                return this.optional(element) || /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1\u00FC\u00DC]+$/.test(value);
+            }, 'Solo letras, por favor.');		    
+    
+            
 			$('#formWizard').validate({
-				rules:{
-					nombre:{required:!0},
-				}
+                    rules:{
+                    nombre:{
+                            required:!0,
+                            lettersonly:true,
+                            remote: {
+                                url:'" . URL::to('/verificarExistenciaNombreArticulacion/') ."',
+                                type: 'POST',
+                                data: {
+                                    nombre: function() {
+                                        return $('#nombre').val();
+                                    }
+                                },
+                                dataFilter: function (data) {
+                                    console.log(data);
+                                    return data;
+                                }
+                        }   
+                    }
+                },
+                messages:{
+                    nombre:{
+                        remote: jQuery.validator.format('La articulación ya existe'),
+                    },
+                },
+                
+                invalidHandler:function(event, validator){
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        $('.alert-danger').show();
+                    }else{
+                        $('.alert-danger').hide();
+                    }
+                },
+                highlight:function(element){
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                },
+                unhighlight:function(element){
+                    $(element).closest('.form-group').removeClass('has-error');
+                },
+                success:function(element){
+                    element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
+                }   
 			});
 		
 			$('#registrar').click(function(){
 				console.log($('#formWizard').valid());
-				if($('#formWizard').valid() == true){
+				/*if($('#formWizard').valid() == true){
 						$.ajax({
 							type:'POST',
 							url:'" . URL::to('/guardarArticulacion/') ."',
@@ -52,7 +97,7 @@
 								$('#formWizard').clearForm();
 							},
 						});
-				}
+				}*/
 			});	
 
 			$('.borrar').click(function(){
