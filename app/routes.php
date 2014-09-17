@@ -16,6 +16,10 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
+Route::get('prints',function(){
+	return View::make('themes.prints.form_content');
+});
+
 //Rutas para el modelo beneficiarios
 Route::get('mostrarBeneficiarios','BeneficiarioController@index');
 Route::get('retorntarBeneficiarios','BeneficiarioController@retorntarBeneficiarios');
@@ -85,3 +89,4 @@ Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrarEventos','EventController@index');
 Route::get('mostrarEvento/{id}','EventController@show');
 Route::get('retornarEventos','EventController@retornarEventos');
+Route::get('imprimirEvento/{id}','EventController@showPrint');
