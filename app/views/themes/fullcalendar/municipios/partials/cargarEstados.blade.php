@@ -37,8 +37,12 @@
              },
 			messages:{
 				nombre:{
-					remote: jQuery.validator.format('{0} is already taken'),
+                    required:'Campo obligatorio',
+					remote: jQuery.validator.format('El municipio ya se encuentra registrado'),
 				},
+                estados:{
+                    required:'Campo obligatorio',
+                }
 			},
 			invalidHandler:function(event, validator){
 					var errors = validator.numberOfInvalids();

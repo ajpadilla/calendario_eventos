@@ -24,6 +24,36 @@
 					subsistemas:{required:!0},
 					municipios:{required:!0},
 				},
+                messages:{
+                       'titulo':{
+                            required:'Campo obligatorio',
+                        },
+                        descripcion:{
+                            required:'Campo obligatorio',
+                        },
+                        hora:{
+                            required:'Campo obligatorio',
+                        },
+                        direccion :{
+                            required:'Campo obligatorio',
+                        },
+                        observacion:{
+                            required:'Campo obligatorio',
+                        },
+                         articulaciones:{
+                            required:'Campo obligatorio',
+                        },
+                        impactos:{
+                            required:'Campo obligatorio',
+                        },
+                        municipios:{
+                            required:'Campo obligatorio',
+                        },
+                        subsistemas:{
+                            required:'Campo obligatorio',
+                        },
+                    },
+
 			});
 			$.ajax({
 				type: 'GET',

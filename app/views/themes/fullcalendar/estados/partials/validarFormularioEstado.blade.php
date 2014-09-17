@@ -34,6 +34,7 @@
 				},
 				messages:{
 					nombre:{
+                        required:'Campo Obligatorio',
 						remote: jQuery.validator.format('El estado ya existe'),
 					},
 				},

@@ -35,6 +35,7 @@
                 messages:{
                     nombre:{
                         remote: jQuery.validator.format('El impacto ya se encuentra registrado'),
+                        required:'Campo obligatorio',
                     },
                 },
                 invalidHandler:function(event, validator){
