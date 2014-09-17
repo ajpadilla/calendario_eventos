@@ -73,12 +73,18 @@ class MunicipioController extends \BaseController {
 			$response['estado_id']= $id_estado;
 			
 			$estado = Estado::find($id_estado);
-			foreach($estado->municipios as $municipio){
-				if($municipio->nombre == $nombre_municipio){
-					return Response::json(array('msg' => false));
+			/*foreach($estado->municipios as $municipio){
+				if(count($municipio->verificarNombresMunicipio($nombre_municipio,$id_estado))>0){
+					return Response::json(false);
 				}
-			}
-			return Response::json(array('msg' => true));
+			}*/
+            
+            if(Municipio::verificarNombresMunicipio($nombre_municipio,$id_estado) > 0){
+					return Response::json(false);
+            }
+            
+            
+			return Response::json(true);
 		  	//return json_encode($response);
          }
           return array('susses'=>'false');	 
