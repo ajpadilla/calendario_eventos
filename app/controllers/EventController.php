@@ -145,7 +145,33 @@ class EventController extends \BaseController {
                                                                      'porcentaje_tipo'));
 	}
 
-    
+    public function showPrint($id)
+	{
+        $contador_personas = array();
+        $contador_tipo = array();
+        $porcentajes_sexo = array();
+        $porcentaje_tipo = array();         
+
+		$evento = Evento::find($id);
+        $fecha = explode(' ', $evento->start);
+                
+        $contador_personas = $this->contarPersonasPorSexo($evento);
+        $porcentajes_sexo = $this->porcentajePorSexo($contador_personas);
+        $contador_tipo = $this->contarTipoPersonas($evento);
+        $porcentaje_tipo = $this->porcentajePorTipoPersona($contador_tipo,$contador_personas);
+        /*print_r($contador_personas);
+        print_r($porcentajes_sexo);
+        print_r($contador_tipo);
+        print_r($porcentaje_tipo);*/
+        
+		return View::make('themes.prints.form_content',compact('evento',
+                                                                     'fecha',
+                                                                     'contador_personas',
+                                                                     'porcentajes_sexo',
+                                                                     'contador_tipo',
+                                                                     'porcentaje_tipo'));
+	}
+
     public function contarPersonasPorSexo($evento){
         $contador = array('hombres'=>'','mujeres'=>'','total_personas'=>'');
         foreach($evento->personas as $persona){
