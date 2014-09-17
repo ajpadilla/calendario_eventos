@@ -26,31 +26,31 @@
 				},
                 messages:{
                        'titulo':{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         descripcion:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         hora:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         direccion :{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         observacion:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                          articulaciones:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         impactos:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         municipios:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                         subsistemas:{
-                            required:'Campo requerido',
+                            required:'Campo obligatorio',
                         },
                     },
 

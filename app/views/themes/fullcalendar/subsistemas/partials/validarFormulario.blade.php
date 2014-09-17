@@ -35,6 +35,7 @@
                 },
                 messages:{
                     nombre:{
+                        required:'Campo obligatorio',
                         remote: jQuery.validator.format('El subsistema ya existe'),
                     },
                 },
