@@ -29,17 +29,8 @@
 						dataType:'json',
 						dataFilter: function (data) {
 							console.log('data:'+data);
-							return data.msg;
-							/*var json = JSON.parse(data);
-							console.log('json:'+json.msg);*/
-							
-							//return json.msg;
-                           /* if (json.msg == false) {
-                            	return false;
-                            }else{
-                            	return true;
-                            }*/
-						}
+                            return data;
+					    }
 					}	
 				},
 				estados:{required:!0},
@@ -70,7 +61,7 @@
 	
 	 	$('#registrarMunicipio').click(function(){
 			console.log($('#formWizardMunicipio').valid());
-			 if($('#formWizardMunicipio').valid() == true){
+			 /*if($('#formWizardMunicipio').valid() == true){
 				var datos = {
 					nombre : $('#nombre_municipio').val(),
 					estado_id : $('#estados').val(),
@@ -111,7 +102,7 @@
 						$('#formWizardMunicipio').clearForm();
 					}
 				});
-			}
+			}*/
 		});
 
 	

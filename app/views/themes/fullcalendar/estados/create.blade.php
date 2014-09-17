@@ -17,10 +17,10 @@
         <li>Forms</li>
       </ul>
       <!-- /BREADCRUMBS -->
-      <div class="clearfix">
+     <div class="clearfix">
           <h3 class="content-title pull-left">Forms</h3>
       </div>
-      <div class="description">Calendario de eventos</div>
+    <div class="description">Calendario de eventos</div>
 @stop
   
 @section('form')

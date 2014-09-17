@@ -34,6 +34,19 @@ class ImpactoController extends \BaseController {
           }   
       }
 
+    public function verificarExistenciaNombreImpacto(){
+        if(Request::ajax())
+        {
+            $nombre= Input::get('nombre');
+            $impacto = Impacto::where('nombre','=',$nombre)->get();
+            if(count($impacto) > 0){
+                return Response::json(false);
+            }else{
+                return Response::json(true);
+            }
+        }
+        return Response::json(array('respuesta' => false));  
+     }
 	
 	/**
 	 * Store a newly created resource in storage.

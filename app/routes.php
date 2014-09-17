@@ -16,6 +16,10 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
+Route::get('prints',function(){
+	return View::make('themes.prints.form_content');
+});
+
 //Rutas para el modelo beneficiarios
 Route::get('mostrarBeneficiarios','BeneficiarioController@index');
 Route::get('retorntarBeneficiarios','BeneficiarioController@retorntarBeneficiarios');
@@ -37,6 +41,7 @@ Route::post('guardarArticulacion','ArticulacionController@store');
 Route::get('editarArticulacion/{id}','ArticulacionController@edit');
 Route::post('actualizarArticulacion/{id}','ArticulacionController@update');
 Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
+Route::post('verificarExistenciaNombreArticulacion','ArticulacionController@verificarExistenciaNombreArticulacion');
 
 //Rutas de los impactos
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
@@ -45,6 +50,7 @@ Route::get('crearImpactos','ImpactoController@create');
 Route::post('guardarImpactos','ImpactoController@store');
 Route::get('editarImpacto/{id}','ImpactoController@edit');
 Route::post('actualizarImpacto/{id}','ImpactoController@update');
+Route::post('verificarExistenciaNombreImpacto','ImpactoController@verificarExistenciaNombreImpacto');
 
 //Rutas de los subsistemas
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
@@ -53,6 +59,7 @@ Route::get('mostrarSubsistemas','SubsistemaController@index');
 Route::post('guardarSubsistemas','SubsistemaController@store');
 Route::get('editarSubsistema/{id}','SubsistemaController@edit');
 Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
+Route::post('verificarExistenciaNombreSubsistema','SubsistemaController@verificarExistenciaNombreSubsistema');
 
 //Rutas del controlador Munucupio
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
@@ -82,3 +89,4 @@ Route::get('cargar_eventos','EventController@allEvents');
 Route::get('mostrarEventos','EventController@index');
 Route::get('mostrarEvento/{id}','EventController@show');
 Route::get('retornarEventos','EventController@retornarEventos');
+Route::get('imprimirEvento/{id}','EventController@showPrint');

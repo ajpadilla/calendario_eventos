@@ -75,9 +75,9 @@ class EstadoController extends \BaseController {
 			$nombre_estado= Input::get('nombre');
 			$estado = Estado::where('nombre','=',$nombre_estado)->get();
 			if(count($estado) > 0){
-				return Response::json(array('msg' => false));
+				return Response::json(false);
 			}else{
-				return Response::json(array('msg' => true));
+				return Response::json(true);
 			}
 		}
 		return Response::json(array('respuesta' => false));	 

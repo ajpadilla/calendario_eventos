@@ -10,8 +10,8 @@ class EventController extends \BaseController {
 	public function index()
 	{
 		$eventos = Evento::all();
-		$algo['mult'] = 90*100;
-		
+		//$algo['mult'] = 90*100;
+        		
 		return View::make('themes.fullcalendar.eventos.index',compact('eventos','algo'));
 
 	}
@@ -120,10 +120,117 @@ class EventController extends \BaseController {
 	 */
 	public function show($id)
 	{
+        $contador_personas = array();
+        $contador_tipo = array();
+        $porcentajes_sexo = array();
+        $porcentaje_tipo = array();         
+
 		$evento = Evento::find($id);
-		return View::make('themes.fullcalendar.eventos.show',compact('evento'));
+        $fecha = explode(' ', $evento->start);
+                
+        $contador_personas = $this->contarPersonasPorSexo($evento);
+        $porcentajes_sexo = $this->porcentajePorSexo($contador_personas);
+        $contador_tipo = $this->contarTipoPersonas($evento);
+        $porcentaje_tipo = $this->porcentajePorTipoPersona($contador_tipo,$contador_personas);
+        /*print_r($contador_personas);
+        print_r($porcentajes_sexo);
+        print_r($contador_tipo);
+        print_r($porcentaje_tipo);*/
+        
+		return View::make('themes.fullcalendar.eventos.show',compact('evento',
+                                                                     'fecha',
+                                                                     'contador_personas',
+                                                                     'porcentajes_sexo',
+                                                                     'contador_tipo',
+                                                                     'porcentaje_tipo'));
 	}
 
+    public function showPrint($id)
+	{
+        $contador_personas = array();
+        $contador_tipo = array();
+        $porcentajes_sexo = array();
+        $porcentaje_tipo = array();         
+
+		$evento = Evento::find($id);
+        $fecha = explode(' ', $evento->start);
+                
+        $contador_personas = $this->contarPersonasPorSexo($evento);
+        $porcentajes_sexo = $this->porcentajePorSexo($contador_personas);
+        $contador_tipo = $this->contarTipoPersonas($evento);
+        $porcentaje_tipo = $this->porcentajePorTipoPersona($contador_tipo,$contador_personas);
+        /*print_r($contador_personas);
+        print_r($porcentajes_sexo);
+        print_r($contador_tipo);
+        print_r($porcentaje_tipo);*/
+        
+		return View::make('themes.prints.form_content',compact('evento',
+                                                                     'fecha',
+                                                                     'contador_personas',
+                                                                     'porcentajes_sexo',
+                                                                     'contador_tipo',
+                                                                     'porcentaje_tipo'));
+	}
+
+    public function contarPersonasPorSexo($evento){
+        $contador = array('hombres'=>'','mujeres'=>'','total_personas'=>'');
+        foreach($evento->personas as $persona){
+            $contador['total_personas'] += 1;
+            if($persona->sexo == 'm'){
+                $contador['hombres'] += 1;     
+            }else{
+                $contador['mujeres'] += 1;
+            }
+        }
+        return $contador;
+    }
+   
+   public function porcentajePorSexo($contador){
+        $porcentaje = array('hombres'=>'','mujeres'=>'');
+        if($contador['total_personas'] > 0){
+            $porcentaje['hombres'] = round(($contador['hombres'] * 100) / $contador['total_personas'],2);
+            $porcentaje['mujeres'] = round(($contador['mujeres'] * 100) / $contador['total_personas'],2);
+            return $porcentaje;
+        }
+        return 0;
+   }
+
+   public function contarTipoPersonas($evento){
+        $contador = array('estudiante'=>'','directivo'=>'','administrativo'=>'','docente'=>'','obrero'=>'');
+        foreach($evento->personas as $persona){
+            switch($persona->pivot->tipo){
+                case 'estudiante':
+                    $contador['estudiante'] += 1; 
+                    break;
+                case 'directivo':
+                    $contador['directivo'] += 1;
+                    break;
+                case 'administrativo':
+                    $contador['administrativo'] += 1;
+                    break;
+                case 'docente':
+                    $contador['docente'] += 1;
+                    break;
+                case 'obrero':
+                    $contador['obrero'] += 1;
+                    break;
+            }
+        }
+        return $contador;
+   }   
+
+    public function porcentajePorTipoPersona($contador_tipo, $contador_personas){
+        $porcentaje = array('estudiante'=>'','directivo'=>'','administrativo'=>'','docente'=>'','obrero'=>'');
+        if($contador_personas['total_personas'] > 0){
+            $porcentaje['estudiante'] = round(($contador_tipo['estudiante'] * 100) / $contador_personas['total_personas'],2);
+            $porcentaje['directivo'] = round(($contador_tipo['directivo'] * 100) / $contador_personas['total_personas'],2);
+            $porcentaje['docente'] = round(($contador_tipo['docente'] * 100) / $contador_personas['total_personas'],2);
+            $porcentaje['administrativo'] = round(($contador_tipo['administrativo'] * 100) / $contador_personas['total_personas'],2);
+            $porcentaje['obrero'] = round(($contador_tipo['obrero'] * 100) / $contador_personas['total_personas'],2);
+            return $porcentaje;
+        }
+        return 0;
+    }
 
 	/**
 	 * Show the form for editing the specified resource.

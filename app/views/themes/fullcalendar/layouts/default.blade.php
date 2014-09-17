@@ -30,7 +30,8 @@
 		
 		<!-- DataTables CSS -->
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css')}}">
-  	
+        <!--Imprimir-->
+        <link rel="stylesheet" type="text/css" href="{{asset('themes/fullcalendar/imprimir.css')}}" media="print" />  	
 
 		<script>
 			@yield('script')
@@ -53,7 +54,8 @@
 				-moz-transition:all .2s ease-out 0;
 				-webkit-transition:all .2s ease-out 0;
 				transition:all .2s ease-out 0;
-			} 
+			}
+           
 		</style> 
     </head>
     <body>
@@ -94,6 +96,25 @@
 										<span class="selected"></span>
 									</a>	
 								</li>
+
+                                 <li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Eventos</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarEventos')}}">
+												<span class="sub-menu-text">Lista de eventos</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+                           
+
 								<li class="has-sub">
 									<a href="javascript:;" class="">
 										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Estado</span>
@@ -205,7 +226,7 @@
 		<div id="main-content">
 			<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
 			<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog" id="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
 					  		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

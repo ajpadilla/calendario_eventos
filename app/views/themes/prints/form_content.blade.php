@@ -1,23 +1,8 @@
+@extends('themes.prints.default')
 
-@extends('themes.fullcalendar.layouts.form_content')
-
-@section('form')
-    <div class="box border blue">
-        <div class="box-title">
-            <h4><i class="fa fa-reorder"></i>{{$evento->title}}</h4>
-            <div class="tools hidden-xs">
-                <a href="#box-config" data-toggle="modal" class="config"><i class="fa fa-cog"></i></a>
-                <a href="javascript:;" class="reload"><i class="fa fa-refresh"></i></a>
-                <a href="javascript:;" class="collapse"><i class="fa fa-chevron-up"></i></a>
-                <a href="javascript:;" class="remove"><i class="fa fa-times"></i></a>
-            </div>
-        </div>
-        <div class="box-body form">
-            {{ Form::open(array('action' => 'EventController@store','class'=>'form-inline','role' =>'form','id'=>'formWizardMunicipio','novalidate'=>'novalidate','files'=>true)) }}
-                
-				<a href="{{URL::to('imprimirEvento/'.$evento->id)}}" class="btn btn-primary">Vista de impresión<i class="fa fa-arrow-circle-right"></i></a>
-        
-                 <table class="table table-striped table-bordered">
+@section('body')
+            <a onclick="window.print();" class="oculto btn btn-primary">Imprimir<i class="fa fa-arrow-circle-right"></i></a>
+            <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <td colspan="3" class="text-center"><h1>Datos del evento</h1></td>
@@ -183,12 +168,6 @@
             @else
                 <p>No hay personas asociadas al evento</p>
             @endif
-           
-        {{ Form::close() }}
-    </div>
-</div>
 @stop
-
-
 
 
