@@ -5,10 +5,10 @@
             <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <td colspan="3" class="text-center"><h1>Datos del evento</h1></td>
+                            <td colspan="3" class="text-center"><h1>Informe Misión Barrio Adentro Deportivo</h1></td>
                         </tr>
                     </thead>
-                      <tbody>
+                    <tbody>
                         <tr>
                             <td>
                                 <div class="form-group col-md-4">
@@ -153,8 +153,44 @@
                             </td>
 
                         </tr>
-                    </tbody>
+                        <tr>    
+                            <td>        
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('ContPersonas', 'Total Personas: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('contPersonas',$contador_personas['total_personas'], array('class' => 'control-label')) }}
+                                </div>
 
+                            </td>
+                            <td>        
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('ContHombres', 'Total Hombres: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('contHombres',$contador_personas['hombres'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+                             <td>        
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('ContMujeres', 'Total Mujeres: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('contHombres',$contador_personas['mujeres'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>        
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('ContHombres', '% Hombres: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('contHombres',$porcentajes_sexo['hombres'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+                            <td>        
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('ContMujeres', '% Mujeres: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('0',$porcentajes_sexo['mujeres'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+ 
                 </table>
 
                 <table class="table table-striped table-bordered">

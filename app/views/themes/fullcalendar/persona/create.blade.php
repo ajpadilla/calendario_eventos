@@ -5,16 +5,6 @@
 @stop
 
 @section('page_header')
-	<ul class="breadcrumb">
-    	<li>
-        	<i class="fa fa-home"></i>
-            <a href="index.html">Home</a>
-        </li>
-        <li>
-        	<a href="#">Form Elements</a>
-        </li>
-        <li>Forms</li>
-    </ul>
     <!-- /BREADCRUMBS -->
    	<div class="clearfix">
     	<h3 class="content-title pull-left">Forms</h3>
