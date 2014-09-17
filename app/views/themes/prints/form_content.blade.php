@@ -8,7 +8,7 @@
                             <td colspan="3" class="text-center"><h1>Datos del evento</h1></td>
                         </tr>
                     </thead>
-                    <tbody>
+                      <tbody>
                         <tr>
                             <td>
                                 <div class="form-group col-md-4">
@@ -92,6 +92,13 @@
                             </td>
                         </tr>
                         <tr>
+                             <td>
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('ContadorDirctivo', 'Nro directivos: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('contadorDirectivo',$contador_tipo['directivo'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+     
                             <td>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('ContadorDocente', 'Nro docentes: ', array('class' => 'control-label')) }}
@@ -100,6 +107,14 @@
                             </td>
                             <td>
                                 <div class="form-group col-md-4">
+                                    {{ Form::label('ContadorEstudiante', 'Nro estudiantes: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('contadorEstudiante',$contador_tipo['estudiante'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <div class="form-group col-md-4">
                                     {{ Form::label('ContadorObrero', 'Nro obreros: ', array('class' => 'control-label')) }}
                                     {{ Form::label('contadorObrero',$contador_tipo['obrero'], array('class' => 'control-label')) }}
                                 </div>
@@ -110,15 +125,21 @@
                                     {{ Form::label('porcentajeEstudiante',$porcentaje_tipo['estudiante'], array('class' => 'control-label')) }}
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('PorcentajeDirectivo', '% directivos: ', array('class' => 'control-label')) }}
                                     {{ Form::label('porcentajeDirectivo',$porcentaje_tipo['directivo'], array('class' => 'control-label')) }}
                                 </div>
                             </td>
-                            <td>
+                       </tr>
+                        <tr>        
+                            <td>    
+                                <div class="form-group col-md-4">
+                                    {{ Form::label('PorcentajeObrero', '% obreros: ', array('class' => 'control-label')) }}
+                                    {{ Form::label('porcentajeObrero',$porcentaje_tipo['obrero'], array('class' => 'control-label')) }}
+                                </div>
+                            </td>
+                             <td>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('PorcentajeAdministrativo', '% personal administrativo: ', array('class' => 'control-label')) }}
                                     {{ Form::label('porcentajeAdministrativo',$porcentaje_tipo['administrativo'], array('class' => 'control-label')) }}
@@ -130,16 +151,10 @@
                                     {{ Form::label('porcentajeDocente',$porcentaje_tipo['docente'], array('class' => 'control-label')) }}
                                 </div>
                             </td>
-                        </tr>
-                        <tr>        
-                            <td>    
-                                <div class="form-group col-md-4">
-                                    {{ Form::label('PorcentajeObrero', '% obreros: ', array('class' => 'control-label')) }}
-                                    {{ Form::label('porcentajeObrero',$porcentaje_tipo['obrero'], array('class' => 'control-label')) }}
-                                </div>
-                            </td>
+
                         </tr>
                     </tbody>
+
                 </table>
 
                 <table class="table table-striped table-bordered">
