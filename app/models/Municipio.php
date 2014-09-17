@@ -18,5 +18,13 @@ class Municipio extends \Eloquent {
    	{
    		return $this->hasMany('Persona');
     }
+    
+    public static function verificarNombresMunicipio($nombre,$id_estado){
+        $municipio = Municipio::where('nombre','=',$nombre)->where('estado_id','=',$id_estado)->lists('nombre', 'id');
+        if(count($municipio) > 0){
+            return $municipio;
+        }   
+        return 0;
+    }
 
 }
