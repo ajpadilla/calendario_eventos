@@ -64,11 +64,47 @@
 							},
 					},
 					messages:{
+                       'evento_ids[]':{
+                            required:'Campo requerido',
+                        },
+                        tipo:{
+                            required:'Campo requerido',
+                        },
+                        nacionalidad:{
+                            required:'Campo requerido',
+                        },
+                        sexo :{
+                            required:'Campo requerido',
+                        },
+                        direccion:{
+                            required:'Campo requerido',
+                            rangelength:'Por favor, introduzca un valor entre 10 y 256 caracteres.',
+                        },
+                         telefono:{
+                            required:'Campo requerido',
+                        },
+                        email:{
+                            required:'Campo requerido',
+                        },
+                        municipio:{
+                            required:'Campo requerido',
+                        },
+                        nombres:{
+                            required:'Campo requerido',
+                            rangelength:'Por favor, introduzca un valor entre 1 y 45 caracteres.',
+                        },
+                         apellidos:{
+                            required:'Campo requerido',
+                            rangelength:'Por favor, introduzca un valor entre 1 y 45 caracteres.',
+                        },
 						cedula:{
+                            required:'Campo requerido',
+                            digits:'Solo digitos',
 							remote: jQuery.validator.format('Cedula registrada'),
 						},
 						email: {
 							remote: jQuery.validator.format('Email registrado'),
+                            required:'Campo requerido',
 						}	
 					},
 					invalidHandler:function(event, validator){
