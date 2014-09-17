@@ -10,8 +10,6 @@ class EventController extends \BaseController {
 	public function index()
 	{
 		$eventos = Evento::all();
-		//$algo['mult'] = 90*100;
-        		
 		return View::make('themes.fullcalendar.eventos.index',compact('eventos','algo'));
 
 	}
