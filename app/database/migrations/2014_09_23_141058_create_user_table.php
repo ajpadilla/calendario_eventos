@@ -14,7 +14,13 @@ class CreateUserTable extends Migration {
 	{
 		Schema::table('user', function(Blueprint $table)
 		{
-			//
+			$table->increments("id");
+      		$table->string("username");
+      		$table->string("password");
+      		$table->string("email");
+      		$table->string("remember_token")->nullable();
+      		$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 
@@ -27,7 +33,7 @@ class CreateUserTable extends Migration {
 	{
 		Schema::table('user', function(Blueprint $table)
 		{
-			//
+			Schema::dropIfExists("user");
 		});
 	}
 
