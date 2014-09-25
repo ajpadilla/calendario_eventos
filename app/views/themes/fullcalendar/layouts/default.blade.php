@@ -45,7 +45,9 @@
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datepicker/themes/default.date.min.css')}}">
 
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datepicker/themes/default.time.min.css')}}">
-
+			
+		<link rel="stylesheet" href="{{asset('themes/Cloud_Admin/js/datetimepicker/jquery.datetimepicker.css')}}">
+			
         <!--Imprimir-->
         <link rel="stylesheet" type="text/css" href="{{asset('themes/fullcalendar/imprimir.css')}}" media="print" />  	
 
@@ -363,6 +365,7 @@
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.js')}}"></script>
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.date.js')}}"></script>
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.time.js')}}"></script>
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datetimepicker/jquery.datetimepicker.js')}}"></script>
 	<script>
 		jQuery(document).ready(function() {		
 			App.setPage("form");  //Set current page
