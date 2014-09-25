@@ -30,24 +30,23 @@ class EventController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($datos)
+	public function store()
 	{
 		$response = array();
 		if(Request::ajax()){
-			$response['datos'] = $datos;
+			$response['datos'] = Input::all();
 			$response['success'] = true;
-			$datos_evento = json_decode($datos,true);
 						
 			$evento = new Evento;
-			$evento->title = $datos_evento['title'];
-			$evento->descripcion = $datos_evento['descripcion'];
-			$evento->start = $datos_evento['start'];
-			$evento->direccion = $datos_evento['direccion'];
-			$evento->observacion = $datos_evento['observacion'];
-			$evento->articulacion_id = (int)$datos_evento['articulacion'];
-			$evento->impacto_id = (int)$datos_evento['impacto'];
-			$evento->subsistema_id = (int)$datos_evento['subsistema'];
-			$evento->municipio_id = (int)$datos_evento['municipio'];
+			$evento->title = Input::get('titulo');
+			$evento->descripcion = Input::get('descripcion');
+			$evento->start = Input::get('fecha_hora');
+			$evento->direccion = Input::get('direccion');
+			$evento->observacion = Input::get('observacion');
+			$evento->articulacion_id = (int)Input::get('articulaciones');
+			$evento->impacto_id = (int)Input::get('impactos');
+			$evento->subsistema_id = (int)Input::get('subsistemas');
+			$evento->municipio_id = (int)Input::get('municipios');
 			$evento->save();
 							
 			return json_encode($response);
