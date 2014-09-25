@@ -20,6 +20,11 @@ Route::get('prints',function(){
 	return View::make('themes.prints.form_content');
 });
 
+//Ruta para login del usuario
+Route::get('login',function(){
+	return View::make('themes.fullcalendar.cuenta_usuario.login');
+});
+
 //Rutas para el modelo beneficiarios
 Route::get('mostrarBeneficiarios','BeneficiarioController@index');
 Route::get('retorntarBeneficiarios','BeneficiarioController@retorntarBeneficiarios');
@@ -82,6 +87,7 @@ Route::get('borrarEstado/{id}','EstadoController@destroy');
 
 //Rutas del controlados Eventos
 //Route::resource('estado','EstadoController');
+Route::get('crearEvento','EventController@create');
 Route::post('eventos/{datos}','EventController@store');
 Route::post('updateStartEvent/{datos}','EventController@updateStartEvent');
 Route::post('actualizarEvento/{id}/{datos}','EventController@update');

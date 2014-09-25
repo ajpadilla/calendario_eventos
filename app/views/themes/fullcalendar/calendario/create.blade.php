@@ -31,7 +31,7 @@
                 </a>
             </div>
     	</div>
-    	<div class="box-body form">
+ 
        		<div id='calendar'></div>
 				<div id="add_event" class="popup cal-popup">
       			<h2>Add event!</h2>
@@ -102,7 +102,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-offset-3 col-md-9">
-							<a id="registrar" href="javascript:;" class="btn btn-primary">Registrar<i class="fa fa-arrow-circle-right"></i></a>
 							<a id="cancelar" href="javascript:;" class="btn btn-danger exit">Cancelar<i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
