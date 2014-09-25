@@ -122,7 +122,7 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearEvento')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
 											<a class="" href="{{URL::to('mostrarEventos')}}">
