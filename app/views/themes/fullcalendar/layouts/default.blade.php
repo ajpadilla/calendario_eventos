@@ -13,6 +13,11 @@
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/css/responsive.css')}}" />
        	<link href="{{asset('themes/Cloud_Admin/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
        	
+       	<!-- DATE RANGE PICKER -->
+		<link rel="stylesheet" type="text/css" href="{{ asset('themes/Cloud_Admin/js/bootstrap-daterangepicker/daterangepicker-bs3.css')}}" />
+		<!-- UNIFORM -->
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/uniform/css/uniform.default.min.css')}}" />
+
 		<!-- ANIMATE -->
        	<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/css/animatecss/animate.min.css')}}" />
        	 
@@ -30,6 +35,17 @@
 		
 		<!-- DataTables CSS -->
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css')}}">
+
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/jquery-ui-1.10.3.custom/css/custom-theme/jquery-ui-1.10.3.custom.min.css')}}">
+
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/bootstrap-daterangepicker/daterangepicker-bs3.css')}}">
+		
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datepicker/themes/default.min.css')}}">
+
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datepicker/themes/default.date.min.css')}}">
+
+		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datepicker/themes/default.time.min.css')}}">
+
         <!--Imprimir-->
         <link rel="stylesheet" type="text/css" href="{{asset('themes/fullcalendar/imprimir.css')}}" media="print" />  	
 
@@ -340,12 +356,19 @@
 	
 	<!-- DataTables -->
 	<script type="text/javascript" charset="utf8" src="{{asset('themes/Cloud_Admin/js/datatables/media/js/jquery.dataTables.min.js')}}"></script>
-	
+
+	<!-- UNIFORM -->
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/uniform/jquery.uniform.min.js')}}"></script>
+	<script src="{{asset('themes/Cloud_Admin/js/bootstrap-daterangepicker/daterangepicker.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.js')}}"></script>
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.date.js')}}"></script>
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.time.js')}}"></script>
 	<script>
 		jQuery(document).ready(function() {		
 			App.setPage("form");  //Set current page
 			App.init(); //Initialise plugins and elements
 		});
 	</script>
+	
 </body>
 </html>
