@@ -80,90 +80,7 @@
                     element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
                 }   
 		});
-		$.ajax({
-			type: 'GET',
-			url:'" . URL::to('/cargarEstados/') ."',
-			dataType:'json',
-			success: function(response){
-								//console.log(response.estados);
-				if(response.success == true) {
-					$('#estados').html('');
-					$('#estados').append('<option value=\"\">-- Estado --</option>');
-					$.each(response.estados,function (k,v){
-						$('#estados').append('<option value=\"'+k+'\">'+v+'</option>');
-					});
-				}else{
-					$('#estados').html('');
-					$('#estados').append('<option value=\"\">-- Estado --</option>');
-				}
-			},
-			error:function(jqXHR, status, error) {
-				console.log('Disculpe, existió un problema');
-			},
-		});
-
-		$.ajax({
-			type: 'GET',
-			url:'" . URL::to('/retornarArticulaciones/') ."',
-			dataType:'json',
-			success: function(response) {
-				//console.log('Arti:'+response);
-				if (response.success == true) {
-					$('#articulaciones').html('');
-					$('#articulaciones').append('<option value=\"\">-- Articulación --</option>');
-					$.each(response.articulaciones,function (k,v){
-						$('#articulaciones').append('<option value=\"'+k+'\">'+v+'</option>');
-					});
-			}else{
-				$('#articulaciones').html('');
-				$('#articulaciones').append('<option value=\"\">-- Articulación --</option>');
-			}
-		},
-		error : function(jqXHR, status, error) {
-			console.log('Disculpe, existió un problema');
-		},
-	});
-
-	$.ajax({
-		type: 'GET',
-		url:'" . URL::to('/retornarImpactos/') ."',
-		dataType:'json',
-		success: function(response) {
-							//console.log('impacto:'+response);
-			if (response.success == true) {
-				$('#impactos').html('');
-				$('#impactos').append('<option value=\"\">-- Impacto --</option>');
-				$.each(response.impactos,function (k,v){
-					$('#impactos').append('<option value=\"'+k+'\">'+v+'</option>');
-				});
-			}else{
-				$('#impactos').html('');
-				$('#impactos').append('<option value=\"\">-- Impacto --</option>');
-			}
-		},
-		error : function(jqXHR, status, error) {
-			console.log('Disculpe, existió un problema');
-		},
-	});
-
-	$.ajax({
-		type: 'GET',
-		url:'" . URL::to('/retornarSubsistemas/') ."',	
-		dataType:'json',
-		success: function(response) {
-			if (response.success == true) {
-				$('#subsistemas').html('');
-				$('#subsistemas').append('<option value=\"\">-- Subsistema --</option>');
-				$.each(response.subsistemas,function (k,v){
-					$('#subsistemas').append('<option value=\"'+k+'\">'+v+'</option>');
-				});
-			}else{
-				$('#subsistemas').html('');
-				$('#subsistemas').append('<option value=\"\">-- Subsistema --</option>');
-			}
-		}
-	});
-
+	
 	$('#estados').click(function(){
 		//console.log('algo');
 		//console.log('estado:'+$('#estados').val());
@@ -196,13 +113,13 @@
 			//console.log($('#formEvent').valid());
 			$.ajax({
 								type:'POST',
-								url:'" . URL::to('/guardarEvento/') ."',
+								url:'" . URL::to('/actualizarEvento/') ."'+'/'+$('#id').val(),
 								data:$('#formEvent').serialize(),
 								dataType:'json',
 								success : function(response) {
 									console.log(response);
 									$.fancybox({
-										'content': '<h1>Evento Agregado/h1>',
+										'content': '<h1>Evento Actualizado</h1>',
 										'autoScale' : true,
 										'transitionIn' : 'none',
 										'transitionOut' : 'none',
@@ -217,7 +134,7 @@
 								error : function(jqXHR, status, error) {
 									//alert('Disculpe, existió un problema');
 									$.fancybox({
-										'content': '<h1>Error al agregar el evento</h1>',
+										'content': '<h1>Error al actualizar el evento</h1>',
 										'autoScale' : true,
 										'transitionIn' : 'none',
 										'transitionOut' : 'none',
