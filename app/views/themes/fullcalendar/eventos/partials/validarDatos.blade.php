@@ -2,7 +2,9 @@
 	"
 		$('document').ready(function() {
 			
-			 $('#fecha_hora').datepicker();
+			$('#fecha_hora').datetimepicker({
+    			format: 'y-m-d H:m',
+			});
 
 			$.validator.setDefaults({
 				debug: true,
@@ -56,7 +58,23 @@
 					required:'Campo obligatorio',
 				},
 			},
-
+			 invalidHandler:function(event, validator){
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        $('.alert-danger').show();
+                    }else{
+                        $('.alert-danger').hide();
+                    }
+                },
+                highlight:function(element){
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                },
+                unhighlight:function(element){
+                    $(element).closest('.form-group').removeClass('has-error');
+                },
+                success:function(element){
+                    element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
+                }   
 		});
 		$.ajax({
 			type: 'GET',
