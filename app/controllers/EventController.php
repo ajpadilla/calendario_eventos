@@ -11,7 +11,6 @@ class EventController extends \BaseController {
 	{
 		$eventos = Evento::all();
 		return View::make('themes.fullcalendar.eventos.index',compact('eventos','algo'));
-
 	}
 
 
@@ -22,7 +21,7 @@ class EventController extends \BaseController {
 	 */
 	public function create()
 	{
-		var_dump(Session::get('persona'));
+		return View::make('themes.fullcalendar.eventos.create');
 	}
 
 
