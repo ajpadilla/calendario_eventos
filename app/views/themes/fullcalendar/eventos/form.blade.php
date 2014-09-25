@@ -17,12 +17,6 @@
 	</div>
 </div>
 <div class="form-group">
-	{{ Form::label('hora', 'Hora: ', array('class' => 'col-md-3 control-label')) }}
-	<div class="col-md-8">
-		{{ Form::text('hora', Input::old('hora'), array('class' => 'form-control','id'=>'hora')) }}
-	</div>
-</div>
-<div class="form-group">
 	{{ Form::label('direccion', 'Dirección: ', array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
 		{{ Form::text('direccion', Input::old('direccion'), array('class' => 'form-control','id'=>'direccion')) }}
