@@ -19,6 +19,7 @@
 
 		$('#formEvent').validate({
 			rules:{
+				fecha_hora:{required:!0,date: true},
 				titulo:{required:!0,rangelength: [3 , 45]},
 				descripcion:{required:!0,},
 				hora:{required:!0},
@@ -30,6 +31,9 @@
 				municipios:{required:!0},
 			},
 			messages:{
+				'fecha_hora':{
+					required:'Campo obligatorio',
+				},
 				'titulo':{
 					required:'Campo obligatorio',
 				},
@@ -189,7 +193,42 @@
 	$('#registrar').click(function(){
 		console.log($('#formEvent').valid());
 		if($('#formEvent').valid() == 1){
-			console.log($('#formEvent').valid());
+			//console.log($('#formEvent').valid());
+			$.ajax({
+								type:'POST',
+								url:'" . URL::to('/guardarEvento/') ."',
+								data:$('#formEvent').serialize(),
+								dataType:'json',
+								success : function(response) {
+									console.log(response);
+									$.fancybox({
+										'content': '<h1>Evento Agregado/h1>',
+										'autoScale' : true,
+										'transitionIn' : 'none',
+										'transitionOut' : 'none',
+										'scrolling' : 'no',
+										'type' : 'inline',
+										'showCloseButton' : false,
+										'hideOnOverlayClick' : false,
+										'hideOnContentClick' : false
+									});
+									$('#formEvent').clearForm();
+								},
+								error : function(jqXHR, status, error) {
+									//alert('Disculpe, existió un problema');
+									$.fancybox({
+										'content': '<h1>Error al agregar el evento</h1>',
+										'autoScale' : true,
+										'transitionIn' : 'none',
+										'transitionOut' : 'none',
+										'scrolling' : 'no',
+										'type' : 'inline',
+										'showCloseButton' : false,
+										'hideOnOverlayClick' : false,
+										'hideOnContentClick' : false
+									});
+								},
+						});
 		}
 	});						
 });
