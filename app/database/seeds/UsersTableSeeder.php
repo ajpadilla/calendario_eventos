@@ -8,8 +8,8 @@ class UsersTableSeeder extends Seeder {
 	{
 		$date = new DateTime;
 		$usuarios [] = array(
-            'username' => 'christopher.pitt',
-            'password'=> Hash::make('7h3¡MOST!53cu23'),
+            'username' => 'ajpadilla',
+            'password'=> Hash::make('1234'),
             'email'    => 'chris@example.com',
             'created_at' => $date->format('Y-m-d h:m:s'),
             'updated_at' => $date->format('Y-m-d h:m:s')            
