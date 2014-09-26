@@ -75,8 +75,8 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown user" id="header-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img alt="" src="img/avatars/avatar3.jpg">
-							<span class="username">John Doe</span>
+							<img alt="" src="{{asset('themes/Cloud_Admin/img/avatars/avatar3.jpg')}}">
+							<span class="username">{{ Auth::user()->username }}</span>
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
