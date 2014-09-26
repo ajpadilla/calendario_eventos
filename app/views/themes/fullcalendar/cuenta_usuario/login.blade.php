@@ -38,7 +38,10 @@
 				<!--/NAV-BAR -->
 			</header>
 			<!--/HEADER -->
-			
+			<!--login-->
+				@yield('login')
+			<!--forgot-->
+				@yield('forgot')
 	</section>
 	<!--/PAGE -->
 	<!-- JAVASCRIPTS -->
