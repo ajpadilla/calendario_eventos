@@ -54,27 +54,6 @@
 		<script>
 			@yield('script')
 		</script>    
-		<style>
-			.cal-popup {
-				display:none;
-				position:absolute;
-				top:10%;
-				left:20%;
-				background-color:#f5f5f5;
-				z-index:9999;
-				height:760px;
-				width:500px;
-				border:1px;
-				border-color:grey;
-				border-radius:3px;
-				border-style:solid;
-				padding:5px;
-				-moz-transition:all .2s ease-out 0;
-				-webkit-transition:all .2s ease-out 0;
-				transition:all .2s ease-out 0;
-			}
-           
-		</style> 
     </head>
     <body>
 		<header class="navbar clearfix" id="header">
