@@ -51,6 +51,14 @@ class UserController extends \BaseController {
       "password" => Input::get("password")
     ];
   }
+
+  public function logout()
+  {
+  	Auth::logout();
+
+  	return Redirect::to('/');
+  }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
