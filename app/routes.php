@@ -10,19 +10,17 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::any('login','UserController@index');
+Route::any('logout','UserController@logout');
 
 Route::get('/', function()
 {
+
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
 Route::get('prints',function(){
 	return View::make('themes.prints.form_content');
-});
-
-//Ruta para login del usuario
-Route::get('login',function(){
-	return View::make('themes.fullcalendar.cuenta_usuario.login');
 });
 
 //Rutas para el modelo beneficiarios

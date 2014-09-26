@@ -54,6 +54,27 @@
 		<script>
 			@yield('script')
 		</script>    
+		<style>
+			.cal-popup {
+				display:none;
+				position:absolute;
+				top:10%;
+				left:20%;
+				background-color:#f5f5f5;
+				z-index:9999;
+				height:760px;
+				width:500px;
+				border:1px;
+				border-color:grey;
+				border-radius:3px;
+				border-style:solid;
+				padding:5px;
+				-moz-transition:all .2s ease-out 0;
+				-webkit-transition:all .2s ease-out 0;
+				transition:all .2s ease-out 0;
+			}
+           
+		</style> 
     </head>
     <body>
 		<header class="navbar clearfix" id="header">
@@ -73,15 +94,10 @@
 				</ul>
 
 				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown user" id="header-user">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img alt="" src="{{asset('themes/Cloud_Admin/img/avatars/avatar3.jpg')}}">
-							<span class="username">{{ Auth::user()->username }}</span>
-							<i class="fa fa-angle-down"></i>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="{{URL::to('logout')}}"><i class="fa fa-power-off"></i>Cerrar sesion</a></li>
-						</ul>
+					<li class="active">
+					<a href="{{URL::to('login')}}"><i class="fa fa-user"></i> <span class="menu-text">Iniciar Session</span>
+							<span class="selected"></span>
+						</a>	
 					</li>
 				</ul>
          	</div>
@@ -100,136 +116,8 @@
 						<!-- <div id="quicklaunch">
 						<!-- /SIDEBAR QUICK-LAUNCH -->
 						<!--<!-- SIDEBAR MENU -->
-							<ul>
-								<li class="active">
-									<a href="{{URL::to('calendario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
-										<span class="selected"></span>
-									</a>	
-								</li>
-
-                                 <li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Eventos</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearEvento')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('mostrarEventos')}}">
-												<span class="sub-menu-text">Lista de eventos</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-                           
-
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Estado</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearEstado')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('mostrarEstados')}}">
-												<span class="sub-menu-text">Lista de estados</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Municipio</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearMunicipio')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('mostrarMunicipios')}}">
-												<span class="sub-menu-text">Lista de municipios</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-								
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Articulación</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearArticulacion')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('mostrarArticulaciones')}}">
-												<span class="sub-menu-text">Lista de articulaciones</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-								
-								
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Subsistema</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearSubsistemas')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('mostrarSubsistemas')}}">
-												<span class="sub-menu-text">Lista de subsistemas</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-								
-								
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Impacto</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearImpactos')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('mostrarImpactos')}}">
-												<span class="sub-menu-text">Lista de impactos</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-						
-								
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Persona</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('listarPersonas')}}">
-												<span class="sub-menu-text">Lista de personas</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-							</div>
 						</div>
+					</div>
 		
 	
 

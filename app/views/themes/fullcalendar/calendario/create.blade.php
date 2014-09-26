@@ -1,4 +1,4 @@
-@extends('themes.fullcalendar.layouts.form_content')
+@extends('themes.fullcalendar.calendario.form')
 
 @section('script')
 	@include('themes.fullcalendar.calendario.partials.scripts')
@@ -7,7 +7,7 @@
 @section('page_header')
     <!-- /BREADCRUMBS -->
    	<div class="clearfix">
-    	<h3 class="content-title pull-left">Forms</h3>
+    	<h3 class="content-title pull-left">Formulario</h3>
     </div>
     <div class="description">Calendario de eventos</div>
 @stop
