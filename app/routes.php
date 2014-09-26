@@ -11,6 +11,7 @@
 |
 */
 Route::any('login','UserController@index');
+Route::any('logout','UserController@logout');
 
 Route::get('/', function()
 {
