@@ -25,4 +25,8 @@ class Evento extends \Eloquent {
 	public function personas(){
 		return $this->belongsToMany('Persona','beneficiarios','evento_id','persona_id')->withPivot('tipo');
 	}
+
+	public function personas(){
+		return $this->belongsToMany('Persona','responsables','evento_id','persona_id')->withPivot('tipo');
+	}
 }
