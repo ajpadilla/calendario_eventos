@@ -92,6 +92,14 @@
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
 				</ul>
+
+				<ul class="nav navbar-nav pull-right">
+					<li class="active">
+					<a href="{{URL::to('login')}}"><i class="fa fa-user"></i> <span class="menu-text">Iniciar Session</span>
+							<span class="selected"></span>
+						</a>	
+					</li>
+				</ul>
          	</div>
 		</header>   	
 	
@@ -108,13 +116,6 @@
 						<!-- <div id="quicklaunch">
 						<!-- /SIDEBAR QUICK-LAUNCH -->
 						<!--<!-- SIDEBAR MENU -->
-							<ul>
-								<li class="active">
-									<a href="{{URL::to('login')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Iniciar Session</span>
-										<span class="selected"></span>
-									</a>	
-								</li>
-							</ul>
 						</div>
 					</div>
 		
