@@ -9,21 +9,21 @@
 				<div class="login-box-plain">
 					<h2 class="bigintro">Registrarse</h2>
 					<div class="divide-40"></div>
-					<form role="form">
+					{{ Form::open(array('action' => 'ArticulacionController@store','class'=>'form-horizontal','id'=>'formLogin','novalidate'=>'novalidate','role'=>'form','files'=>true)) }}
 						<div class="form-group">
-							<label for="exampleInputEmail1">Email</label>
-							<i class="fa fa-envelope"></i>
-							<input type="email" class="form-control" id="exampleInputEmail1" >
+							{{ Form::label("username", "Usuario", array('class' => 'control-label')) }}
+							<i class="fa fa-user"></i>
+  							{{ Form::text("username", Input::old('username'), array('class' => 'form-control')) }}
 						</div>
-						<div class="form-group"> 
-							<label for="exampleInputPassword1">Password</label>
+						<div class="form-group">
+							{{ Form::label("password", "Password", array('class' => ' control-label')) }}
 							<i class="fa fa-lock"></i>
-							<input type="password" class="form-control" id="exampleInputPassword1" >
+  								{{ Form::password("password",array('class' => 'form-control ')) }}
 						</div>
-						<div class="form-actions">
-							<button type="submit" class="btn btn-danger">Submit</button>
-						</div>
-					</form>
+  						<div class="row form-actions" >
+  							{{ Form::submit("Registrarse",array('class' => 'btn btn-danger')) }}
+  						</div>
+  					{{ Form::close() }}
 					<div class="login-helpers">
 						<a href="#" onclick="swapScreen('forgot');return false;">¿Olvidaste tu contraseña?</a> 
 					</div>
