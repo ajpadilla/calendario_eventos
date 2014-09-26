@@ -80,7 +80,7 @@
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="login.html"><i class="fa fa-power-off"></i>Cerrar sesion</a></li>
+							<li><a href="{{URL::to('logout')}}"><i class="fa fa-power-off"></i>Cerrar sesion</a></li>
 						</ul>
 					</li>
 				</ul>
