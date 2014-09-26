@@ -20,6 +20,8 @@
 		$('#formEvent').validate({
 			rules:{
 				fecha_hora:{required:!0,date: true},
+				'responsables[]':{required:!0},
+				actividad:{required:!0},
 				titulo:{required:!0,rangelength: [3 , 45]},
 				descripcion:{required:!0,},
 				hora:{required:!0},
@@ -33,6 +35,12 @@
 			messages:{
 				'fecha_hora':{
 					required:'Campo obligatorio',
+				},
+				'responsables[]':{
+					required:'Campo obligatorio'
+				},
+				'actividad':{
+					required:'Campo obligatorio'
 				},
 				'titulo':{
 					required:'Campo obligatorio',
@@ -80,6 +88,9 @@
                     element.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
                 }   
 		});
+
+
+
 		$.ajax({
 			type: 'GET',
 			url:'" . URL::to('/cargarEstados/') ."',
@@ -117,6 +128,28 @@
 			}else{
 				$('#articulaciones').html('');
 				$('#articulaciones').append('<option value=\"\">-- Articulación --</option>');
+			}
+		},
+		error : function(jqXHR, status, error) {
+			console.log('Disculpe, existió un problema');
+		},
+	});
+
+	$.ajax({
+			type: 'GET',
+			url:'" . URL::to('/listaResponsables/') ."',
+			dataType:'json',
+			success: function(response) {
+				//console.log('Arti:'+response);
+				if (response.success == true) {
+					$('#responsables').html('');
+					$('#responsables').append('<option value=\"\">-- Responsables --</option>');
+					$.each(response.responsables,function (k,v){
+						$('#responsables').append('<option value=\"'+k+'\">'+v+'</option>');
+					});
+			}else{
+				$('#responsables').html('');
+				$('#responsables').append('<option value=\"\">-- Articulación --</option>');
 			}
 		},
 		error : function(jqXHR, status, error) {
@@ -163,6 +196,9 @@
 			}
 		}
 	});
+
+
+		
 
 	$('#estados').click(function(){
 		//console.log('algo');
