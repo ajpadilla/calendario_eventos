@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function()
+Route::get('calendario', function()
 {
 	return View::make('themes.fullcalendar.calendario.create');
 });
@@ -22,7 +22,7 @@ Route::get('prints',function(){
 
 //Ruta para login del usuario
 Route::get('login',function(){
-	return View::make('themes.fullcalendar.cuenta_usuario.login');
+	return View::make('themes.fullcalendar.cuenta_usuario.sections');
 });
 
 //Rutas para el modelo beneficiarios
