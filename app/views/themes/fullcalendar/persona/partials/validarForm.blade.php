@@ -8,7 +8,7 @@
 			});
 
 			$('input[name=telefono]').inputmask({'mask':'99999999999'});
-			$('input[name=cedula]').inputmask();
+			//$('input[name=cedula]').inputmask();
 		    
         $.validator.addMethod('lettersonly', function(value, element) {
                 var reg = /^([a-z ñáéíóú]{2,60})$/i;
@@ -218,5 +218,6 @@
 				});
 
 		});
+
 	"
 }}
