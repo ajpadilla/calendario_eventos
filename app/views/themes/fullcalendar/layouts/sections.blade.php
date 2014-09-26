@@ -30,6 +30,9 @@
 					<div class="login-helpers">
 						<a href="#" onclick="swapScreen('forgot');return false;">¿Olvidaste tu contraseña?</a> 
 					</div>
+					<div class="login-helpers">
+						<a href="{{URL::to('/')}}">Regresar al calendario</a> 
+					</div>
 				</div>
 			</div>
 		</div>
