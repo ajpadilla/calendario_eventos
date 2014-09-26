@@ -39,6 +39,7 @@ class EventController extends \BaseController {
 						
 			$evento = new Evento;
 			$evento->title = Input::get('titulo');
+			$evento->actividad = Input::get('actividad');
 			$evento->descripcion = Input::get('descripcion');
 			$evento->start = Input::get('fecha_hora');
 			$evento->direccion = Input::get('direccion');
@@ -107,6 +108,18 @@ class EventController extends \BaseController {
        }
 	  return array('success' => false);
 	}
+
+	public function retornarPersonas(){
+		$response = array();
+        $personas = Persona::all()->lists('nombres', 'id');
+        if(count($personas) > 0) {
+       		$response['success'] = true;
+        	$response['responsables'] = $personas;
+        	return ($response);
+       }
+	  return array('success' => false);
+	}
+
 
 	/**
 	 * Display the specified resource.
