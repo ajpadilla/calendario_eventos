@@ -16,6 +16,7 @@ class CreateEventosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title',128);
+			$table->string('actividad');
 			$table->text('descripcion');
 			$table->dateTime('start');
 			$table->text('direccion');
