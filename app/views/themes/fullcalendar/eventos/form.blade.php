@@ -5,9 +5,21 @@
 	</div>
 </div>
 <div class="form-group">
+	{{ Form::label('responsables[]', 'Responsables: ',array('class' => 'col-md-3 control-label')) }}
+	<div class="col-md-8">
+		{{ Form::select('responsables[]',array(),Input::old('responsables[]'),array('class' => 'form-control','multiple'=>'multiple','id'=>'responsables')) }}
+	</div>
+</div>
+<div class="form-group">
 	{{ Form::label('titulo', 'Titulo: ', array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">
 		{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control','id'=>'titulo')) }}
+	</div>
+</div>
+<div class="form-group">
+	{{ Form::label('actividad', 'Activida: ', array('class' => 'col-md-3 control-label')) }}
+	<div class="col-md-8">
+		{{ Form::text('actividad', Input::old('actividad'), array('class' => 'form-control','id'=>'actividad')) }}
 	</div>
 </div>
 <div class="form-group">
