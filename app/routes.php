@@ -95,3 +95,4 @@ Route::get('mostrarEventos','EventController@index');
 Route::get('mostrarEvento/{id}','EventController@show');
 Route::get('retornarEventos','EventController@retornarEventos');
 Route::get('imprimirEvento/{id}','EventController@showPrint');
+Route::get('listaResponsables','EventController@retornarPersonas');
