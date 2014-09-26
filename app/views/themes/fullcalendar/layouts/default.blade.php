@@ -71,6 +71,19 @@
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
 				</ul>
+
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown user" id="header-user">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img alt="" src="img/avatars/avatar3.jpg">
+							<span class="username">John Doe</span>
+							<i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="login.html"><i class="fa fa-power-off"></i>Cerrar sesion</a></li>
+						</ul>
+					</li>
+				</ul>
          	</div>
 		</header>   	
 	
