@@ -110,7 +110,7 @@
 						<!--<!-- SIDEBAR MENU -->
 							<ul>
 								<li class="active">
-									<a href="{{URL::to('/')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
+									<a href="{{URL::to('calendario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
 										<span class="selected"></span>
 									</a>	
 								</li>
