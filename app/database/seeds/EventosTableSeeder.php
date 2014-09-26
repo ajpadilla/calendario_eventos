@@ -11,6 +11,7 @@ public function run()
         $date = new DateTime;
         $eventos[] = array(
             'title' => 'Evento1',
+            'actividad'=>'Primera actividad',
             'descripcion' => 'Primer evento',
             'start'=>$date->format('2014-09-14 10:00:00'),
             'direccion'=>'Tariba',
@@ -25,6 +26,7 @@ public function run()
         
           $eventos[] = array(
             'title' => 'Evento2',
+            'actividad'=>'Segunda actividad',
             'descripcion' => 'Segundo evento',
             'start'=>$date->format('2014-09-15 10:00:00'),
             'direccion'=>'San Cristobal',
@@ -39,6 +41,7 @@ public function run()
         
           $eventos[] = array(
             'title' => 'Evento3',
+            'actividad'=>'Tercera actividad',
             'descripcion' => 'Tercer evento',
             'start'=>$date->format('2014-09-16 10:00:00'),
             'direccion'=>'Michelena',
