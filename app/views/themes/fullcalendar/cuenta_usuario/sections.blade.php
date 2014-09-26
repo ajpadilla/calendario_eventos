@@ -7,11 +7,11 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="login-box-plain">
-					<h2 class="bigintro">Sign In</h2>
+					<h2 class="bigintro">Registrarse</h2>
 					<div class="divide-40"></div>
 					<form role="form">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Email address</label>
+							<label for="exampleInputEmail1">Email</label>
 							<i class="fa fa-envelope"></i>
 							<input type="email" class="form-control" id="exampleInputEmail1" >
 						</div>
@@ -24,6 +24,9 @@
 							<button type="submit" class="btn btn-danger">Submit</button>
 						</div>
 					</form>
+					<div class="login-helpers">
+						<a href="#" onclick="swapScreen('forgot');return false;">¿Olvidaste tu contraseña?</a> 
+					</div>
 				</div>
 			</div>
 		</div>
@@ -39,20 +42,20 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="login-box-plain">
-					<h2 class="bigintro">Reset Password</h2>
+					<h2 class="bigintro">Recuperar Password</h2>
 					<div class="divide-40"></div>
 					<form role="form">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Enter your Email address</label>
+							<label for="exampleInputEmail1">Ingresa tu Email</label>
 							<i class="fa fa-envelope"></i>
 							<input type="email" class="form-control" id="exampleInputEmail1" >
 						</div>
 						<div class="form-actions">
-							<button type="submit" class="btn btn-info">Send Me Reset Instructions</button>
+							<button type="submit" class="btn btn-info">Restablecer contraseña</button>
 						</div>
 					</form>
 					<div class="login-helpers">
-						<a href="#" onclick="swapScreen('login');return false;">Back to Login</a> <br>
+						<a href="#" onclick="swapScreen('login');return false;">Registrarse</a> <br>
 					</div>
 				</div>
 			</div>
