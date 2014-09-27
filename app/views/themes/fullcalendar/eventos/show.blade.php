@@ -16,7 +16,31 @@
             {{ Form::open(array('action' => 'EventController@store','class'=>'form-inline','role' =>'form','id'=>'formWizardMunicipio','novalidate'=>'novalidate','files'=>true)) }}
                 
 				<a href="{{URL::to('imprimirEvento/'.$evento->id)}}" class="btn btn-primary">Vista de impresión<i class="fa fa-arrow-circle-right"></i></a>
-        
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <td colspan="3" class="text-center"> 
+                                <h1>Responsables</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cedula</td>
+                            <td>Nombres</td>
+                            <td>Apellidos</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach($evento->responsables as $responsable)
+                            <tr>
+                                <td>{{$responsable->cedula}}</td>
+                                <td>{{ $responsable->nombres }}</td>
+                                <td>{{ $responsable->apellidos }}</td>
+                            </tr>
+                        @endforeach
+                        </tr>
+                    </tbody>
+                </table>
                  <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
