@@ -49,7 +49,11 @@ class EventController extends \BaseController {
 			$evento->subsistema_id = (int)Input::get('subsistemas');
 			$evento->municipio_id = (int)Input::get('municipios');
 			$evento->save();
-							
+			
+			foreach (Input::get('responsables') as $responsable_id) {
+				$evento->responsables()->attach($responsable_id);
+			}
+
 			return json_encode($response);
 		}
 		return array('success' => false);
