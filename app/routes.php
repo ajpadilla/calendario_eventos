@@ -13,6 +13,12 @@
 Route::any('login','UserController@index');
 
 Route::get('cargar_eventos','EventController@allEvents');
+Route::post('updateStartEvent/{datos}','EventController@updateStartEvent');
+Route::get('cargarEstados','EstadoController@cargarEstados');
+Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
+Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
+Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+
 
 Route::get('/', function()
 {
@@ -47,7 +53,6 @@ Route::get('existenciaEmail','PersonaController@existenciaEmail');
 Route::get('listarPersonas','PersonaController@index');
 
 //Rutas de las articulaciones
-Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('mostrarArticulaciones','ArticulacionController@index');
 Route::get('crearArticulacion','ArticulacionController@create');
 Route::post('guardarArticulacion','ArticulacionController@store');
@@ -57,7 +62,6 @@ Route::get('borrarArticulacion/{id}','ArticulacionController@destroy');
 Route::post('verificarExistenciaNombreArticulacion','ArticulacionController@verificarExistenciaNombreArticulacion');
 
 //Rutas de los impactos
-Route::get('retornarImpactos','ImpactoController@retornarImpactos');
 Route::get('mostrarImpactos','ImpactoController@index');
 Route::get('crearImpactos','ImpactoController@create');
 Route::post('guardarImpactos','ImpactoController@store');
@@ -66,7 +70,7 @@ Route::post('actualizarImpacto/{id}','ImpactoController@update');
 Route::post('verificarExistenciaNombreImpacto','ImpactoController@verificarExistenciaNombreImpacto');
 
 //Rutas de los subsistemas
-Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
+
 Route::get('crearSubsistemas','SubsistemaController@create');
 Route::get('mostrarSubsistemas','SubsistemaController@index');
 Route::post('guardarSubsistemas','SubsistemaController@store');
@@ -84,7 +88,6 @@ Route::post('actualizarMunicipio/{id}','MunicipioController@update');
 Route::post('verificarNombreMunicipio','MunicipioController@verificarNombreMunicipio');
 
 //Rutas de el controlador Estado
-Route::get('cargarEstados','EstadoController@cargarEstados');
 Route::get('crearEstado','EstadoController@create');
 Route::post('guardarEstado','EstadoController@store');
 Route::post('verificarExistenciaNombreEstado','EstadoController@verificarExistenciaNombreEstado');
@@ -98,9 +101,7 @@ Route::get('borrarEstado/{id}','EstadoController@destroy');
 Route::get('crearEvento','EventController@create');
 Route::get('editarEvento/{id}','EventController@edit');
 Route::post('guardarEvento','EventController@store');
-Route::post('updateStartEvent/{datos}','EventController@updateStartEvent');
 Route::post('actualizarEvento/{id}','EventController@update');
-
 Route::get('mostrarEventos','EventController@index');
 Route::get('mostrarEvento/{id}','EventController@show');
 Route::get('retornarEventos','EventController@retornarEventos');
