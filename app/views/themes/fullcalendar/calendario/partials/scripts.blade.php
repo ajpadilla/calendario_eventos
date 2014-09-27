@@ -157,6 +157,7 @@ $('document').ready(function() {
 			hora = $.fullCalendar.moment(event.start).format();
 			console.log(hora.substring(11));
 			$('#titulo').val(event.title);	
+			$('#actividad').val(event.actividad);	
 			$('#descripcion').val(event.descripcion);
 			$('#hora').val(hora.substring(11));
 			$('#direccion').val(event.direccion);
