@@ -18,6 +18,7 @@ Route::get('cargarEstados','EstadoController@cargarEstados');
 Route::get('retornarArticulaciones','ArticulacionController@retornarArticulaciones');
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
+Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
 
 
 Route::get('/', function()
@@ -79,7 +80,6 @@ Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
 Route::post('verificarExistenciaNombreSubsistema','SubsistemaController@verificarExistenciaNombreSubsistema');
 
 //Rutas del controlador Munucupio
-Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
 Route::get('mostrarMunicipios','MunicipioController@index');
 Route::get('crearMunicipio','MunicipioController@create');
 Route::post('guardarMunicipio','MunicipioController@store');
