@@ -99,13 +99,13 @@
 					</div>
 				</div>
 				<hr/>
-				<div class="row">
+				<!--<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-offset-3 col-md-9">
 							<a id="cancelar" href="javascript:;" class="btn btn-danger exit">Cancelar<i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				</form>
 			</div>
        	</div>
