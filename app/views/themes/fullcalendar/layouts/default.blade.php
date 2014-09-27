@@ -47,7 +47,11 @@
 		<link rel="stylesheet" type="text/css" href="{{asset('themes/Cloud_Admin/js/datepicker/themes/default.time.min.css')}}">
 			
 		<link rel="stylesheet" href="{{asset('themes/Cloud_Admin/js/datetimepicker/jquery.datetimepicker.css')}}">
-			
+		
+
+        <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
+        <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
+
         <!--Imprimir-->
         <link rel="stylesheet" type="text/css" href="{{asset('themes/fullcalendar/imprimir.css')}}" media="print" />  	
 
@@ -308,10 +312,9 @@
 		<!-- CUSTOM SCRIPT -->
 		<script src="{{ asset('themes/Cloud_Admin/js/bootstrap-wizard/form-wizard.min.js')}}"></script>
 
-        <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
-        <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
         <script src="{{asset('themes/fullcalendar/lib/moment.min.js') }}"></script>
         <script src="{{asset('themes/fullcalendar/fullcalendar.min.js')}}"></script>
+        <script src="{{asset('themes/fullcalendar/lang/es.js')}}"></script>
 		
 		<!-- DATE RANGE PICKER -->
 		<script src="{{asset('themes/Cloud_Admin/js/bootstrap-daterangepicker/moment.min.js')}}"></script>
