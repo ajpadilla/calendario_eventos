@@ -5,7 +5,7 @@ $('document').ready(function() {
 	var date = new Date();
 	
     var y = date.getFullYear();
-	
+
 		$.ajax({
 			type: 'GET',
 			url:'" . URL::to('/cargarEstados/') ."',
@@ -24,6 +24,28 @@ $('document').ready(function() {
 				}
 			},
 			error:function(jqXHR, status, error) {
+				console.log('Disculpe, existió un problema');
+			},
+		});
+		
+		$.ajax({
+			type: 'GET',
+			url:'" . URL::to('/cargarMunicipios/') ."'+'/'+$('#estados').val(),
+			dataType:'json',
+			success: function(response) {
+									//console.log('Municipios'+JSON.stringify(response));
+				if(response.success == true) {
+					$('#municipios').html('');
+					$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+					$.each(response.municipios,function (k,v){
+						$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
+					}); 
+				}else{
+						$('#municipios').html('');
+						$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+					} 
+			},
+			error : function(jqXHR, status, error) {
 				console.log('Disculpe, existió un problema');
 			},
 		});
