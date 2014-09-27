@@ -45,6 +45,12 @@
 					</div>
 				</div>
 				<div class="form-group">
+					{{ Form::label('actividad', 'Actividad: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('actividad', Input::old('actividad'), array('class' => 'form-control','id'=>'actividad')) }}
+					</div>
+				</div>
+				<div class="form-group">
 					{{ Form::label('descripcion', 'Descripción: ', array('class' => 'col-md-3 control-label')) }}
 					<div class="col-md-8">
 						{{ Form::text('descripcion', Input::old('descripcion'), array('class' => 'form-control','id'=>'descripcion')) }}
