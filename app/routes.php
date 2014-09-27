@@ -19,6 +19,10 @@ Route::get('/', function()
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
+Route::get('calendarioUsuario', function(){
+	return View::make('themes.fullcalendar.calendario.createUsuario');
+});
+
 Route::get('prints',function(){
 	return View::make('themes.prints.form_content');
 });
