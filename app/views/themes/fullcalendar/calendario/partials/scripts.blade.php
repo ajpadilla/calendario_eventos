@@ -1,6 +1,14 @@
 {{
 	"
 $('document').ready(function() {
+
+	 var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+	console.log('date:'+ date);
+
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
@@ -22,7 +30,8 @@ $('document').ready(function() {
 		}
 
 		],
-		defaultDate: '2014-08-12',
+		//defaultDate: '2014-08-12',
+		gotoDate : date,
 		selectable: true,
 		selectHelper: true,
 		select: function(start, end) {
