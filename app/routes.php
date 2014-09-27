@@ -11,13 +11,19 @@
 |
 */
 Route::any('login','UserController@index');
-Route::any('logout','UserController@logout');
+
+Route::get('cargar_eventos','EventController@allEvents');
 
 Route::get('/', function()
 {
 
 	return View::make('themes.fullcalendar.calendario.create');
 });
+
+
+Route::group(['before' => 'auth'], function() {
+
+Route::any('logout','UserController@logout');
 
 Route::get('calendarioUsuario', function(){
 	return View::make('themes.fullcalendar.calendario.createUsuario');
@@ -94,9 +100,11 @@ Route::get('editarEvento/{id}','EventController@edit');
 Route::post('guardarEvento','EventController@store');
 Route::post('updateStartEvent/{datos}','EventController@updateStartEvent');
 Route::post('actualizarEvento/{id}','EventController@update');
-Route::get('cargar_eventos','EventController@allEvents');
+
 Route::get('mostrarEventos','EventController@index');
 Route::get('mostrarEvento/{id}','EventController@show');
 Route::get('retornarEventos','EventController@retornarEventos');
 Route::get('imprimirEvento/{id}','EventController@showPrint');
 Route::get('listaResponsables','EventController@retornarPersonas');
+
+});
