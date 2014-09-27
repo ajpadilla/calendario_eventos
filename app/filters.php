@@ -94,3 +94,4 @@ Route::filter('auth', function() {
     return Redirect::route('login');
   }
 });
+
