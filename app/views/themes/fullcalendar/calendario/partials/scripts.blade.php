@@ -10,6 +10,7 @@ $('document').ready(function() {
 	console.log('date:'+ date);
 
 	$('#calendar').fullCalendar({
+		lang: 'es',
 		header: {
 			left: 'prev,next today',
 			center: 'title',
