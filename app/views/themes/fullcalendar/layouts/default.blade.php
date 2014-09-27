@@ -77,6 +77,7 @@
 		</style>
     </head>
     <body>
+    	@if(Auth::check())
 		<header class="navbar clearfix" id="header">
 			<div class="container">
 				<div class="navbar-brand">
@@ -92,7 +93,7 @@
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
 				</ul>
-
+				
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown user" id="header-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -277,6 +278,9 @@
 			</div>
 		<div>
 	</section>
+	@else
+		<p>No tiene permisos de acceso</p>
+	@endif
 		<!-- JAVASCRIPTS -->
 		
 		<!-- Placed at the end of the document so the pages load faster -->
