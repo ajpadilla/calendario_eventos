@@ -19,7 +19,7 @@
 
 		$('#formEvent').validate({
 			rules:{
-				fecha_hora:{required:!0,date: true},
+				fecha_hora:{required:!0,},
 				'responsables[]':{required:!0},
 				actividad:{required:!0},
 				titulo:{required:!0,rangelength: [3 , 45]},
@@ -238,7 +238,7 @@
 								success : function(response) {
 									console.log(response);
 									$.fancybox({
-										'content': '<h1>Evento Agregado/h1>',
+										'content': '<h1>Evento Agregado</h1>',
 										'autoScale' : true,
 										'transitionIn' : 'none',
 										'transitionOut' : 'none',
