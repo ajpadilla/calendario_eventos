@@ -28,27 +28,31 @@ $('document').ready(function() {
 			},
 		});
 		
+	/*$('#estados').click(function(){
+			//console.log('algo');
+			//console.log('estado:'+$('#estados').val());
 		$.ajax({
 			type: 'GET',
 			url:'" . URL::to('/cargarMunicipios/') ."'+'/'+$('#estados').val(),
 			dataType:'json',
 			success: function(response) {
-									//console.log('Municipios'+JSON.stringify(response));
+										//console.log('Municipios'+JSON.stringify(response));
 				if(response.success == true) {
 					$('#municipios').html('');
 					$('#municipios').append('<option value=\"\">-- Municipio --</option>');
 					$.each(response.municipios,function (k,v){
 						$('#municipios').append('<option value=\"'+k+'\">'+v+'</option>');
 					}); 
-				}else{
-						$('#municipios').html('');
-						$('#municipios').append('<option value=\"\">-- Municipio --</option>');
-					} 
-			},
-			error : function(jqXHR, status, error) {
-				console.log('Disculpe, existió un problema');
-			},
-		});
+	}else{
+		$('#municipios').html('');
+		$('#municipios').append('<option value=\"\">-- Municipio --</option>');
+	} 
+	},
+	error : function(jqXHR, status, error) {
+		console.log('Disculpe, existió un problema');
+	},
+	});
+	});*/
 
 		$.ajax({
 			type: 'GET',
@@ -128,7 +132,7 @@ $('document').ready(function() {
 			url: 'cargar_eventos',
 			type: 'GET',
 			success: function(response) {
-						//console.log(response);
+				console.log(response);
 			},
 			error: function() {
 				alert('there was an error while fetching events!');
@@ -148,8 +152,6 @@ $('document').ready(function() {
 		editable: true,
 		eventLimit: true,
 		eventClick: function(event, element) {
-			/*$('.popup').css({'display':'block', 'opacity':'0'}).animate({'opacity':'1','top':'50%'}, 300);*/
-
 			var data;
 			var hora;
 			hora = $.fullCalendar.moment(event.start).format();
@@ -162,8 +164,10 @@ $('document').ready(function() {
 			$('#articulaciones').val(event.articulacion.id);
 			$('#impactos').val(event.impacto.id);
 			$('#subsistemas').val(event.subsistema.id);
-			$('#estados').val(event.estado.id);
-			$('#municipios').val(event.municipio.id);
+			$('#estados').val(event.municipio.estado.id);
+			$('#municipios').html('');
+			$('#municipios').append('<option value=\"\">'+event.municipio.nombre+'</option>');
+			//$('#municipios').html(event.municipio.id);
 			
 			$.fancybox({
 				'content': $('#formEvent'),
@@ -176,10 +180,6 @@ $('document').ready(function() {
 				'hideOnOverlayClick' : false,
 				'hideOnContentClick' : false
 			})
-
-			/*$('.exit').click(function(){
-				$('.popup').css({'display':'block', 'opacity':'1'}).animate({'opacity':'0','top':'0%','display':'none'}, 300);
-			});*/
 },
 eventDrop: function(event, delta){
 	console.log('id:'+ event.id +' '+'fecha:'+$.fullCalendar.moment(event.start).format());
