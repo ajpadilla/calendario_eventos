@@ -45,6 +45,12 @@
 					</div>
 				</div>
 				<div class="form-group">
+					{{ Form::label('actividad', 'Actividad: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('actividad', Input::old('actividad'), array('class' => 'form-control','id'=>'actividad')) }}
+					</div>
+				</div>
+				<div class="form-group">
 					{{ Form::label('descripcion', 'Descripción: ', array('class' => 'col-md-3 control-label')) }}
 					<div class="col-md-8">
 						{{ Form::text('descripcion', Input::old('descripcion'), array('class' => 'form-control','id'=>'descripcion')) }}
@@ -99,13 +105,13 @@
 					</div>
 				</div>
 				<hr/>
-				<div class="row">
+				<!--<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-offset-3 col-md-9">
 							<a id="cancelar" href="javascript:;" class="btn btn-danger exit">Cancelar<i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				</form>
 			</div>
        	</div>
