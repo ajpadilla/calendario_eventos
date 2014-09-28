@@ -1,9 +1,12 @@
 {{
 	"
 		$('document').ready(function() {
-			
+			var date = new Date();
+
 			$('#fecha_hora').datetimepicker({
-    			format: 'y-m-d H:m',
+				lang:'es',
+				minDate:date,
+    			format: 'y-m-d H:i',
 			});
 
 			$.validator.setDefaults({
