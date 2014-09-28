@@ -19,7 +19,7 @@
 
 		$('#formEvent').validate({
 			rules:{
-				fecha_hora:{required:!0,date: true},
+				fecha_hora:{required:!0},
 				titulo:{required:!0,rangelength: [3 , 45]},
 				descripcion:{required:!0,},
 				hora:{required:!0},
