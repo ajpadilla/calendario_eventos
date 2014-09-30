@@ -19,6 +19,7 @@ Route::get('retornarArticulaciones','ArticulacionController@retornarArticulacion
 Route::get('retornarSubsistemas','SubsistemaController@retornarSubsistemas');
 Route::get('retornarImpactos','ImpactoController@retornarImpactos');
 Route::get('cargarMunicipios/{id_estado}','MunicipioController@cargarMunicipios');
+Route::get('mostrarGraficosEvento/{id}','EventController@showGraphics');
 
 
 Route::get('/', function()

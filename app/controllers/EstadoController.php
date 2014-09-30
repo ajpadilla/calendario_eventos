@@ -9,7 +9,8 @@ class EstadoController extends \BaseController {
 	 */
 	public function index()
 	{
-		$estados = Estado::all();
+		//$estados = Estado::all();
+		$estados = Estado::orderBy('nombre','ASC')->get();
 		return View::make('themes.fullcalendar.estados.listarEstados')->with('estados', $estados);
 	}
 
