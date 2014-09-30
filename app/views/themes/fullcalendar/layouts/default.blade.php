@@ -87,16 +87,16 @@
 				<div class="navbar-brand">
             		<!-- COMPANY LOGO -->
                		<a href="/">
-                		<img src="{{asset('themes/Cloud_Admin/img/logo/logo.png')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
+                		<img src="{{asset('themes/Cloud_Admin/img/t_mision_156.jpg')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
                 	</a>
         		</div>
 			
 				<!-- NAVBAR LEFT -->
-				<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
+				<!--<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
 					<li class=""><a href="#" data-toggle="tab">More</a></li>
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
-				</ul>
+				</ul>-->
 				
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown user" id="header-user">
@@ -386,6 +386,7 @@
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.date.js')}}"></script>
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.time.js')}}"></script>
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datetimepicker/jquery.datetimepicker.js')}}"></script>
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/Chart.min.js')}}"></script>
 	<script>
 		jQuery(document).ready(function() {		
 			App.setPage("form");  //Set current page

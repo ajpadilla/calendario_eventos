@@ -21,6 +21,7 @@
 			<td>Nombre</td>
 			<td>Editar</td>
 			<td>Datos</td>
+			<td>Graficos</td>
 		</tr>
 	</thead>
 		<tbody>
@@ -30,6 +31,7 @@
 				<td>{{$evento->title}}</td>	
 				<td><a href="{{URL::to('editarEvento/'.$evento->id)}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
 				<td><a href="{{URL::to('mostrarEvento/'.$evento->id)}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
+				<td><a href="{{URL::to('mostrarGraficosEvento/'.$evento->id)}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
 			</tr>
 			</tr>
 			@endforeach
