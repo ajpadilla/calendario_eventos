@@ -12,21 +12,28 @@ class UserController extends \BaseController {
 		if ($this->isPostRequest()) 
 		{
 			$validator = $this->getLoginValidator();
-
-			if ($validator->passes()) {
+			if ($validator->passes()) 
+			{
 				$credentials = $this->getLoginCredentials();
-				if (Auth::attempt($credentials)) {
-					return View::make('themes.fullcalendar.eventos.create');
-				}
-
-				return Redirect::back()->withErrors([
+				if(Auth::attempt($credentials)) 
+				{
+					$user = Auth::user();
+					if ($user->hasRole('Usuario')) {
+						 return Redirect::to('sesionUsuario');
+					}else{
+						if ($user->hasRole('Administrador')) {
+							return Redirect::to('sessionAdministrador');
+						}
+					}
+				}else{
+					return Redirect::back()->withErrors([
 					"password" => ["Password Invalido."]
 					]);
-			} else {
-				return Redirect::back()
+				}
+			}
+			return Redirect::back()
 				->withInput()
 				->withErrors($validator);
-			}
 		}
 		return View::make('themes.fullcalendar.layouts.sections');
   }
