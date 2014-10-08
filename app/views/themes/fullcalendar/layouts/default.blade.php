@@ -125,6 +125,7 @@
 						<!-- <div id="quicklaunch">
 						<!-- /SIDEBAR QUICK-LAUNCH -->
 						<!--<!-- SIDEBAR MENU -->
+							
 							<ul>
 								<li class="active">
 									<a href="{{URL::to('calendarioUsuario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
@@ -244,9 +245,7 @@
 								</li>
 							</div>
 						</div>
-		
 	
-
 		<div id="main-content">
 			<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
 			<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
