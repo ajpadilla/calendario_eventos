@@ -6358,7 +6358,7 @@ fieldset[disabled] .btn-yellow.active {
 
 }
 #content .page-header {
-  background: none repeat scroll 0 0 #FFFFFF;
+  background: url('../img/ministerio.png');
   border-bottom-color: #cdd2d2;
   color: #000000;
   margin: 0 -15px 30px;
