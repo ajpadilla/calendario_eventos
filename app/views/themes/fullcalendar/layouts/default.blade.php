@@ -81,7 +81,6 @@
 		</style>
     </head>
     <body>
-    	@if(Auth::check())
 		<header class="navbar clearfix" id="header">
 			<div class="container">
 				<div class="navbar-brand">
@@ -186,17 +185,18 @@
 								
 								<li class="has-sub">
 									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Articulación</span>
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Agregar</span>
 										<span class="arrow"></span>
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearArticulacion')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('crearArticulacion')}}"><span class="sub-menu-text">Articulación</span></a>
 										</li>
 										<li>
-											<a class="" href="{{URL::to('mostrarArticulaciones')}}">
-												<span class="sub-menu-text">Lista de articulaciones</span>
-											</a>
+											<a class="" href="{{URL::to('crearSubsistemas')}}"><span class="sub-menu-text">Subsistema</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('crearImpactos')}}"><span class="sub-menu-text">Impacto</span></a>
 										</li>
 									</ul>
 								</li>
@@ -204,39 +204,27 @@
 								
 								<li class="has-sub">
 									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Subsistema</span>
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Lista</span>
 										<span class="arrow"></span>
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearSubsistemas')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('mostrarArticulaciones')}}">
+												<span class="sub-menu-text">Articulaciones</span>
+											</a>
 										</li>
 										<li>
 											<a class="" href="{{URL::to('mostrarSubsistemas')}}">
-												<span class="sub-menu-text">Lista de subsistemas</span>
+												<span class="sub-menu-text">Subsistemas</span>
 											</a>
-										</li>
-									</ul>
-								</li>
-								
-								
-								<li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Impacto</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('crearImpactos')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
 											<a class="" href="{{URL::to('mostrarImpactos')}}">
-												<span class="sub-menu-text">Lista de impactos</span>
+												<span class="sub-menu-text">Impactos</span>
 											</a>
 										</li>
 									</ul>
 								</li>
-						
 								
 								<li class="has-sub">
 									<a href="javascript:;" class="">
@@ -282,9 +270,6 @@
 			</div>
 		<div>
 	</section>
-	@else
-		<p>No tiene permisos de acceso</p>
-	@endif
 		<!-- JAVASCRIPTS -->
 		
 		<!-- Placed at the end of the document so the pages load faster -->
