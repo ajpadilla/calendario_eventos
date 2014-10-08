@@ -7,9 +7,9 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="login-box-plain">
-					<h2 class="bigintro">Registrarse</h2>
+					<h2 class="bigintro">Iniciar Sesión</h2>
 					<div class="divide-40"></div>
-					{{ Form::open() }}
+					{{ Form::open(array('url'=>'login','autocomplete' => 'off','role' =>'form')) }}
 
 						<div class="form-group">
 							{{ $errors->first("username") }}<br />
@@ -29,9 +29,6 @@
   					{{ Form::close() }}
 					<div class="login-helpers">
 						<a href="#" onclick="swapScreen('forgot');return false;">¿Olvidaste tu contraseña?</a> 
-					</div>
-					<div class="login-helpers">
-						<a href="{{URL::to('/')}}">Regresar al calendario</a> 
 					</div>
 				</div>
 			</div>
