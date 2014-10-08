@@ -85,7 +85,7 @@
 				<div class="navbar-brand">
             		<!-- COMPANY LOGO -->
                		<a href="/">
-                		<img src="{{asset('themes/Cloud_Admin/img/logo_ministerio.jpg')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
+                		<img src="{{asset('themes/Cloud_Admin/img/logo.jpeg')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
                 	</a>
         		</div>
 			
