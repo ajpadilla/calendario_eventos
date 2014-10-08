@@ -338,5 +338,15 @@ class EventController extends \BaseController {
 		//
 	}
 
+	public function vistaEventosUsuario(){
+		return View::make('themes.fullcalendar.eventos.formcreateUsuario');
+	}
+
+	public function index2()
+	{
+		$eventos = Evento::all();
+		return View::make('themes.fullcalendar.eventos.index2',compact('eventos','algo'));
+	}
+
 
 }
