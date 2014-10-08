@@ -140,10 +140,10 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearEvento')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('vistaEventosUsuario')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="{{URL::to('mostrarEventos')}}">
+											<a class="" href="{{URL::to('vistaEventoLista')}}">
 												<span class="sub-menu-text">Lista de eventos</span>
 											</a>
 										</li>
@@ -160,10 +160,10 @@
 									</a>
 									<ul class="sub">
 										<li>
-											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
+											<a class="" href="{{URL::to('vistaPersonasUsuario')}}"><span class="sub-menu-text">Agregar</span></a>
 										</li>
 										<li>
-											<a class="" href="{{URL::to('listarPersonas')}}">
+											<a class="" href="{{URL::to('vistaListaPersonasUsuario')}}">
 												<span class="sub-menu-text">Lista de personas</span>
 											</a>
 										</li>
