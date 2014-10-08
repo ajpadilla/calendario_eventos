@@ -18,9 +18,9 @@ class CreateBeneficiarios extends Migration {
             $table->enum('tipo',array('estudiante','directivo','administrativo','docente','obrero'));
             $table->integer('evento_id')->unsigned();
             $table->integer('persona_id')->unsigned();
+            $table->unique(array('evento_id', 'persona_id'), 'beneficiarios_unique');
 			$table->timestamps();
             $table->softdeletes();
-            $table->unique(array('evento_id', 'persona_id'), 'beneficiarios_unique');
 		});
         
         Schema::table('beneficiarios', function(Blueprint $table)
