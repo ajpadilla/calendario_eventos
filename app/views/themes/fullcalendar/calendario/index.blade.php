@@ -48,7 +48,8 @@
 			
 		<link rel="stylesheet" href="{{asset('themes/Cloud_Admin/js/datetimepicker/jquery.datetimepicker.css')}}">
 		
-		<link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
+
+        <link href="{{asset('themes/fullcalendar/fullcalendar.css')}}" rel='stylesheet' />
         <link href="{{asset('themes/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
 
         <!--Imprimir-->
@@ -77,7 +78,7 @@
 				transition:all .2s ease-out 0;
 			}
            
-		</style> 
+		</style>
     </head>
     <body>
 		<header class="navbar clearfix" id="header">
@@ -85,7 +86,7 @@
 				<div class="navbar-brand">
             		<!-- COMPANY LOGO -->
                		<a href="/">
-                		<img src="{{asset('themes/Cloud_Admin/img/logo.jpeg')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
+                		<img src="{{asset('themes/Cloud_Admin/img/t_mision_156.jpg')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
                 	</a>
         		</div>
 			
@@ -95,12 +96,17 @@
 					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
 					<li class="active"><a href="" data-toggle="tab">Home</a></li>
 				</ul>-->
-
+				
 				<ul class="nav navbar-nav pull-right">
-					<li class="active">
-					<a href="{{URL::to('login')}}"><i class="fa fa-user"></i> <span class="menu-text">Iniciar Session</span>
-							<span class="selected"></span>
-						</a>	
+					<li class="dropdown user" id="header-user">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img alt="" src="{{asset('themes/Cloud_Admin/img/avatars/avatar3.jpg')}}">
+							<span class="username">{{ Auth::user()->username }}</span>
+							<i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="{{URL::to('logout')}}"><i class="fa fa-power-off"></i>Cerrar sesion</a></li>
+						</ul>
 					</li>
 				</ul>
          	</div>
@@ -119,11 +125,53 @@
 						<!-- <div id="quicklaunch">
 						<!-- /SIDEBAR QUICK-LAUNCH -->
 						<!--<!-- SIDEBAR MENU -->
-						</div>
-					</div>
-		
-	
+							
+							<ul>
+								<li class="active">
+									<a href="{{URL::to('calendarioUsuario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
+										<span class="selected"></span>
+									</a>	
+								</li>
 
+                                 <li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Eventos</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearEvento')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('mostrarEventos')}}">
+												<span class="sub-menu-text">Lista de eventos</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+                           
+
+								
+								
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Persona</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearPersona')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('listarPersonas')}}">
+												<span class="sub-menu-text">Lista de personas</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+							</div>
+						</div>
+	
 		<div id="main-content">
 			<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
 			<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -248,6 +296,7 @@
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.date.js')}}"></script>
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datepicker/picker.time.js')}}"></script>
 	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/datetimepicker/jquery.datetimepicker.js')}}"></script>
+	<script type="text/javascript" src="{{asset('themes/Cloud_Admin/js/Chart.min.js')}}"></script>
 	<script>
 		jQuery(document).ready(function() {		
 			App.setPage("form");  //Set current page
