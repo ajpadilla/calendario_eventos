@@ -24,12 +24,10 @@ Route::get('mostrarGraficosEvento/{id}','EventController@showGraphics');
 
 Route::get('/', function()
 {
-
 	return View::make('themes.fullcalendar.calendario.create');
 });
 
 
-Route::group(['before' => 'auth'], function() {
 
 Route::any('logout','UserController@logout');
 
@@ -108,5 +106,3 @@ Route::get('mostrarEvento/{id}','EventController@show');
 Route::get('retornarEventos','EventController@retornarEventos');
 Route::get('imprimirEvento/{id}','EventController@showPrint');
 Route::get('listaResponsables','EventController@retornarPersonas');
-
-});
