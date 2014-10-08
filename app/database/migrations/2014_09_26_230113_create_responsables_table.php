@@ -17,9 +17,9 @@ class CreateResponsablesTable extends Migration {
 			$table->increments('id');
             $table->integer('evento_id')->unsigned();
             $table->integer('persona_id')->unsigned();
+            $table->unique(array('evento_id', 'persona_id'), 'responsables_unique');
 			$table->timestamps();
             $table->softdeletes();
-            $table->unique(array('evento_id', 'persona_id'), 'responsables_unique');
 		});
         
         Schema::table('responsables', function(Blueprint $table)
