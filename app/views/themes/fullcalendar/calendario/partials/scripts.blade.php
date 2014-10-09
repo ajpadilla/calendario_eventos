@@ -162,6 +162,7 @@ $('document').ready(function() {
 			$('#hora').val(hora.substring(11));
 			$('#direccion').val(event.direccion);
 			$('#observacion').val(event.observacion);
+			$('#estatus').val(event.estatus);
 			$('#articulaciones').val(event.articulacion.id);
 			$('#impactos').val(event.impacto.id);
 			$('#subsistemas').val(event.subsistema.id);
