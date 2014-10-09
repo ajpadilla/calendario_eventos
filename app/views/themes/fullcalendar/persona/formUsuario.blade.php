@@ -1,23 +1,13 @@
-@extends('themes.fullcalendar.layouts.form_content')
+@extends('themes.fullcalendar.calendario.form')
 
 @section('script')
-	@include('themes.fullcalendar.persona.partials.editarForm')
+	@include('themes.fullcalendar.persona.partials.validarForm')
 @stop
 
 @section('page_header')
-	<ul class="breadcrumb">
-    	<li>
-        	<i class="fa fa-home"></i>
-            <a href="index.html"></a>
-        </li>
-        <li>
-        	<a href="#"></a>
-        </li>
-        <li></li>
-    </ul>
     <!-- /BREADCRUMBS -->
    	<div class="clearfix">
-    	<h3 class="content-title pull-left">Formulario</h3>
+    	<h3 class="content-title pull-left">Forms</h3>
     </div>
     <div class="description">Formulario para agregar personas</div>
 @stop
@@ -42,7 +32,7 @@
             </div>
     	</div>
     	<div class="box-body form">
-			@include('themes.fullcalendar.persona.formEdit')
+			@include('themes.fullcalendar.persona.form_wizard')
        	</div>
 	</div>
 @stop

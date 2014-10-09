@@ -209,4 +209,16 @@ class PersonaController extends BaseController {
 		return Redirect::to('personas');
 	}
 	
+	public function vistaPersonasUsuario($value='')
+	{
+		$estados = Estado::lists('nombre', 'id');
+		return View::make('themes.fullcalendar.persona.formUsuario')->with('estados',$estados);
+	}
+
+	public function vistaListaPersonas()
+	{
+		$personas = Persona::all();
+		return View::make('themes.fullcalendar.persona.index2')->with('personas', $personas);
+	}
+
 }
