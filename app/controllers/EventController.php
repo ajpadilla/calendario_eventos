@@ -84,7 +84,8 @@ class EventController extends \BaseController {
 				$impacto = $evento->impacto;
 				$articulacion = $evento->articulacion;
 				$subsistema = $evento->subsistema;
-				
+				//$estatus = $evento->estatus;
+
 				//$evento['evento'] = $evento->toArray();
 				$evento['estado'] = $estado->toArray();
 				unset($evento['municipio_id']);
@@ -95,9 +96,11 @@ class EventController extends \BaseController {
 				$evento['subsistema'] = $subsistema->toArray();
 				unset($evento['impacto_id']);
 				$evento['impacto'] = $impacto->toArray();
+				/*unset($evento['estatus_id']);
+				$evento['estatus'] = $estatus->toArray();*/
 				array_push($eventos_finales,$evento);
 			}
-			return json_encode($eventos_finales);
+			return json_encode($eventos);
 		}
 		return array('success' => false);
 	}
