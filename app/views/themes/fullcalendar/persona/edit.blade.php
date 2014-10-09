@@ -8,16 +8,16 @@
 	<ul class="breadcrumb">
     	<li>
         	<i class="fa fa-home"></i>
-            <a href="index.html">Home</a>
+            <a href="index.html"></a>
         </li>
         <li>
-        	<a href="#">Form Elements</a>
+        	<a href="#"></a>
         </li>
-        <li>Forms</li>
+        <li></li>
     </ul>
     <!-- /BREADCRUMBS -->
    	<div class="clearfix">
-    	<h3 class="content-title pull-left">Forms</h3>
+    	<h3 class="content-title pull-left">Formulario</h3>
     </div>
     <div class="description">Formulario para agregar personas</div>
 @stop
