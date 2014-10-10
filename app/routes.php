@@ -29,9 +29,7 @@ Route::any('login','UserController@index');
 		return View::make('themes.fullcalendar.calendario.create');
 	});
 
-	//Ruta para mostrar el formulario para eventos 
-	Route::get('vistaEventosUsuario','EventController@vistaEventosUsuario');
-	Route::get('vistaEventoLista','EventController@index2');
+
 
 	//Ruta para mostrar el formuarlio de personas para los usuarios
 	Route::get('vistaPersonasUsuario','PersonaController@vistaPersonasUsuario');
@@ -76,6 +74,7 @@ Route::any('login','UserController@index');
 	Route::get('existenciaCedula','PersonaController@existenciaCedula');
 	Route::get('existenciaEmail','PersonaController@existenciaEmail');
 	Route::get('listarPersonas','PersonaController@index');
+	Route::get('vistaEditarPersonas/{id}','PersonaController@vistaEditarPersonas');
 
 	//Rutas para cerrar sesión
 	Route::any('logout','UserController@logout');
@@ -111,13 +110,14 @@ Route::any('login','UserController@index');
 	Route::post('actualizarSubsistema/{id}','SubsistemaController@update');
 	Route::post('verificarExistenciaNombreSubsistema','SubsistemaController@verificarExistenciaNombreSubsistema');
 
-	//Rutas del controlador Munucupio
+	//Rutas del controlador Munucipio
 	Route::get('mostrarMunicipios','MunicipioController@index');
 	Route::get('crearMunicipio','MunicipioController@create');
 	Route::post('guardarMunicipio','MunicipioController@store');
 	Route::get('editarMunicipio/{id}','MunicipioController@edit');
 	Route::post('actualizarMunicipio/{id}','MunicipioController@update');
 	Route::post('verificarNombreMunicipio','MunicipioController@verificarNombreMunicipio');
+	Route::get('borrarMunicipios/{id}','MunicipioController@destroy');
 
 	//Rutas de el controlador Estado
 	Route::get('crearEstado','EstadoController@create');
