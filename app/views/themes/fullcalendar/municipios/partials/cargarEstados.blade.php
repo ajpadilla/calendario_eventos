@@ -6,16 +6,18 @@
         });
  		
 		$.validator.addMethod('lettersonly', function(value, element) {
-			var reg = /^([a-z ñáéíóú]{2,60})$/i;
-			return this.optional(element) || /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1\u00FC\u00DC]+$/.test(value);
+			return this.optional(element) || /^[a-zA-ZñÑ/\s\W]+$/i.test(value);
 		}, 'Solo letras, por favor.');
 			
 		 
         $('#formWizardMunicipio').validate({
-        	rules:{
-            	nombre:{
+        	rules:
+        	{
+            	nombre:
+            	{
 					required:!0,
-					remote: {
+					remote: 
+					{
 						type: 'POST',
 						url:'" . URL::to('/verificarNombreMunicipio/') ."',
 						data: {
@@ -27,18 +29,21 @@
 							}
                  		},
 						dataType:'json',
-						dataFilter: function (data) {
-							console.log('data:'+data);
+						dataFilter: function (data)
+						{
+							console.log('verificar:'+data);
                             return data;
 					    }
 					}	
 				},
 				estados:{required:!0},
-             },
-			messages:{
-				nombre:{
+            },
+			messages:
+			{
+				nombre:
+				{
                     required:'Campo obligatorio',
-					remote: jQuery.validator.format('El municipio ya se encuentra registrado'),
+					remote: jQuery.validator.format('El municipio ya se encuentra registrado para este estado'),
 				},
                 estados:{
                     required:'Campo obligatorio',
@@ -65,7 +70,7 @@
 	
 	 	$('#registrarMunicipio').click(function(){
 			console.log($('#formWizardMunicipio').valid());
-			 /*if($('#formWizardMunicipio').valid() == true){
+			 if($('#formWizardMunicipio').valid() == true){
 				var datos = {
 					nombre : $('#nombre_municipio').val(),
 					estado_id : $('#estados').val(),
@@ -106,7 +111,7 @@
 						$('#formWizardMunicipio').clearForm();
 					}
 				});
-			}*/
+			}
 		});
 
 	

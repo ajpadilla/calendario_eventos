@@ -44,6 +44,7 @@ class EventController extends \BaseController {
 			$evento->start = Input::get('fecha_hora');
 			$evento->direccion = Input::get('direccion');
 			$evento->observacion = Input::get('observacion');
+			$evento->estatus = Input::get('estatus'); 
 			$evento->articulacion_id = (int)Input::get('articulaciones');
 			$evento->impacto_id = (int)Input::get('impactos');
 			$evento->subsistema_id = (int)Input::get('subsistemas');
@@ -84,7 +85,8 @@ class EventController extends \BaseController {
 				$impacto = $evento->impacto;
 				$articulacion = $evento->articulacion;
 				$subsistema = $evento->subsistema;
-				
+				//$estatus = $evento->estatus;
+
 				//$evento['evento'] = $evento->toArray();
 				$evento['estado'] = $estado->toArray();
 				unset($evento['municipio_id']);
@@ -95,9 +97,11 @@ class EventController extends \BaseController {
 				$evento['subsistema'] = $subsistema->toArray();
 				unset($evento['impacto_id']);
 				$evento['impacto'] = $impacto->toArray();
+				/*unset($evento['estatus_id']);
+				$evento['estatus'] = $estatus->toArray();*/
 				array_push($eventos_finales,$evento);
 			}
-			return json_encode($eventos_finales);
+			return json_encode($eventos);
 		}
 		return array('success' => false);
 	}
@@ -308,17 +312,18 @@ class EventController extends \BaseController {
 			$response['datos'] = Input::all();
 			$response['success'] = true;
 						
-			/*$evento =  Evento::find($id);
+			$evento =  Evento::find($id);
 			$evento->title = Input::get('titulo');
 			$evento->descripcion = Input::get('descripcion');
 			$evento->start = Input::get('fecha_hora');
 			$evento->direccion = Input::get('direccion');
 			$evento->observacion = Input::get('observacion');
+			$evento->estatus = Input::get('estatus'); 
 			$evento->articulacion_id = (int)Input::get('articulaciones');
 			$evento->impacto_id = (int)Input::get('impactos');
 			$evento->subsistema_id = (int)Input::get('subsistemas');
 			$evento->municipio_id = (int)Input::get('municipios');
-			$evento->save();*/
+			$evento->save();
 							
 			return json_encode($response);
 		}
@@ -348,5 +353,17 @@ class EventController extends \BaseController {
 		return View::make('themes.fullcalendar.eventos.index2',compact('eventos','algo'));
 	}
 
+	public function vistareporteGeneral()
+	{
+		return View::make('themes.fullcalendar.eventos.buscarEventosPorFecha');
+	}
 
+	public function buscarEventosPorFecha()
+	{
+		//dd(Input::all());
+		$eventos = Evento::whereBetween('start', array(Input::get('fecha_inicio'),Input::get('fecha_final')))
+							->where('estatus','=',Input::get('estatus'))->get();	
+		//dd($eventos);	
+		return View::make('themes.fullcalendar.eventos.mostrarBusquedaEventos',compact('eventos'));
+	}
 }

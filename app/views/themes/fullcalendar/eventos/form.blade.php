@@ -4,6 +4,14 @@
 		{{ Form::text('fecha_hora', Input::old('fecha_hora'), array('class' => 'form-control','id'=>'fecha_hora')) }}
 	</div>
 </div>
+
+<div class="form-group">
+	{{ Form::label('estatus', 'Estatus del evento: ',array('class'=>'control-label col-md-3')) }}
+	<div class="col-md-8">
+	{{ Form::select('estatus',array('Estatus' => array('Pendiente'=>'Pendiente','Realizado'=>'Realizado','No realizado'=>'No Realizado','Modificado'=>'Modificado','obrero'=>'obrero')),Input::old('Estatus'),array('class' => 'form-control','id'=>'estatus')) }}
+	</div>
+</div>
+
 <div class="form-group">
 	{{ Form::label('responsables[]', 'Responsables: ',array('class' => 'col-md-3 control-label')) }}
 	<div class="col-md-8">

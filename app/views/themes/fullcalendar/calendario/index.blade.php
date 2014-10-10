@@ -100,7 +100,7 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown user" id="header-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img alt="" src="{{asset('themes/Cloud_Admin/img/avatars/avatar3.jpg')}}">
+							<i class="fa fa-user"></i>
 							<span class="username">{{ Auth::user()->username }}</span>
 							<i class="fa fa-angle-down"></i>
 						</a>
@@ -128,30 +128,11 @@
 							
 							<ul>
 								<li class="active">
-									<a href="{{URL::to('calendarioUsuario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
+									<a href="{{URL::to('sesionUsuario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
 										<span class="selected"></span>
 									</a>	
 								</li>
-
-                                 <li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Eventos</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('vistaEventosUsuario')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('vistaEventoLista')}}">
-												<span class="sub-menu-text">Lista de eventos</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-                           
-
-								
+					
 								
 								<li class="has-sub">
 									<a href="javascript:;" class="">

@@ -75,6 +75,12 @@
 					</div>
 				</div>
 				<div class="form-group">
+					{{ Form::label('estatus', 'Estatus: ', array('class' => 'col-md-3 control-label')) }}
+					<div class="col-md-8">
+						{{ Form::text('estatus', Input::old('estatus'), array('class' => 'form-control','id'=>'estatus')) }}
+					</div>
+				</div>
+				<div class="form-group">
 					{{ Form::label('articulaciones', 'Articulaciones: ',array('class' => 'col-md-3 control-label')) }}
 					<div class="col-md-8">
 						{{ Form::select('articulaciones',array(),Input::old('articulaciones'),array('class' => 'form-control','id'=>'articulaciones')) }}

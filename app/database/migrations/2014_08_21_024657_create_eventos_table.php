@@ -21,6 +21,7 @@ class CreateEventosTable extends Migration {
 			$table->dateTime('start');
 			$table->text('direccion');
 			$table->text('observacion');
+			$table->string('estatus');
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -22,6 +22,10 @@ class Evento extends \Eloquent {
 		return $this->belongsTo('Municipio');
 	}
 	
+	public function estatus(){
+		return $this->belongsTo('Estatus');
+	}
+
 	public function personas(){
 		return $this->belongsToMany('Persona','beneficiarios','evento_id','persona_id')->withPivot('tipo');
 	}

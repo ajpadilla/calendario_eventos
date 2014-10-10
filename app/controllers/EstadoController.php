@@ -140,7 +140,10 @@ class EstadoController extends \BaseController {
 	public function destroy($id)
 	{
 		$estado = Estado::find($id);
+		$municipios = Municipio::where('estado_id','=',$id)->delete();
 		$estado->delete();
+		$estados = Estado::all();
+		return View::make('themes.fullcalendar.estados.listarEstados')->with('estados', $estados);
 	}
 
 

@@ -129,7 +129,6 @@
 										'hideOnOverlayClick' : false,
 										'hideOnContentClick' : false
 									});
-									$('#formEvent').clearForm();
 								},
 								error : function(jqXHR, status, error) {
 									//alert('Disculpe, existió un problema');

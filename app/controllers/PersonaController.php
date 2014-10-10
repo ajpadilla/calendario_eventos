@@ -218,7 +218,16 @@ class PersonaController extends BaseController {
 	public function vistaListaPersonas()
 	{
 		$personas = Persona::all();
-		return View::make('themes.fullcalendar.persona.index2')->with('personas', $personas);
+		return View::make('themes.fullcalendar.persona.indexUsuarios')->with('personas', $personas);
 	}
 
+	public function vistaEditarPersonas($id)
+	{
+		$persona = Persona::find($id);
+		$estados = Estado::lists('nombre', 'id');
+		$municipios = Municipio::lists('nombre','id');
+		$eventos =  $persona->eventos->lists('title','id');
+		return View::make('themes.fullcalendar.persona.editUsuario',compact('persona','estados','municipios','eventos'));
+	
+	}
 }

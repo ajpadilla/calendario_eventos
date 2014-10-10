@@ -62,33 +62,22 @@ class MunicipioController extends \BaseController {
 		}
 	}
 
-	public function verificarNombreMunicipio(){	
-		if(Request::ajax()){
-        	$response = array();
-            $nombre_municipio = Input::get('nombre');
-			$id_estado = json_decode(Input::get('estado_id'));			  
-
-            $response['susses'] = true;
-            $response['nombre'] = $nombre_municipio;
-			$response['estado_id']= $id_estado;
-			
-			$estado = Estado::find($id_estado);
-			/*foreach($estado->municipios as $municipio){
-				if(count($municipio->verificarNombresMunicipio($nombre_municipio,$id_estado))>0){
+	public function verificarNombreMunicipio()
+	{	
+		if(Request::ajax())
+		{
+			$estado_id = Input::get('estado_id');
+			$estado = Estado::find($estado_id);
+			if(count($estado) > 0){
+				$municipio = $estado->municipios()->where('nombre','=',Input::get('nombre'))->get();
+				if (count($municipio)>0) {
 					return Response::json(false);
+				}else{
+					return Response::json(true);
 				}
-			}*/
-            
-            if(Municipio::verificarNombresMunicipio($nombre_municipio,$id_estado) > 0){
-					return Response::json(false);
-            }
-            
-            
-			return Response::json(true);
-		  	//return json_encode($response);
-         }
-          return array('susses'=>'false');	 
-
+			}
+		}
+		    return array('susses'=>'false');	 
 	}
 	
 	/**
@@ -154,7 +143,11 @@ class MunicipioController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$municipio = Municipio::find($id);
+		$municipios = Evento::where('municipio_id','=',$id)->delete();
+		$municipio->delete();
+		$municipios = Estado::all();
+		return View::make('themes.fullcalendar.estados.listarEstados')->with('estados', $estados);
 	}
 
 
