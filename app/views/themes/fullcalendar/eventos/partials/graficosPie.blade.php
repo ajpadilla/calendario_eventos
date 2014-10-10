@@ -65,8 +65,9 @@ $('document').ready(function() {
 			];		
 
 		var pieOptions = {
-			segmentShowStroke : false,
-			animateScale : true
+			segmentShowStroke : true,
+			animateScale : true,
+			barShowStroke : true,
 		}
 		var ctx = document.getElementById('porcentaje_sexo').getContext('2d');
 		new Chart(ctx).Pie(pieData, pieOptions);

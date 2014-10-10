@@ -1,6 +1,10 @@
 
 @extends('themes.fullcalendar.layouts.form_content')
 
+@section('script')
+    @include('themes.fullcalendar.eventos.partials.graficosPie')
+@stop
+
 @section('form')
     <div class="box border blue">
         <div class="box-title">
@@ -203,6 +207,23 @@
                                 </div>
                             </td>
 
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered"> 
+                    <thead>
+                        <tr>
+                            <td colspan="3" class="text-center"> 
+                                <h1>Graficas</h1>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <div class="box-body form">
+                                <canvas id="porcentaje_sexo" width="400" height="400"></canvas>
+                                <canvas id="porcentaje_tipo_persona" width="400" height="400"></canvas>
+                            </div>
                         </tr>
                     </tbody>
                 </table>

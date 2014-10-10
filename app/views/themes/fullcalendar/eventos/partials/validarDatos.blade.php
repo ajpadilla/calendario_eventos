@@ -25,6 +25,7 @@
 				fecha_hora:{required:!0,},
 				'responsables[]':{required:!0},
 				actividad:{required:!0},
+				estatus:{required:!0},
 				titulo:{required:!0,rangelength: [3 , 45]},
 				descripcion:{required:!0,},
 				hora:{required:!0},
@@ -45,6 +46,7 @@
 				'actividad':{
 					required:'Campo obligatorio'
 				},
+				estatus:{required:'Campo obligatorio'},
 				'titulo':{
 					required:'Campo obligatorio',
 				},
