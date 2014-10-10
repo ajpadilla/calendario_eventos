@@ -1,3 +1,11 @@
+var data = [
+    { label: "IE",  data: 19.5, color: "#4572A7"},
+    { label: "Safari",  data: 4.5, color: "#80699B"},
+    { label: "Firefox",  data: 36.6, color: "#AA4643"},
+    { label: "Opera",  data: 2.3, color: "#3D96AE"},
+    { label: "Chrome",  data: 36.3, color: "#89A54E"},
+    { label: "Other",  data: 0.8, color: "#3D96AE"}
+];
 $('document').ready(function() {
 	var evento_titulo = '{{ $evento->title }}';
 	var porcentaje_hombres = parseInt('{{$porcentajes_sexo['hombres']}}');
@@ -17,18 +25,8 @@ $('document').ready(function() {
 	console.log('obreros:'+porcentaje_obrero);
 
 	var pieData = [
-		{
-			value: porcentaje_hombres,
-			color:"#F7464A",
-			highlight: "#FF5A5E",
-			label: "Hombres"
-		},
-		{
-			value: porcentaje_mujeres,
-			color: "#46BFBD",
-			highlight: "#5AD3D1",
-			label: "Mujeres"
-		},
+		{ label: "Hombres",  data: porcentaje_hombres, color: "#4572A7"},
+	    { label: "Mujeres",  data: porcentaje_mujeres, color: "#80699B"},
 	];
 	var pieData2 = [
 				{
@@ -64,14 +62,26 @@ $('document').ready(function() {
 
 			];		
 
-		var pieOptions = {
-			segmentShowStroke : true,
-			animateScale : true,
-			barShowStroke : true,
-		}
-		var ctx = document.getElementById('porcentaje_sexo').getContext('2d');
-		new Chart(ctx).Pie(pieData, pieOptions);
+		 $.plot($("#placeholder"), pieData, {
+          series: {
+        pie: {
+            show: true,
+            radius: 1,
+            label: {
+                show: true,
+                radius: 1,
+                formatter: function(label, series) {
+                    return '<div style="font-size:11px; text-align:center; padding:2px; color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+                },
+                background: {
+                    opacity: 0.8
+                }
+            }
+        }
+    },
+    legend: {
+        show: false
+    }
+    });
 
-		var ctx = document.getElementById('porcentaje_tipo_persona').getContext('2d');
-		new Chart(ctx).Pie(pieData2, pieOptions);
 });
