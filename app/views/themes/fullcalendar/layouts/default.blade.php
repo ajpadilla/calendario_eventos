@@ -79,6 +79,12 @@
 			}
            
 		</style>
+		<style type="text/css">
+			body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+			#placeholder { width: 250px; height: 150px; }
+			.legend table, .legend > div { height: 82px !important; opacity: 1 !important; left: 170px; top: 10px; width: 116px !important; }
+			.legend table { border: 1px solid #555; padding: 5px; }
+		</style>
     </head>
     <body>
 		<header class="navbar clearfix" id="header">
