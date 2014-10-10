@@ -12,10 +12,13 @@
 			
 		 
         $('#formWizardMunicipio').validate({
-        	rules:{
-            	nombre:{
+        	rules:
+        	{
+            	nombre:
+            	{
 					required:!0,
-					remote: {
+					remote: 
+					{
 						type: 'POST',
 						url:'" . URL::to('/verificarNombreMunicipio/') ."',
 						data: {
@@ -27,18 +30,21 @@
 							}
                  		},
 						dataType:'json',
-						dataFilter: function (data) {
-							console.log('data:'+data);
+						dataFilter: function (data)
+						{
+							console.log('verificar:'+data);
                             return data;
 					    }
 					}	
 				},
 				estados:{required:!0},
-             },
-			messages:{
-				nombre:{
+            },
+			messages:
+			{
+				nombre:
+				{
                     required:'Campo obligatorio',
-					remote: jQuery.validator.format('El municipio ya se encuentra registrado'),
+					remote: jQuery.validator.format('El municipio ya se encuentra registrado para este estado'),
 				},
                 estados:{
                     required:'Campo obligatorio',
@@ -65,7 +71,7 @@
 	
 	 	$('#registrarMunicipio').click(function(){
 			console.log($('#formWizardMunicipio').valid());
-			 /*if($('#formWizardMunicipio').valid() == true){
+			 if($('#formWizardMunicipio').valid() == true){
 				var datos = {
 					nombre : $('#nombre_municipio').val(),
 					estado_id : $('#estados').val(),
@@ -106,7 +112,7 @@
 						$('#formWizardMunicipio').clearForm();
 					}
 				});
-			}*/
+			}
 		});
 
 	
