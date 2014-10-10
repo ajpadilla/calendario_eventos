@@ -143,7 +143,11 @@ class MunicipioController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$municipio = Municipio::find($id);
+		$municipios = Evento::where('municipio_id','=',$id)->delete();
+		$municipio->delete();
+		$municipios = Estado::all();
+		return View::make('themes.fullcalendar.estados.listarEstados')->with('estados', $estados);
 	}
 
 
