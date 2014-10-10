@@ -353,5 +353,17 @@ class EventController extends \BaseController {
 		return View::make('themes.fullcalendar.eventos.index2',compact('eventos','algo'));
 	}
 
+	public function vistareporteGeneral()
+	{
+		return View::make('themes.fullcalendar.eventos.buscarEventosPorFecha');
+	}
 
+	public function buscarEventosPorFecha()
+	{
+		//dd(Input::all());
+		$eventos = Evento::whereBetween('start', array(Input::get('fecha_inicio'),Input::get('fecha_final')))
+							->where('estatus','=',Input::get('estatus'))->get();	
+		//dd($eventos);	
+		return View::make('themes.fullcalendar.eventos.mostrarBusquedaEventos',compact('eventos'));
+	}
 }
