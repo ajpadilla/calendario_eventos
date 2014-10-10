@@ -128,30 +128,11 @@
 							
 							<ul>
 								<li class="active">
-									<a href="{{URL::to('calendarioUsuario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
+									<a href="{{URL::to('sesionUsuario')}}"><i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Inicio</span>
 										<span class="selected"></span>
 									</a>	
 								</li>
-
-                                 <li class="has-sub">
-									<a href="javascript:;" class="">
-										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Eventos</span>
-										<span class="arrow"></span>
-									</a>
-									<ul class="sub">
-										<li>
-											<a class="" href="{{URL::to('vistaEventosUsuario')}}"><span class="sub-menu-text">Agregar</span></a>
-										</li>
-										<li>
-											<a class="" href="{{URL::to('vistaEventoLista')}}">
-												<span class="sub-menu-text">Lista de eventos</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-                           
-
-								
+					
 								
 								<li class="has-sub">
 									<a href="javascript:;" class="">
