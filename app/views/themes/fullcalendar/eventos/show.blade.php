@@ -224,6 +224,7 @@
                                 <canvas id="porcentaje_sexo" width="400" height="400"></canvas>
                                 <canvas id="porcentaje_tipo_persona" width="400" height="400"></canvas>
                             </div>
+                            <div id="placeholder"></div>
                         </tr>
                     </tbody>
                 </table>
