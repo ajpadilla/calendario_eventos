@@ -44,6 +44,7 @@ class EventController extends \BaseController {
 			$evento->start = Input::get('fecha_hora');
 			$evento->direccion = Input::get('direccion');
 			$evento->observacion = Input::get('observacion');
+			$evento->estatus = Input::get('estatus'); 
 			$evento->articulacion_id = (int)Input::get('articulaciones');
 			$evento->impacto_id = (int)Input::get('impactos');
 			$evento->subsistema_id = (int)Input::get('subsistemas');
@@ -311,17 +312,18 @@ class EventController extends \BaseController {
 			$response['datos'] = Input::all();
 			$response['success'] = true;
 						
-			/*$evento =  Evento::find($id);
+			$evento =  Evento::find($id);
 			$evento->title = Input::get('titulo');
 			$evento->descripcion = Input::get('descripcion');
 			$evento->start = Input::get('fecha_hora');
 			$evento->direccion = Input::get('direccion');
 			$evento->observacion = Input::get('observacion');
+			$evento->estatus = Input::get('estatus'); 
 			$evento->articulacion_id = (int)Input::get('articulaciones');
 			$evento->impacto_id = (int)Input::get('impactos');
 			$evento->subsistema_id = (int)Input::get('subsistemas');
 			$evento->municipio_id = (int)Input::get('municipios');
-			$evento->save();*/
+			$evento->save();
 							
 			return json_encode($response);
 		}
