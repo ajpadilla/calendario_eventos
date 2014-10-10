@@ -147,6 +147,11 @@
 												<span class="sub-menu-text">Lista de eventos</span>
 											</a>
 										</li>
+										<li>
+											<a class="" href="{{URL::to('vistareporteGeneral')}}">
+												<span class="sub-menu-text">Reportes general</span>
+											</a>
+										</li>
 									</ul>
 								</li>
                            

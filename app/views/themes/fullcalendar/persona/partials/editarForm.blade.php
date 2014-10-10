@@ -9,12 +9,9 @@
 
 			$('input[name=telefono]').inputmask({'mask':'99999999999'});
 			
-			 $.validator.addMethod('alpha', 
-                              function(value, element) {
-                                  return  /^[a-zA-Z]*$/.test(value);
-                              }, 
-                              'Alpha Characters Only.'
-       		);
+			$.validator.addMethod('lettersonly', function(value, element) {
+         	  return this.optional(element) || /^[a-zA-ZñÑ/\s\W]+$/i.test(value);
+            }, 'Solo letras, por favor.');	
 
 		$('#wizForm').validate({
 			doNotHideMessage:!0,
@@ -27,8 +24,8 @@
                         	direccion:{required:!0,rangelength: [10, 256]},
                         	municipio:{required:!0},
 							nacionalidad:{required:!0},
-							nombres:{required:!0,alpha: true,rangelength: [1 , 45]},
-							apellidos:{required:!0,alpha: true,rangelength: [1 , 45]},
+							nombres:{required:!0,lettersonly: true,rangelength: [1 , 45]},
+							apellidos:{required:!0,lettersonly: true,rangelength: [1 , 45]},
 							sexo:{required:!0},
 					},
 					invalidHandler:function(event, validator){
