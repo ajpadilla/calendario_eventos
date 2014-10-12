@@ -7,9 +7,9 @@
 @section('page_header')
     <!-- /BREADCRUMBS -->
    	<div class="clearfix">
-    	<h3 class="content-title pull-left">Forms</h3>
+    	<h3 class="content-title pull-left"></h3>
     </div>
-    <div class="description">Formulario para agregar personas</div>
+    <div class="description"></div>
 @stop
 
 @section('form')

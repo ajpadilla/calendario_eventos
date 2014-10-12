@@ -20,7 +20,6 @@
 						<th>Nombre</th>
 						<th>Apellido</th>
 						<th>Editar</th>
-						<th>Borrar</th>
 					</thead>
 					<tbody>
 						@foreach ($personas as $persona)
@@ -29,7 +28,6 @@
 								<td>{{ $persona->nombres }}</td>
 								<td>{{ $persona->apellidos }}</td>
 								<td><a href="{{URL::to('editarPersona/'.$persona->id)}}" class="btn btn-primary">Editar<i class="fa fa-arrow-circle-right"></i></a></td>
-								<td><a href="" class="btn btn-danger">Borrar<i class="fa fa-arrow-circle-right"></i></a></td>
 							</tr>
 						@endforeach						
 					</tbody>					
