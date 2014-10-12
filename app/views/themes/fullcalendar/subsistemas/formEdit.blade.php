@@ -1,7 +1,7 @@
 {{ Form::open(array('action' => 'SubsistemaController@store','class'=>'form-horizontal','id'=>'formWizard','novalidate'=>'novalidate','files'=>true)) }}
 	<div class="form-group">
 		{{ Form::label('nombre', 'Nombre: ', array('class' => 'col-md-3 control-label')) }}
-		<div class="col-md-8">
+		<div class="col-md-4">
 			{{ Form::text('nombre',$subsistema->nombre, array('class' => 'form-control','id'=>'nombre')) }}
 			{{ Form::text('id', $subsistema->id, array('class' => 'form-control','style'=>'display: none;','id'=>'id')) }}
 		</div>

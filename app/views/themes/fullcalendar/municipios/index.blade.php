@@ -20,7 +20,6 @@
 							   <td>Nombre</td>
 							   <td>Estado</td>
 							   <td>Editar</td>
-							   <td>Borrar</td>
 						   </tr>
 					   </thead>
 						  <tbody>

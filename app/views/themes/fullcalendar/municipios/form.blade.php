@@ -1,12 +1,12 @@
 	<div class="form-group">
 		{{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
-		<div class="col-md-8">
+		<div class="col-md-4">
 		{{ Form::select('estados',array('' => '-- Seleccimne --'),Input::old('estados'),array('class' => 'form-control','id'=>'estados')) }}
 	</div>
 </div>	
 	<div class="form-group">
 		{{ Form::label('nombre', 'Nombre: ', array('class' => 'col-md-3 control-label')) }}
-		<div class="col-md-8">
+		<div class="col-md-4">
 		{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control','id'=>'nombre_municipio')) }}
 		</div>
 	</div>
