@@ -127,6 +127,8 @@ class UserController extends \BaseController {
 	protected function resetPassword($credentials)
 	{
 		return Password::reset($credentials, function($user, $pass) {
+			/*echo "name:".$user->username;
+			echo "pass:".$user->password;*/
 			$user->password = Hash::make($pass);
 			$user->save();
 		});
