@@ -9,6 +9,7 @@ use Zizaco\Entrust\HasRole;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 	use HasRole;
 	use UserTrait, RemindableTrait;
+	use \Venturecraft\Revisionable\RevisionableTrait;
 
 	/**
 	 * The database table used by the model.

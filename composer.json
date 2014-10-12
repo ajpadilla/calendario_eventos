@@ -8,7 +8,8 @@
 		 "way/generators": "~2.0",
 		 "barryvdh/laravel-debugbar": "1.*",
 		 "zizaco/entrust": "1.2.*@dev",
-		 "dollar/generators": "dev-master"
+		 "dollar/generators": "dev-master",
+		 "venturecraft/revisionable": "1.*"
 	},
 	"autoload": {
 		"classmap": [

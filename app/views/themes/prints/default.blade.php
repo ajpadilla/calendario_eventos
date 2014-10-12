@@ -26,6 +26,15 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="{{asset('themes/fullcalendar/imprimir.css')}}" media="print" /> 
+     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{asset('themes/prints/files/jquery.min.js')}}"></script>
+    <script>
+      @yield('script')
+    </script>    
+    <style type="text/css">
+      #placeholder { width: 400px; height: 300px; }
+      #placeholder2 { width: 400px; height: 300px; }
+    </style>
   </head>
 
   <body>
@@ -55,11 +64,24 @@
         @yield('body')
     </div><!-- /.container -->
 
+    <!-- FLOT CHARTS -->
 
+  <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.min.js')}}"></script>
+
+  <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.time.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.selection.min.js')}}"></script>
+
+  <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.resize.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.pie.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.stack.min.js')}}"></script>
+
+    <script src="{{asset('themes/Cloud_Admin/js/flot/jquery.flot.crosshair.min.js')}}"></script>
+  
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{asset('themes/prints/files/jquery.min.js')}}"></script>
     <script src="{{asset('themes/prints/files/bootstrap.min.js')}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{asset('themes/prints/files/ie10-viewport-bug-workaround.js')}}"></script>

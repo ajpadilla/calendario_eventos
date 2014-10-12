@@ -1,5 +1,8 @@
 @extends('themes.prints.default')
 
+@section('script')
+    @include('themes.fullcalendar.eventos.partials.graficosPie')
+@stop
 @section('body')
             <a onclick="window.print();" class="oculto btn btn-primary">Imprimir<i class="fa fa-arrow-circle-right"></i></a>
 
@@ -191,7 +194,23 @@
 
                         </tr>
                     </tbody>
- 
+                    
+                    <table class="table table-striped table-bordered"> 
+                    <thead>
+                        <tr>
+                            <td colspan="3" class="text-center"> 
+                                <h1>Graficas</h1>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div id="placeholder"></div></td>
+                            <td><div id="placeholder2"></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 </table>
                 <table class="table table-striped table-bordered">
                     <thead>

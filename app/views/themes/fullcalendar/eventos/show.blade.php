@@ -220,7 +220,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <div id="placeholder"></div>
+                            <td><div id="placeholder"></div></td>
+                            <td><div id="placeholder2"></div></td>
                         </tr>
                     </tbody>
                 </table>

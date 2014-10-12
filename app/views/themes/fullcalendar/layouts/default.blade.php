@@ -81,6 +81,7 @@
 		</style>
 		<style type="text/css">
 			#placeholder { width: 400px; height: 400px; }
+			#placeholder2 { width: 400px; height: 400px; }
 		</style>
     </head>
     <body>
