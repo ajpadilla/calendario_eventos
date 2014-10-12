@@ -12,7 +12,7 @@
                     @if (Session::get("error"))
                     {{ Session::get("error") }}<br />
                     @endif
-                    {{ Form::open(array('url'=>'user/reset/'.$token, 'autocomplete' => 'off','role' =>'form')) }}
+                    {{ Form::open(array('url'=>'password/reset/'.$token, 'autocomplete' => 'off','role' =>'form')) }}
                     {{ $errors->first("token") }}<br />
                     {{ Form::label("email", "Email") }}
                     {{ Form::text("email", Input::get("email")) }}
