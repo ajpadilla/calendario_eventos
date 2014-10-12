@@ -17,15 +17,14 @@ class UserController extends \BaseController {
 				$credentials = $this->getLoginCredentials();
 				if(Auth::attempt($credentials)) 
 				{
-					var_dump(Auth::user()->hasRole('Usuario'));
-					/*$user = Auth::user();
+					$user = Auth::user();
 					if ($user->hasRole('Usuario')) {
 						return Redirect::to('sesionUsuario');
 					}else{
 						if ($user->hasRole('Administrador')) {
 							return Redirect::to('sessionAdministrador');
 						}
-					}*/
+					}
 				}else{
 					return Redirect::back()->withErrors([
 						"password" => ["Password Invalido."]
