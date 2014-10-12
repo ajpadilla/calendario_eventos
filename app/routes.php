@@ -20,7 +20,7 @@ Route::get('requestBlade','UserController@requestBlade');
 
 Route::any("user/request","UserController@request");
  
-Route::any("user/reset/{token}","UserController@reset");
+Route::any("password/reset/{token}","UserController@reset");
 
 //Rutas para inisiar sesión
 Route::any('login','UserController@index');
