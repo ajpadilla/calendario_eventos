@@ -60,7 +60,7 @@
 		
 			$('#registrar').click(function(){
 				console.log($('#formWizard').valid());
-				/*if($('#formWizard').valid() == true){
+				if($('#formWizard').valid() == true){
 						$.ajax({
 							type:'POST',
 							url:'" . URL::to('/guardarArticulacion/') ."',
@@ -97,7 +97,7 @@
 								$('#formWizard').clearForm();
 							},
 						});
-				}*/
+				}
 			});	
 
 			$('.borrar').click(function(){
