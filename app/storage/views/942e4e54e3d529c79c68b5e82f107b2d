@@ -1,0 +1,4 @@
+<?php echo Form::open(array('action' => 'EventController@store','class'=>'form-horizontal','id'=>'formEvent','novalidate'=>'novalidate','files'=>true)); ?>
+
+	<?php echo $__env->make('themes.fullcalendar.eventos.formEdit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo Form::close(); ?>	
