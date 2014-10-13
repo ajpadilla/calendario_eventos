@@ -87,6 +87,8 @@ Route::get('imprimirEvento/{id}','EventController@showPrint');
 Route::get('listaResponsables','EventController@retornarPersonas');
 Route::get('vistareporteGeneral','EventController@vistareporteGeneral');
 Route::post('buscarEventosPorFecha','EventController@buscarEventosPorFecha');
+Route::get('vistareporte','EventController@vistareporte');
+Route::post('buscarEventos','EventController@buscarEventos');
 
 	//Rutas para el modelo beneficiarios
 Route::get('mostrarBeneficiarios','BeneficiarioController@index');

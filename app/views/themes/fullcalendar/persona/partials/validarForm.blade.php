@@ -103,7 +103,7 @@
 						email: {
 							remote: jQuery.validator.format('Email registrado'),
                             required:'Campo obligatorio',
-                            email:'Ingrese un correo valido'
+                            email:'Ingrese un correo'
 						}	
 					},
 					invalidHandler:function(event, validator){
