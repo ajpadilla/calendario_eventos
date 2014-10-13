@@ -91,12 +91,12 @@
         		</div>
 			
 				<!-- NAVBAR LEFT -->
-				<!--<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
-					<li class=""><a href="#" data-toggle="tab">More</a></li>
-					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
-					<li class="active"><a href="" data-toggle="tab">Home</a></li>
-				</ul>-->
-				
+				<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
+					<!--<li class=""><a href="#" data-toggle="tab">More</a></li>
+					<li class=""><a href="#" data-toggle="tab">Profile</a></li>-->
+					<li><a href="#" data-toggle="tab">(0276)-3484169</a></li>
+				</ul>
+			
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown user" id="header-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
