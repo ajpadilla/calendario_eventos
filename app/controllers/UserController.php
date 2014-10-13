@@ -1,6 +1,7 @@
 <?php
 
-class UserController extends \BaseController {
+class UserController extends \BaseController 
+{
 
 	/**
 	 * Display a listing of the resource.
@@ -127,6 +128,9 @@ class UserController extends \BaseController {
 	protected function resetPassword($credentials)
 	{
 		return Password::reset($credentials, function($user, $pass) {
+			/*echo "name:".$user->username;
+			echo "pass:".$user->password;*/
+
 			$user->password = Hash::make($pass);
 			$user->save();
 		});
@@ -139,7 +143,7 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('themes.fullcalendar.usuarios.create');
 	}
 
 
@@ -150,7 +154,24 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$response = array();
+		if(Request::ajax())
+		{
+			$response['datos'] = Input::all();
+			$response['success'] = true;
+
+			$user = new User;
+			$user->username = Input::get('nombre');
+			$user->password = Hash::make(Input::get('clave'));
+			$user->email = Input::get('email');
+			$user->save();
+
+			$user->roles()->attach(Input::get('rol')); 
+			return $response;
+				
+		}
+		return array('success' => false);
+
 	}
 
 
@@ -209,5 +230,41 @@ class UserController extends \BaseController {
 	public function resertBlade()
 	{
 		return View::make('themes.fullcalendar.usuarios.reset');
+	}
+
+	public function verificarNombreUsuario()
+	{
+		if(Request::ajax())
+         {
+             $nombre = Input::get('nombre');
+             $user = User::getUserByNombre($nombre);
+             if(count($user) > 0){
+                 return Response::json(false);
+             }else{
+                  return Response::json(true);
+             }
+         }
+         return Response::json(array('respuesta' => 'false'));
+	}
+
+	public function verificarEmailUsuario()
+	{
+		if(Request::ajax())
+         {
+             $email = Input::get('email');
+             $user = User::getUsuarioByEmail($email);
+             if(count($user) > 0){
+                 return Response::json(false);
+             }else{
+                  return Response::json(true);
+             }
+         }
+         return Response::json(array('respuesta' => 'false'));
+	}
+
+	public function listaUsuarios()
+	{
+	 	$usuarios = User::all();
+	  	return View::make('themes.fullcalendar.usuarios.index',compact('usuarios'));
 	}
 }
