@@ -19,6 +19,8 @@
 			<td>Fecha - Hora</td>
 			<td>Nombre</td>
 			<td>Estatus</td>
+			<td>Editar</td>
+			<td>Datos</td>
 		</tr>
 	</thead>
 		<tbody>
@@ -27,8 +29,8 @@
 				<td>{{$evento['start']}}</td>
 				<td>{{$evento['title']}}</td>
 				<td>{{$evento['estatus']}}</td>
-				<!--<td><a href="{{URL::to('editarEvento/'.$evento->id)}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
-				<td><a href="{{URL::to('mostrarEvento/'.$evento->id)}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>-->
+				<td><a href="{{URL::to('editarEvento/'.$evento['id'])}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
+				<td><a href="{{URL::to('mostrarEvento/'.$evento['id'])}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
 			</tr>
 			</tr>
 			@endforeach
