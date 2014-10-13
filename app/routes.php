@@ -31,7 +31,7 @@ Route::get('sesionUsuario', function(){
 
 Route::get('revision','RevisionController@index');
 
-Route::get('respaldarDatos',function ($value='')
+Route::get('respaldarDatos',function ()
 {
 	$ruta = public_path().'/respaldo.csv';
 	$fp = fopen($ruta,"w"); 
@@ -49,8 +49,9 @@ Route::get('respaldarDatos',function ($value='')
 		fwrite($fp, Subsistema::all().PHP_EOL);
 		fwrite($fp, User::all().PHP_EOL);
 		fclose($fp);
+		return Redirect::to('sessionAdministrador')->with('estatus','Respaldo Realizado');
 	}else{
-		echo "error";
+		return Redirect::to('sessionAdministrador')->with('estatus','Erro al realizar respaldo');
 	}
 });
 
@@ -155,3 +156,10 @@ Route::get('mostrarEstados','EstadoController@index');
 Route::get('editarEstado/{id}','EstadoController@edit');
 Route::post('actualizarEstado/{id}','EstadoController@update');
 Route::get('borrarEstado/{id}','EstadoController@destroy');
+
+//Usuarios
+Route::get('crearUsuario','UserController@create');
+Route::post('agregarUsuario','UserController@store');
+Route::post('verificarNombreUsuario','UserController@verificarNombreUsuario');
+Route::post('verificarEmailUsuario','UserController@verificarEmailUsuario');
+Route::get('listaUsuarios','UserController@listaUsuarios');
