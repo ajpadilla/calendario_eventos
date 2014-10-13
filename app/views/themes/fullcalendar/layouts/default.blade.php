@@ -96,9 +96,14 @@
 			
 				<!-- NAVBAR LEFT -->
 				<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
-					<li class=""><a href="#" data-toggle="tab">@if (Session::get("estatus"))
-					{{ Session::get("estatus") }}<br />
-				@endif</a></li>
+					<li class="">
+					<a href="#" data-toggle="tab">
+						@if (Session::get("estatus"))
+							{{ Session::get("estatus") }}<br />
+						@endif
+					</a>
+					</li>
+					<li><a href="#" data-toggle="tab">(0276)-3484169</a></li>
 				</ul>
 				
 				<ul class="nav navbar-nav pull-right">
