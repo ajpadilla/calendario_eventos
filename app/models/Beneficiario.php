@@ -1,6 +1,7 @@
 <?php
 
 class Beneficiario extends \Eloquent {
+	use \Venturecraft\Revisionable\RevisionableTrait;
 	protected $table = 'beneficiarios';
 	protected $fillable = [];
 

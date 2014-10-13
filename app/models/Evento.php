@@ -1,6 +1,7 @@
 <?php
 
 class Evento extends \Eloquent {
+	use \Venturecraft\Revisionable\RevisionableTrait;
 	protected $table = 'eventos';
 	protected $fillable = array();
 		

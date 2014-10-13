@@ -1,6 +1,7 @@
 <?php
 
 class Municipio extends \Eloquent {
+    use \Venturecraft\Revisionable\RevisionableTrait;
 	protected $table = 'municipios';
 	protected $fillable = array();
 	public static $rules = array();

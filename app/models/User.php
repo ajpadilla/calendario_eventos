@@ -54,4 +54,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+	public static function getUserByNombre($nombre){
+		return User::where('username','=',$nombre)->get();
+	}
+
+	public static function getUsuarioByEmail($email){
+		return User::where('email','=',$email)->get();
+	}
 }
+

@@ -1,7 +1,7 @@
 <?php
 
 class Persona extends \Eloquent  {
-
+	use \Venturecraft\Revisionable\RevisionableTrait;
 	/**
 	 * The database table used by the model.
 	 *
