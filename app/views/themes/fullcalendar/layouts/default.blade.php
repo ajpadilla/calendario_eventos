@@ -95,11 +95,11 @@
         		</div>
 			
 				<!-- NAVBAR LEFT -->
-				<!--<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
-					<li class=""><a href="#" data-toggle="tab">More</a></li>
-					<li class=""><a href="#" data-toggle="tab">Profile</a></li>
-					<li class="active"><a href="" data-toggle="tab">Home</a></li>
-				</ul>-->
+				<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
+					<li class=""><a href="#" data-toggle="tab">@if (Session::get("estatus"))
+					{{ Session::get("estatus") }}<br />
+				@endif</a></li>
+				</ul>
 				
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown user" id="header-user">
@@ -115,7 +115,7 @@
 				</ul>
          	</div>
 		</header>   	
-	
+		
 		 <section id="page">
 				<div id="sidebar" class="sidebar">
 					<div class="sidebar-menu nav-collapse">
@@ -238,6 +238,11 @@
 												<span class="sub-menu-text">Impactos</span>
 											</a>
 										</li>
+										<li>
+											<a class="" href="{{URL::to('revision')}}">
+												<span class="sub-menu-text">Auditorias</span>
+											</a>
+										</li>
 									</ul>
 								</li>
 								
@@ -253,6 +258,27 @@
 										<li>
 											<a class="" href="{{URL::to('listarPersonas')}}">
 												<span class="sub-menu-text">Lista de personas</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="has-sub">
+									<a href="javascript:;" class="">
+										<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">Usuarios</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub">
+										<li>
+											<a class="" href="{{URL::to('crearUsuario')}}"><span class="sub-menu-text">Agregar</span></a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('listaUsuarios')}}">
+												<span class="sub-menu-text">Lista de usuarios</span>
+											</a>
+										</li>
+										<li>
+											<a class="" href="{{URL::to('respaldarDatos')}}">
+												<span class="sub-menu-text">Respaldar la base de datos</span>
 											</a>
 										</li>
 									</ul>

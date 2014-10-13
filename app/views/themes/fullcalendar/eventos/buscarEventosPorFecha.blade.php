@@ -16,7 +16,7 @@
 @section('form')
 <div class="box border blue">
   <div class="box-title">
-    <h4><i class="fa fa-reorder"></i>Agregar Evento</h4>
+    <h4><i class="fa fa-reorder"></i>Buscar Evento</h4>
     <div class="tools hidden-xs">
       <a href="#box-config" data-toggle="modal" class="config">
         <i class="fa fa-cog"></i>

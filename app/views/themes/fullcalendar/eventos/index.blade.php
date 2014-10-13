@@ -21,7 +21,6 @@
 			<td>Nombre</td>
 			<td>Editar</td>
 			<td>Datos</td>
-			<td>Graficos</td>
 		</tr>
 	</thead>
 		<tbody>

@@ -3,7 +3,7 @@
 @section('form')
 <div class="box border blue">
 	<div class="box-title">
-		<h4><i class="fa fa-reorder"></i>Personas</h4>
+		<h4><i class="fa fa-reorder"></i>Usuarios</h4>
 		<div class="tools hidden-xs">
 			<a href="#box-config" data-toggle="modal" class="config"><i class="fa fa-cog"></i></a>
 			<a href="javascript:;" class="reload"><i class="fa fa-refresh"></i></a>
@@ -12,22 +12,18 @@
 		</div>
 	</div>
 	<div class="box-body form">
-			@if(!$personas->isEmpty())
-				<h3>Lista de personas</h3>
+			@if(!$usuarios->isEmpty())
+				<h3>Lista de usuarios</h3>
 				<table class="table table-striped table-bordered">
 					<thead>
-						<th>Cédula</th>
 						<th>Nombre</th>
-						<th>Apellido</th>
-						<th>Editar</th>
+						<th>Correo</th>
 					</thead>
 					<tbody>
-						@foreach ($personas as $persona)
+						@foreach ($usuarios as $usuario)
 							<tr>
-								<td>{{ $persona->cedula }}</td>
-								<td>{{ $persona->nombres }}</td>
-								<td>{{ $persona->apellidos }}</td>
-								<td><a href="{{URL::to('editarPersona/'.$persona->id)}}" class="btn btn-primary">Editar<i class="fa fa-arrow-circle-right"></i></a></td>
+								<td>{{ $usuario->username }}</td>
+								<td>{{ $usuario->email }}</td>
 							</tr>
 						@endforeach						
 					</tbody>					
@@ -35,7 +31,7 @@
 					</tfoot>
 				</table>
 			@else 
-					<p>No hay personas!</p>
+					<p>No hay usuarios!</p>
 			@endif
 
 	</div>

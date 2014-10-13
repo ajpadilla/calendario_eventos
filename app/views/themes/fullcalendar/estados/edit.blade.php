@@ -3,21 +3,6 @@
 	@include('themes.fullcalendar.estados.partials.validarFormularioEditarEstado')
 @stop()
 @section('page_header')
-	<ul class="breadcrumb">
-		<li>
-			<i class="fa fa-home"></i>
-			<a href="#">Home</a>
-		</li>
-		<li>
-			<a href="#">Form Elements</a>
-		</li>
-		<li>Forms</li>
-	</ul>
-	<!-- /BREADCRUMBS -->
-	<div class="clearfix">
-	<h3 class="content-title pull-left">Forms</h3>
-	</div>
-	<div class="description">Calendario de eventos</div>
 @stop
 @section('form')
 <div class="box border blue">

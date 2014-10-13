@@ -108,6 +108,17 @@
           </div>
         </td>
         <td>
+          <div class="form-group">
+            {{ Form::label('estado', 'Estado: ',array('class'=>'control-label col-md-3')) }}
+            <div class="col-md-8">
+              {{ Form::select('estado',$estados,Input::old('estado'),array('class' => 'form-control','id'=>'estados')) }}
+            </div>
+          </div>
+        </td>
+
+      </tr>
+      <tr >
+        <td colspan="2">
           <div class="wizard-buttons">
             <div class="row">
               <div class="col-md-12">
