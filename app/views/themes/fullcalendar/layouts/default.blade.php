@@ -287,6 +287,12 @@
 											</a>
 										</li>
 										<li>
+											<a class="" href="{{URL::to('buscarUsuario')}}">
+												<span class="sub-menu-text">Buscar  usuario</span>
+											</a>
+										</li>
+
+										<li>
 											<a class="" href="{{URL::to('respaldarDatos')}}">
 												<span class="sub-menu-text">Respaldar la base de datos</span>
 											</a>
