@@ -148,6 +148,11 @@
 												<span class="sub-menu-text">Lista de personas</span>
 											</a>
 										</li>
+										<li>
+											<a class="" href="{{URL::to('invitarPersonaUsuario')}}">
+												<span class="sub-menu-text">Invitar evento</span>
+											</a>
+										</li>
 									</ul>
 								</li>
 							</div>
