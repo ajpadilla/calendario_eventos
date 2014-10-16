@@ -167,3 +167,7 @@ Route::post('agregarUsuario','UserController@store');
 Route::post('verificarNombreUsuario','UserController@verificarNombreUsuario');
 Route::post('verificarEmailUsuario','UserController@verificarEmailUsuario');
 Route::get('listaUsuarios','UserController@listaUsuarios');
+Route::get('buscarUsuario','UserController@vistabuscarUsuario');
+Route::post('buscar','UserController@buscarUsuario');
+Route::get('editUsuario/{id}','UserController@edit');
+Route::post('actualizarUsuario/{id}','UserController@update');
