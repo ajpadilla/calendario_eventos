@@ -30,7 +30,7 @@
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
 							<div id="logo">
-								<a href="index.html"><img src="{{asset('themes/Cloud_Admin/img/logo-ministerio-del-deporte.png')}}" height="200" alt="logo name" /></a>
+								<a href="#"><img src="{{asset('themes/Cloud_Admin/img/logo-ministerio-del-deporte.png')}}" height="200" alt="logo name" /></a>
 							</div>
 						</div>
 					</div>
