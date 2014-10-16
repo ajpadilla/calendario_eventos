@@ -89,7 +89,7 @@
 			<div class="container">
 				<div class="navbar-brand">
             		<!-- COMPANY LOGO -->
-               		<a href="/">
+               		<a href="#">
                 		<img src="{{asset('themes/Cloud_Admin/img/t_mision_156.jpg')}}" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120" />
                 	</a>
         		</div>
@@ -103,7 +103,7 @@
 						@endif
 					</a>
 					</li>
-					<li><a href="#" data-toggle="tab">(0276)-3484169</a></li>
+					<!--<li><a href="#" data-toggle="tab">(0276)-3484169</a></li>-->
 				</ul>
 				
 				<ul class="nav navbar-nav pull-right">
@@ -267,7 +267,7 @@
 										</li>
 										<li>
 											<a class="" href="{{URL::to('invitarPersona')}}">
-												<span class="sub-menu-text">Invitar evento</span>
+												<span class="sub-menu-text">Invitar a evento</span>
 											</a>
 										</li>
 									</ul>
