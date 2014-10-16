@@ -62,6 +62,47 @@ class PersonaController extends BaseController {
 		return array('success' => false);
 	}
 
+	public function verificarPersona()
+	{
+		if(Request::ajax()) 
+		{
+			$cedula = Input::get('cedula');
+			$persona = Persona::getPersonaByCedula($cedula);
+			if(count($persona) > 0){
+				return Response::json(true);
+			}else{
+				 return Response::json(false);
+			}
+       	}
+        
+		return Response::json(array('respuesta' => 'false'));
+
+	}
+
+	public function invitarPersona()
+	{
+		$response = array();
+		if(Request::ajax())
+		{
+			$response['datos'] = Input::all();
+			$response['success'] = true;
+
+			$persona = Persona::getPersonaByCedula(Input::get('cedula'));
+			$response['persona'] = $persona[0]['id'];
+			$objPersona = Persona::find($persona[0]['id']);
+			$objPersona->eventos()->attach( Input::get('evento_ids') , array('tipo'=>Input::get('tipo')));
+			$objPersona->save();
+			return $response;
+				
+		}
+		return array('success' => false);
+	}
+
+	public function invitar()
+	{
+		return View::make('themes.fullcalendar.persona.invitar');
+	}
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -229,5 +270,10 @@ class PersonaController extends BaseController {
 		$eventos =  $persona->eventos->lists('title','id');
 		return View::make('themes.fullcalendar.persona.editUsuario',compact('persona','estados','municipios','eventos'));
 	
+	}
+
+	public function invitar2()
+	{
+		return View::make('themes.fullcalendar.persona.invitarUsuario');
 	}
 }
