@@ -195,7 +195,8 @@ class UserController extends \BaseController
 	 */
 	public function edit($id)
 	{
-		//
+		$usuario = User::find($id);
+		return View::make('themes.fullcalendar.usuarios.editar',compact('usuario'));
 	}
 
 
@@ -207,7 +208,15 @@ class UserController extends \BaseController
 	 */
 	public function update($id)
 	{
-		//
+		$response = array();
+		if(Request::ajax()){
+			$response['datos'] = Input::all();
+			$response['success'] = true;
+			$usuario = User::find($id);
+			$usuario->email = Input::get('email');
+			$usuario->save();
+		}
+		return array('success' => false);
 	}
 
 
@@ -266,5 +275,17 @@ class UserController extends \BaseController
 	{
 	 	$usuarios = User::all();
 	  	return View::make('themes.fullcalendar.usuarios.index',compact('usuarios'));
+	}
+
+	public function buscarUsuario()
+	{
+		$nombre = Input::get('nombre');
+		$usuario = User::getUsuarioByNombre($nombre);	
+		return View::make('themes.fullcalendar.usuarios.mostrarDatosUsuario',compact('usuario'));
+	}
+
+	public function vistabuscarUsuario()
+	{
+		return View::make('themes.fullcalendar.usuarios.buscarUsuario');
 	}
 }
