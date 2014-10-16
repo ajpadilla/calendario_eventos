@@ -104,6 +104,10 @@ Route::get('existenciaCedula','PersonaController@existenciaCedula');
 Route::get('existenciaEmail','PersonaController@existenciaEmail');
 Route::get('listarPersonas','PersonaController@index');
 Route::get('vistaEditarPersonas/{id}','PersonaController@vistaEditarPersonas');
+Route::get('invitarPersona','PersonaController@invitar');
+Route::get('invitarPersonaUsuario','PersonaController@invitar2');
+Route::post('invitarPersonaEvento','PersonaController@invitarPersona');
+Route::post('verificarEventoPersona','PersonaController@verificarPersona');
 
 	//Rutas para cerrar sesión
 Route::any('logout','UserController@logout');
