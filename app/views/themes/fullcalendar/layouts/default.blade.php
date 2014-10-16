@@ -122,7 +122,7 @@
 		</header>   	
 		
 		 <section id="page">
-				<div id="sidebar" class="sidebar">
+				<div id="sidebar" class="sidebar oculto" >
 					<div class="sidebar-menu nav-collapse">
 						<div class="divide-20"></div>
 						<!-- SEARCH BAR -->
