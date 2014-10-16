@@ -17,8 +17,8 @@
 				<tr>
 					<td>Id usuario</td>
 					<td>Nombre del usuario</td>
+					<td>Modelo modificado</td>
 					<td>Objeto modificando</td>
-					<td>Key</td>
 					<td>Fecha modificación</td>
 				</tr>
 			</thead>
@@ -27,8 +27,8 @@
 					<tr>
 						<td>{{ $value->user_id }}</td>
 						<td>{{$users[$key]}}</td>
-						<td>{{$value->key}}</td>
 						<td>{{ $value->revisionable_type }}</td>
+						<td>{{$value->key}}</td>
 						<td>{{ $value->created_at }}</td>
 					</tr>
 					@endforeach
