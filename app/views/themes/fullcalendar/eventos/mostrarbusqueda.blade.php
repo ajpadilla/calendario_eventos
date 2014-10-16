@@ -13,14 +13,15 @@
 <div class="box-body form">
 @if(count($eventos)>0)
 <h3>Lista de eventos</h3>
+ <a onclick="window.print();" class="oculto btn btn-primary">Imprimir<i class="fa fa-arrow-circle-right"></i></a>
 <table class="table table-striped table-bordered">
 	<thead>
-		<tr>
+		<tr oculto="oculto">
 			<td>Fecha - Hora</td>
 			<td>Nombre</td>
 			<td>Estatus</td>
-			<td>Editar</td>
-			<td>Datos</td>
+			<td class="oculto">Editar</td>
+			<td class="oculto">Datos</td>
 		</tr>
 	</thead>
 		<tbody>
@@ -29,8 +30,8 @@
 				<td>{{$evento['start']}}</td>
 				<td>{{$evento['title']}}</td>
 				<td>{{$evento['estatus']}}</td>
-				<td><a href="{{URL::to('editarEvento/'.$evento['id'])}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
-				<td><a href="{{URL::to('mostrarEvento/'.$evento['id'])}}" class="btn btn-primary">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
+				<td class="oculto"><a href="{{URL::to('editarEvento/'.$evento['id'])}}" class="btn btn-primary ">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
+				<td class="oculto"><a href="{{URL::to('mostrarEvento/'.$evento['id'])}}" class="btn btn-primary ">Ver<i class="fa fa-arrow-circle-right"></i></a></td>
 			</tr>
 			</tr>
 			@endforeach
