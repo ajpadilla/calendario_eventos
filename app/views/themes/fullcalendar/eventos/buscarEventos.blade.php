@@ -50,7 +50,6 @@
       <div class="col-md-12">
         <div class="col-md-offset-3 col-md-9">
           {{ Form::submit('Buscar', array('class' => 'btn btn-success')) }}
-
         </div>
       </div>
     </div>
